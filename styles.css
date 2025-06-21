@@ -31,6 +31,21 @@ body {
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
+.company-logo {
+    height: 80px;
+    margin-right: 20px;
+    border-radius: 4px;
+    border: 2px solid white;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
 .logo {
     font-size: 2.2rem;
     font-weight: 700;
@@ -39,6 +54,13 @@ body {
 
 .slogan {
     font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+.company-info {
+    font-size: 0.9rem;
+    margin-top: 5px;
+    color: #f8f9fa;
     opacity: 0.9;
 }
 
@@ -630,6 +652,20 @@ body {
     opacity: 1;
 }
 
+.distributor-notice {
+    background-color: #e3f2fd;
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 10px;
+    border-left: 4px solid #2196F3;
+    font-size: 0.9rem;
+}
+
+.distributor-notice i {
+    color: #2196F3;
+    margin-right: 5px;
+}
+
 @media (max-width: 768px) {
     .products-grid {
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -660,5 +696,10 @@ body {
     
     .product-image {
         height: 150px;
+    }
+    
+    .company-logo {
+        height: 60px;
+        margin-right: 10px;
     }
 }
