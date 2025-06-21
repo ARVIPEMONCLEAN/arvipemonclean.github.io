@@ -279,14 +279,30 @@ const closeCheckout = document.getElementById('close-checkout');
 const customerForm = document.getElementById('customer-form');
 const categoryFilter = document.getElementById('category-filter');
 const searchInput = document.getElementById('search');
+const customerType = document.getElementById('customer-type');
+const distributorNotice = document.getElementById('distributor-notice');
 
 // Carrito de compras
 let carrito = [];
 
+// Mostrar/ocultar aviso para distribuidores/hoteles
+customerType.addEventListener('change', () => {
+    if (customerType.value !== 'regular') {
+        distributorNotice.style.display = 'block';
+    } else {
+        distributorNotice.style.display = 'none';
+    }
+});
+
 // Función para calcular el descuento (10% si 3 productos o más)
 function calculateDiscount() {
+    // No aplicar descuento a distribuidores/hoteles
+    if (customerType.value !== 'regular') {
+        return 0;
+    }
+    
     const totalItems = carrito.reduce((total, item) => total + item.cantidad, 0);
-    return totalItems >= 3 ? 0.1 : 0; // >= para aplicar desde 3 productos
+    return totalItems >= 3 ? 0.1 : 0;
 }
 
 function renderProducts(products) {
@@ -303,9 +319,9 @@ function renderProducts(products) {
         
         // Generar nombre de imagen compatible
         const imageName = producto.nombre.toLowerCase()
-            .replace(/[^a-z0-9áéíóúüñ]/g, '-')  // Reemplazar caracteres especiales
-            .replace(/-+/g, '-')                // Eliminar guiones múltiples
-            .replace(/^-|-$/g, '');             // Eliminar guiones al inicio/final
+            .replace(/[^a-z0-9áéíóúüñ]/g, '-')
+            .replace(/-+/g, '-')
+            .replace(/^-|-$/g, '');
         
         // Imagen del producto con manejo de errores
         const imageHTML = `
@@ -459,9 +475,10 @@ function renderCartItems() {
     cartItems.innerHTML = '';
     let subtotal = 0;
     const totalItems = carrito.reduce((total, item) => total + item.cantidad, 0);
+    const tipoCliente = customerType.value;
     
-    // Mostrar banner de promoción si aplica (3 o más productos)
-    if (totalItems >= 3) {
+    // Mostrar banner de promoción si aplica (3 o más productos y cliente regular)
+    if (totalItems >= 3 && tipoCliente === 'regular') {
         const discountBanner = document.createElement('div');
         discountBanner.className = 'promotion-banner';
         discountBanner.innerHTML = `
@@ -469,6 +486,17 @@ function renderCartItems() {
             <span class="discount-badge">-10%</span>
         `;
         cartItems.appendChild(discountBanner);
+    }
+    
+    // Mostrar aviso para distribuidores/hoteles
+    if (tipoCliente !== 'regular') {
+        const noticeBanner = document.createElement('div');
+        noticeBanner.className = 'distributor-notice';
+        noticeBanner.innerHTML = `
+            <i class="fas fa-info-circle"></i> 
+            ${tipoCliente === 'distribuidor' ? 'DISTRIBUIDOR/MAYORISTA' : 'HOTEL/COMERCIO'}: Precios especiales. Un asesor se contactará para confirmar su pedido.
+        `;
+        cartItems.appendChild(noticeBanner);
     }
     
     // Mostrar items del carrito
@@ -526,9 +554,15 @@ function renderCartItems() {
             ` : ''}
             
             <div class="cart-total-line total">
-                <span>Total:</span>
+                <span>Total${tipoCliente !== 'regular' ? ' Referencial' : ''}:</span>
                 <span>$${total.toLocaleString()}</span>
             </div>
+            
+            ${tipoCliente !== 'regular' ? `
+            <div class="distributor-notice">
+                <i class="fas fa-info-circle"></i> Precios especiales para ${tipoCliente === 'distribuidor' ? 'distribuidores' : 'hoteles/comercios'}. Será contactado por un asesor.
+            </div>
+            ` : ''}
             
             <button class="checkout-btn" id="checkout-btn">
                 <i class="fas fa-check-circle"></i> Finalizar Pedido
@@ -618,6 +652,7 @@ function generateWhatsAppMessage() {
     const telefono = document.getElementById('customer-phone').value;
     const fecha = document.getElementById('delivery-date').value;
     const notas = document.getElementById('customer-notes').value;
+    const tipoCliente = document.getElementById('customer-type').value;
     
     // Formatear fecha
     const fechaFormateada = new Date(fecha).toLocaleDateString('es-ES', {
@@ -644,18 +679,27 @@ function generateWhatsAppMessage() {
         resumenPedido += `\n  Cantidad: ${item.cantidad} x $${item.precio.toLocaleString()} = $${itemTotal.toLocaleString()}`;
     });
     
-    // Calcular descuento y total
-    const discount = calculateDiscount();
-    const discountAmount = discount * subtotal;
-    const total = subtotal - discountAmount;
+    // Calcular descuento (no aplica para distribuidores/hoteles)
+    let discount = 0;
+    let discountAmount = 0;
+    let total = subtotal;
+    
+    if (tipoCliente === 'regular') {
+        discount = calculateDiscount();
+        discountAmount = discount * subtotal;
+        total = subtotal - discountAmount;
+    }
     
     // Crear mensaje
     let mensaje = `*NUEVO PEDIDO ARVIPEMON CLEAN*%0A%0A`;
     mensaje += `*Código de Factura:* ${codigoFactura}%0A`;
+    mensaje += `*Tipo de Cliente:* ${tipoCliente === 'regular' ? 'Regular' : tipoCliente === 'distribuidor' ? 'Distribuidor/Mayorista' : 'Hotel/Comercio'}%0A`;
     
     // Añadir información de descuento si aplica
     if (discount > 0) {
         mensaje += `*¡Descuento aplicado!* (${discount*100}% por comprar 3 productos o más)%0A`;
+    } else if (tipoCliente !== 'regular') {
+        mensaje += `*Nota:* Precios especiales para ${tipoCliente === 'distribuidor' ? 'distribuidores' : 'hoteles/comercios'}. Será contactado por un asesor.%0A`;
     }
     
     mensaje += `*Fecha de Entrega:* ${fechaFormateada}%0A%0A`;
@@ -674,7 +718,11 @@ function generateWhatsAppMessage() {
         mensaje += `Descuento (${discount*100}%): -$${discountAmount.toLocaleString()}%0A`;
     }
     
-    mensaje += `*TOTAL A PAGAR: $${total.toLocaleString()}*%0A`;
+    if (tipoCliente !== 'regular') {
+        mensaje += `*PRECIOS ESPECIALES*: Será contactado por un asesor para confirmar valores%0A`;
+    }
+    
+    mensaje += `*TOTAL ${tipoCliente !== 'regular' ? 'REFERENCIAL' : 'A PAGAR'}: $${total.toLocaleString()}*%0A`;
     
     if (notas) {
         mensaje += `%0A*Notas adicionales:*%0A${notas.replace(/\n/g, '%0A')}`;
@@ -688,28 +736,45 @@ function generateInvoicePDF() {
     const doc = new jsPDF();
     
     const nombre = document.getElementById('customer-name').value;
+    const tipoCliente = document.getElementById('customer-type').value;
     const fecha = new Date().toLocaleDateString('es-ES');
     const codigoFactura = 'ARV-' + Math.floor(100000 + Math.random() * 900000);
     
     // Calcular totales
     const subtotal = carrito.reduce((total, item) => total + (item.precio * item.cantidad), 0);
-    const discount = calculateDiscount();
-    const discountAmount = discount * subtotal;
-    const total = subtotal - discountAmount;
+    let discount = 0;
+    let discountAmount = 0;
+    let total = subtotal;
     
-    // Encabezado
+    if (tipoCliente === 'regular') {
+        discount = calculateDiscount();
+        discountAmount = discount * subtotal;
+        total = subtotal - discountAmount;
+    }
+    
+    // Encabezado con logo
+    doc.addImage('images/logo.jpg', 'JPEG', 14, 10, 30, 30);
+    
+    // Información de la empresa
+    doc.setFontSize(10);
+    doc.setTextColor(100);
+    doc.text('ARVIPEMON CLEAN', 50, 15);
+    doc.text('NIT: 1070330349-6', 50, 20);
+    doc.text('arvipemonclean2.0@gmail.com', 50, 25);
+    doc.text('Servicio de pago contra entrega para Soacha y Bogotá', 50, 30);
+    
+    // Título de factura
     doc.setFontSize(18);
-    doc.setTextColor(40, 167, 69); // Verde ARVIPEMON
-    doc.text('ARVIPEMON CLEAN', 105, 20, { align: 'center' });
-    doc.setFontSize(12);
-    doc.setTextColor(0, 0, 0);
-    doc.text('Factura de Venta', 105, 30, { align: 'center' });
+    doc.setTextColor(40, 167, 69);
+    doc.text('FACTURA DE VENTA', 105, 40, { align: 'center' });
     
     // Información de la factura
     doc.setFontSize(10);
-    doc.text(`Número de Factura: ${codigoFactura}`, 14, 40);
-    doc.text(`Fecha: ${fecha}`, 14, 45);
-    doc.text(`Cliente: ${nombre}`, 14, 50);
+    doc.setTextColor(0);
+    doc.text(`No. Factura: ${codigoFactura}`, 14, 50);
+    doc.text(`Fecha: ${fecha}`, 14, 55);
+    doc.text(`Cliente: ${nombre}`, 14, 60);
+    doc.text(`Tipo Cliente: ${tipoCliente === 'regular' ? 'Regular' : tipoCliente === 'distribuidor' ? 'Distribuidor/Mayorista' : 'Hotel/Comercio'}`, 14, 65);
     
     // Tabla de productos
     const headers = [['Producto', 'Presentación', 'Cantidad', 'Precio', 'Total']];
@@ -722,12 +787,12 @@ function generateInvoicePDF() {
     ]);
     
     doc.autoTable({
-        startY: 60,
+        startY: 75,
         head: headers,
         body: data,
         theme: 'grid',
         headStyles: {
-            fillColor: [40, 167, 69], // Verde ARVIPEMON
+            fillColor: [40, 167, 69],
             textColor: 255
         },
         styles: {
@@ -750,9 +815,26 @@ function generateInvoicePDF() {
         doc.text(`Descuento (10%): -$${discountAmount.toLocaleString()}`, 140, finalY + 5);
     }
     
+    if (tipoCliente !== 'regular') {
+        doc.setTextColor(255, 0, 0);
+        doc.text(`PRECIOS ESPECIALES - CONTACTAR CLIENTE`, 14, finalY + 10);
+        doc.setTextColor(0);
+    }
+    
     doc.setFontSize(12);
     doc.setFont(undefined, 'bold');
-    doc.text(`TOTAL: $${total.toLocaleString()}`, 140, finalY + (discount > 0 ? 10 : 5));
+    doc.text(`TOTAL ${tipoCliente !== 'regular' ? 'REFERENCIAL' : 'A PAGAR'}: $${total.toLocaleString()}`, 140, finalY + (discount > 0 ? 10 : 5));
+    
+    // Nota para distribuidores/hoteles
+    if (tipoCliente !== 'regular') {
+        doc.setFontSize(10);
+        doc.setTextColor(100);
+        doc.text(`Nota: Los precios mostrados son referenciales. Un asesor se contactará para confirmar los`, 14, finalY + 15);
+        doc.text(`precios especiales para ${tipoCliente === 'distribuidor' ? 'distribuidores' : 'hoteles/comercios'}.`, 14, finalY + 20);
+    }
+    
+    // Agregar nota de pago contra entrega al final
+    doc.text('Forma de pago: Contra entrega (Solo Soacha y Bogotá)', 14, finalY + (tipoCliente !== 'regular' ? 25 : 15));
     
     // Guardar el PDF
     doc.save(`factura-arvipernon-${codigoFactura}.pdf`);
@@ -776,6 +858,16 @@ closeCheckout.addEventListener('click', () => {
 
 customerForm.addEventListener('submit', (e) => {
     e.preventDefault();
+    
+    const tipoCliente = document.getElementById('customer-type').value;
+    
+    if (tipoCliente !== 'regular') {
+        const confirmar = confirm(`Está registrando un pedido como ${tipoCliente === 'distribuidor' ? 'DISTRIBUIDOR/MAYORISTA' : 'HOTEL/COMERCIO'}. Los precios mostrados son referenciales y será contactado por un asesor para confirmar los precios especiales. ¿Desea continuar?`);
+        
+        if (!confirmar) {
+            return;
+        }
+    }
     
     const mensajeWhatsApp = generateWhatsAppMessage();
     const urlWhatsApp = `https://wa.me/573012100676?text=${mensajeWhatsApp}`;
