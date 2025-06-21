@@ -6,12 +6,17 @@
     <title>Catálogo ArviPemon Clean</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="images/logo.jpg" type="image/jpeg">
 </head>
 <body>
     <header class="header">
         <div class="logo-container">
-            <h1 class="logo">ARVIPEMON CLEAN</h1>
-            <p class="slogan">Productos de limpieza amigables con el medio ambiente</p>
+            <img src="images/logo.jpg" alt="Logo ARVIPEMON CLEAN" class="company-logo">
+            <div>
+                <h1 class="logo">ARVIPEMON CLEAN</h1>
+                <p class="slogan">Productos de limpieza amigables con el medio ambiente</p>
+                <p class="company-info">NIT: 1070330349-6 | Servicio de pago contra entrega para Soacha y Bogotá</p>
+            </div>
         </div>
     </header>
 
@@ -93,6 +98,17 @@
                     <input type="date" id="delivery-date" required>
                 </div>
                 <div class="form-group">
+                    <label for="customer-type"><i class="fas fa-building"></i> Tipo de Cliente:</label>
+                    <select id="customer-type">
+                        <option value="regular">Cliente Regular</option>
+                        <option value="distribuidor">Distribuidor/Mayorista</option>
+                        <option value="hotel">Hotel/Comercio</option>
+                    </select>
+                </div>
+                <div id="distributor-notice" class="distributor-notice" style="display: none;">
+                    <i class="fas fa-info-circle"></i> Los distribuidores y hoteles recibirán precios especiales. Un asesor se contactará para confirmar su pedido.
+                </div>
+                <div class="form-group">
                     <label for="customer-notes"><i class="fas fa-comment"></i> Notas adicionales:</label>
                     <textarea id="customer-notes" rows="3"></textarea>
                 </div>
@@ -107,10 +123,12 @@
         <div class="contact-info">
             <h4><i class="fas fa-headset"></i> Contacto</h4>
             <p><i class="fas fa-phone"></i> 301 2100676</p>
-            <p><i class="fas fa-envelope"></i> arvipernonclean@gmail.com</p>
+            <p><i class="fas fa-envelope"></i> arvipemonclean2.0@gmail.com</p>
+            <p><i class="fas fa-id-card"></i> NIT: 1070330349-6</p>
         </div>
         <div class="copyright">
             <p>&copy; 2023 ArviPemon Clean. Todos los derechos reservados.</p>
+            <p>Servicio de pago contra entrega para Soacha y Bogotá</p>
         </div>
     </footer>
 
