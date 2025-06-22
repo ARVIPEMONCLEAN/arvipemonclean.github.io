@@ -46,7 +46,7 @@ const productos = [
         categoria: ["domestico"],
         presentaciones: [
             { tamaño: "Galón 4 litros", precio: 30000, codigo: "4L" },
-            { tamaño: "Garrafa de 20 litros", precio: 100000, codigo: "20L" }
+            { tamaño: "Garrafa 20 litros", precio: 100000, codigo: "20L" }
         ],
         tieneFragancia: true,
         modoUso: "Aplicar pequeña cantidad en esponja, frotar superficie y enjuagar.",
@@ -59,7 +59,7 @@ const productos = [
         categoria: ["domestico"],
         presentaciones: [
             { tamaño: "Galón 4 litros", precio: 23000, codigo: "4L" },
-            { tamaño: "Garrafa de 20 litros", precio: 65000, codigo: "20L" }
+            { tamaño: "Garrafa 20 litros", precio: 65000, codigo: "20L" }
         ],
         tieneFragancia: true,
         modoUso: "Humedecer trapeador con producto y trapear pisos ya limpios.",
@@ -72,7 +72,7 @@ const productos = [
         categoria: ["domestico"],
         presentaciones: [
             { tamaño: "Galón 4 litros", precio: 22500, codigo: "4L" },
-            { tamaño: "Garrafa de 20 litros", precio: 85000, codigo: "20L" }
+            { tamaño: "Garrafa 20 litros", precio: 85000, codigo: "20L" }
         ],
         tieneFragancia: true,
         modoUso: "Aplicar según necesidad. Rinde hasta 3 veces más que jabones corrientes.",
@@ -85,7 +85,7 @@ const productos = [
         categoria: ["domestico"],
         presentaciones: [
             { tamaño: "Galón 4 litros", precio: 22500, codigo: "4L" },
-            { tamaño: "Garrafa de 20 litros", precio: 85000, codigo: "20L" }
+            { tamaño: "Garrafa 20 litros", precio: 85000, codigo: "20L" }
         ],
         tieneFragancia: true,
         modoUso: "Aplicar según necesidad. Sistema de recarga disponible.",
@@ -98,7 +98,7 @@ const productos = [
         categoria: ["domestico", "industrial"],
         presentaciones: [
             { tamaño: "Galón 4 litros", precio: 15500, codigo: "4L" },
-            { tamaño: "Garrafa de 20 litros", precio: 38000, codigo: "20L" }
+            { tamaño: "Garrafa 20 litros", precio: 38000, codigo: "20L" }
         ],
         tieneFragancia: false,
         modoUso: "Mezclar con agua según necesidad. No genera olor fuerte.",
@@ -266,6 +266,17 @@ const fragancias = [
     "Chicle", "Canela", "Coco Limón", "Carro Nuevo"
 ];
 
+// Datos de la empresa
+const empresa = {
+    nombre: "ARVIPEMON CLEAN",
+    nit: "1070330349-6",
+    telefono: "3012100676",
+    eslogan: "Calidad y limpieza a tu alcance",
+    correo: "arvipemonclean2.0@gmail.com",
+    direccion: "Soacha, Cundinamarca",
+    whatsapp: "573012100676"
+};
+
 // Variables del DOM
 const productsContainer = document.getElementById('products-container');
 const cartFloat = document.getElementById('cart-float');
@@ -281,6 +292,7 @@ const categoryFilter = document.getElementById('category-filter');
 const searchInput = document.getElementById('search');
 const customerType = document.getElementById('customer-type');
 const distributorNotice = document.getElementById('distributor-notice');
+const paymentMethod = document.getElementById('payment-method');
 
 // Carrito de compras
 let carrito = [];
@@ -650,12 +662,14 @@ function generateWhatsAppMessage() {
     const nombre = document.getElementById('customer-name').value;
     const direccion = document.getElementById('customer-address').value;
     const telefono = document.getElementById('customer-phone').value;
-    const fecha = document.getElementById('delivery-date').value;
+    const fechaPedido = new Date().toLocaleDateString('es-ES');
+    const fechaEntrega = document.getElementById('delivery-date').value;
     const notas = document.getElementById('customer-notes').value;
     const tipoCliente = document.getElementById('customer-type').value;
+    const metodoPago = document.getElementById('payment-method').value;
     
-    // Formatear fecha
-    const fechaFormateada = new Date(fecha).toLocaleDateString('es-ES', {
+    // Formatear fecha de entrega
+    const fechaEntregaFormateada = new Date(fechaEntrega).toLocaleDateString('es-ES', {
         day: '2-digit',
         month: '2-digit',
         year: 'numeric'
@@ -691,9 +705,11 @@ function generateWhatsAppMessage() {
     }
     
     // Crear mensaje
-    let mensaje = `*NUEVO PEDIDO ARVIPEMON CLEAN*%0A%0A`;
+    let mensaje = `*NUEVO PEDIDO ${empresa.nombre}*%0A%0A`;
     mensaje += `*Código de Factura:* ${codigoFactura}%0A`;
     mensaje += `*Tipo de Cliente:* ${tipoCliente === 'regular' ? 'Regular' : tipoCliente === 'distribuidor' ? 'Distribuidor/Mayorista' : 'Hotel/Comercio'}%0A`;
+    mensaje += `*Fecha de Pedido:* ${fechaPedido}%0A`;
+    mensaje += `*Fecha de Entrega:* ${fechaEntregaFormateada}%0A`;
     
     // Añadir información de descuento si aplica
     if (discount > 0) {
@@ -702,8 +718,7 @@ function generateWhatsAppMessage() {
         mensaje += `*Nota:* Precios especiales para ${tipoCliente === 'distribuidor' ? 'distribuidores' : 'hoteles/comercios'}. Será contactado por un asesor.%0A`;
     }
     
-    mensaje += `*Fecha de Entrega:* ${fechaFormateada}%0A%0A`;
-    mensaje += `*Datos del Cliente:*%0A`;
+    mensaje += `%0A*Datos del Cliente:*%0A`;
     mensaje += `Nombre: ${nombre}%0A`;
     mensaje += `Dirección: ${direccion}%0A`;
     mensaje += `Teléfono: ${telefono}%0A`;
@@ -723,12 +738,20 @@ function generateWhatsAppMessage() {
     }
     
     mensaje += `*TOTAL ${tipoCliente !== 'regular' ? 'REFERENCIAL' : 'A PAGAR'}: $${total.toLocaleString()}*%0A`;
+    mensaje += `*Método de Pago:* ${metodoPago === 'efectivo' ? 'Efectivo contra entrega' : metodoPago === 'transferencia' ? 'Transferencia bancaria' : 'Tarjeta de crédito/débito'}%0A`;
     
     if (notas) {
         mensaje += `%0A*Notas adicionales:*%0A${notas.replace(/\n/g, '%0A')}`;
     }
     
-    return mensaje;
+    mensaje += `%0A%0A*INFORMACIÓN DE LA EMPRESA*%0A`;
+    mensaje += `Empresa: ${empresa.nombre}%0A`;
+    mensaje += `NIT: ${empresa.nit}%0A`;
+    mensaje += `Teléfono: ${empresa.telefono}%0A`;
+    mensaje += `Correo: ${empresa.correo}%0A`;
+    mensaje += `"${empresa.eslogan}"`;
+    
+    return { mensaje, codigoFactura };
 }
 
 function generateInvoicePDF() {
@@ -736,8 +759,13 @@ function generateInvoicePDF() {
     const doc = new jsPDF();
     
     const nombre = document.getElementById('customer-name').value;
+    const direccion = document.getElementById('customer-address').value;
+    const telefono = document.getElementById('customer-phone').value;
     const tipoCliente = document.getElementById('customer-type').value;
-    const fecha = new Date().toLocaleDateString('es-ES');
+    const metodoPago = document.getElementById('payment-method').value;
+    const fechaPedido = new Date().toLocaleDateString('es-ES');
+    const fechaEntrega = new Date(document.getElementById('delivery-date').value).toLocaleDateString('es-ES');
+    const notas = document.getElementById('customer-notes').value;
     const codigoFactura = 'ARV-' + Math.floor(100000 + Math.random() * 900000);
     
     // Calcular totales
@@ -758,28 +786,33 @@ function generateInvoicePDF() {
     // Información de la empresa
     doc.setFontSize(10);
     doc.setTextColor(100);
-    doc.text('ARVIPEMON CLEAN', 50, 15);
-    doc.text('NIT: 1070330349-6', 50, 20);
-    doc.text('arvipemonclean2.0@gmail.com', 50, 25);
-    doc.text('Servicio de pago contra entrega para Soacha y Bogotá', 50, 30);
+    doc.text(empresa.nombre, 50, 15);
+    doc.text(`NIT: ${empresa.nit}`, 50, 20);
+    doc.text(`Tel: ${empresa.telefono}`, 50, 25);
+    doc.text(`Correo: ${empresa.correo}`, 50, 30);
+    doc.text(`"${empresa.eslogan}"`, 50, 35);
     
     // Título de factura
     doc.setFontSize(18);
     doc.setTextColor(40, 167, 69);
-    doc.text('FACTURA DE VENTA', 105, 40, { align: 'center' });
+    doc.text('FACTURA DE VENTA', 105, 45, { align: 'center' });
     
     // Información de la factura
     doc.setFontSize(10);
     doc.setTextColor(0);
-    doc.text(`No. Factura: ${codigoFactura}`, 14, 50);
-    doc.text(`Fecha: ${fecha}`, 14, 55);
-    doc.text(`Cliente: ${nombre}`, 14, 60);
-    doc.text(`Tipo Cliente: ${tipoCliente === 'regular' ? 'Regular' : tipoCliente === 'distribuidor' ? 'Distribuidor/Mayorista' : 'Hotel/Comercio'}`, 14, 65);
+    doc.text(`No. Factura: ${codigoFactura}`, 14, 55);
+    doc.text(`Fecha Pedido: ${fechaPedido}`, 14, 60);
+    doc.text(`Fecha Entrega: ${fechaEntrega}`, 14, 65);
+    doc.text(`Cliente: ${nombre}`, 14, 70);
+    doc.text(`Dirección: ${direccion}`, 14, 75);
+    doc.text(`Teléfono: ${telefono}`, 14, 80);
+    doc.text(`Tipo Cliente: ${tipoCliente === 'regular' ? 'Regular' : tipoCliente === 'distribuidor' ? 'Distribuidor/Mayorista' : 'Hotel/Comercio'}`, 14, 85);
+    doc.text(`Método Pago: ${metodoPago === 'efectivo' ? 'Efectivo contra entrega' : metodoPago === 'transferencia' ? 'Transferencia bancaria' : 'Tarjeta de crédito/débito'}`, 14, 90);
     
     // Tabla de productos
     const headers = [['Producto', 'Presentación', 'Cantidad', 'Precio', 'Total']];
     const data = carrito.map(item => [
-        item.nombre,
+        item.nombre + (item.fragancia ? ` (${item.fragancia})` : ''),
         item.presentacion.split(' - ')[0],
         item.cantidad,
         `$${item.precio.toLocaleString()}`,
@@ -787,7 +820,7 @@ function generateInvoicePDF() {
     ]);
     
     doc.autoTable({
-        startY: 75,
+        startY: 95,
         head: headers,
         body: data,
         theme: 'grid',
@@ -833,13 +866,167 @@ function generateInvoicePDF() {
         doc.text(`precios especiales para ${tipoCliente === 'distribuidor' ? 'distribuidores' : 'hoteles/comercios'}.`, 14, finalY + 20);
     }
     
-    // Agregar nota de pago contra entrega al final
-    doc.text('Forma de pago: Contra entrega (Solo Soacha y Bogotá)', 14, finalY + (tipoCliente !== 'regular' ? 25 : 15));
+    // Notas adicionales
+    if (notas) {
+        doc.text(`Notas: ${notas}`, 14, finalY + (tipoCliente !== 'regular' ? 25 : 15));
+    }
+    
+    // Aviso de pago contra entrega
+    doc.setFontSize(10);
+    doc.setTextColor(100);
+    doc.text(`Forma de pago: ${metodoPago === 'efectivo' ? 'Contra entrega en efectivo' : metodoPago === 'transferencia' ? 'Transferencia bancaria' : 'Tarjeta de crédito/débito'}`, 
+             14, doc.internal.pageSize.height - 20);
     
     // Guardar el PDF
-    doc.save(`factura-arvipernon-${codigoFactura}.pdf`);
+    doc.save(`factura-${empresa.nombre.toLowerCase()}-${codigoFactura}.pdf`);
     
     return codigoFactura;
+}
+
+function generateOrderConfirmation(codigoFactura) {
+    const nombre = document.getElementById('customer-name').value;
+    const direccion = document.getElementById('customer-address').value;
+    const telefono = document.getElementById('customer-phone').value;
+    const fechaPedido = new Date().toLocaleDateString('es-ES');
+    const fechaEntrega = new Date(document.getElementById('delivery-date').value).toLocaleDateString('es-ES');
+    const tipoCliente = document.getElementById('customer-type').value;
+    const metodoPago = document.getElementById('payment-method').value;
+    const notas = document.getElementById('customer-notes').value;
+    
+    // Calcular totales
+    const subtotal = carrito.reduce((total, item) => total + (item.precio * item.cantidad), 0);
+    let discount = 0;
+    let discountAmount = 0;
+    let total = subtotal;
+    
+    if (tipoCliente === 'regular') {
+        discount = calculateDiscount();
+        discountAmount = discount * subtotal;
+        total = subtotal - discountAmount;
+    }
+    
+    // Crear HTML para la confirmación
+    let html = `
+        <!DOCTYPE html>
+        <html lang="es">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Confirmación de Pedido ${codigoFactura}</title>
+            <style>
+                body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 0 auto; padding: 20px; }
+                .header { display: flex; align-items: center; margin-bottom: 20px; border-bottom: 2px solid #28a745; padding-bottom: 10px; }
+                .logo { width: 100px; margin-right: 20px; }
+                .company-info { flex: 1; }
+                h1 { color: #28a745; margin-top: 0; }
+                h2 { color: #28a745; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+                table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+                th { background-color: #28a745; color: white; text-align: left; padding: 8px; }
+                td { padding: 8px; border-bottom: 1px solid #ddd; }
+                .total-row { font-weight: bold; }
+                .discount { color: #dc3545; }
+                .notice { background-color: #fff3cd; padding: 10px; border-radius: 5px; margin: 10px 0; }
+                .footer { margin-top: 30px; font-size: 0.9em; color: #666; text-align: center; }
+            </style>
+        </head>
+        <body>
+            <div class="header">
+                <img src="images/logo.jpg" alt="${empresa.nombre}" class="logo" onerror="this.style.display='none'">
+                <div class="company-info">
+                    <h1>${empresa.nombre}</h1>
+                    <p>NIT: ${empresa.nit} | Tel: ${empresa.telefono}</p>
+                    <p>${empresa.correo} | ${empresa.direccion}</p>
+                    <p><em>"${empresa.eslogan}"</em></p>
+                </div>
+            </div>
+            
+            <h2>Confirmación de Pedido #${codigoFactura}</h2>
+            <p><strong>Fecha de Pedido:</strong> ${fechaPedido}</p>
+            <p><strong>Fecha de Entrega:</strong> ${fechaEntrega}</p>
+            <p><strong>Tipo de Cliente:</strong> ${tipoCliente === 'regular' ? 'Regular' : tipoCliente === 'distribuidor' ? 'Distribuidor/Mayorista' : 'Hotel/Comercio'}</p>
+            
+            <h2>Datos del Cliente</h2>
+            <p><strong>Nombre:</strong> ${nombre}</p>
+            <p><strong>Dirección:</strong> ${direccion}</p>
+            <p><strong>Teléfono:</strong> ${telefono}</p>
+            <p><strong>Método de Pago:</strong> ${metodoPago === 'efectivo' ? 'Efectivo contra entrega' : metodoPago === 'transferencia' ? 'Transferencia bancaria' : 'Tarjeta de crédito/débito'}</p>
+            ${notas ? `<p><strong>Notas Adicionales:</strong> ${notas}</p>` : ''}
+            
+            <h2>Detalles del Pedido</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Presentación</th>
+                        <th>Cantidad</th>
+                        <th>Precio Unitario</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+    `;
+    
+    // Agregar productos
+    carrito.forEach(item => {
+        html += `
+            <tr>
+                <td>${item.nombre}${item.fragancia ? ` (${item.fragancia})` : ''}</td>
+                <td>${item.presentacion.split(' - ')[0]}</td>
+                <td>${item.cantidad}</td>
+                <td>$${item.precio.toLocaleString()}</td>
+                <td>$${(item.precio * item.cantidad).toLocaleString()}</td>
+            </tr>
+        `;
+    });
+    
+    // Agregar totales
+    html += `
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="4" style="text-align: right;"><strong>Subtotal:</strong></td>
+                        <td>$${subtotal.toLocaleString()}</td>
+                    </tr>
+    `;
+    
+    if (discount > 0) {
+        html += `
+                    <tr class="discount">
+                        <td colspan="4" style="text-align: right;"><strong>Descuento (${discount*100}%):</strong></td>
+                        <td>-$${discountAmount.toLocaleString()}</td>
+                    </tr>
+        `;
+    }
+    
+    html += `
+                    <tr class="total-row">
+                        <td colspan="4" style="text-align: right;"><strong>TOTAL ${tipoCliente !== 'regular' ? 'REFERENCIAL' : 'A PAGAR'}:</strong></td>
+                        <td>$${total.toLocaleString()}</td>
+                    </tr>
+                </tfoot>
+            </table>
+    `;
+    
+    if (tipoCliente !== 'regular') {
+        html += `
+            <div class="notice">
+                <strong>NOTA:</strong> Los precios mostrados son referenciales para ${tipoCliente === 'distribuidor' ? 'distribuidores/mayoristas' : 'hoteles/comercios'}. 
+                Un asesor se contactará para confirmar los precios especiales aplicables a su pedido.
+            </div>
+        `;
+    }
+    
+    html += `
+            <div class="footer">
+                <p>${empresa.nombre} | ${empresa.nit} | Tel: ${empresa.telefono}</p>
+                <p>${empresa.correo} | ${empresa.direccion}</p>
+                <p><em>"${empresa.eslogan}"</em></p>
+            </div>
+        </body>
+        </html>
+    `;
+    
+    return html;
 }
 
 // Event Listeners
@@ -856,8 +1043,27 @@ closeCheckout.addEventListener('click', () => {
     checkoutModal.style.display = 'none';
 });
 
-customerForm.addEventListener('submit', (e) => {
+customerForm.addEventListener('submit', async (e) => {
     e.preventDefault();
+    
+    // Validar campos requeridos
+    const requiredFields = ['customer-name', 'customer-address', 'customer-phone', 'delivery-date', 'payment-method'];
+    let isValid = true;
+    
+    requiredFields.forEach(fieldId => {
+        const field = document.getElementById(fieldId);
+        if (!field.value.trim()) {
+            field.style.borderColor = 'red';
+            isValid = false;
+        } else {
+            field.style.borderColor = '';
+        }
+    });
+    
+    if (!isValid) {
+        alert('Por favor complete todos los campos requeridos marcados en rojo.');
+        return;
+    }
     
     const tipoCliente = document.getElementById('customer-type').value;
     
@@ -869,18 +1075,38 @@ customerForm.addEventListener('submit', (e) => {
         }
     }
     
-    const mensajeWhatsApp = generateWhatsAppMessage();
-    const urlWhatsApp = `https://wa.me/573012100676?text=${mensajeWhatsApp}`;
+    // Generar documentos
+    const { mensaje, codigoFactura } = generateWhatsAppMessage();
+    const urlWhatsApp = `https://wa.me/${empresa.whatsapp}?text=${mensaje}`;
     
-    const codigoFactura = generateInvoicePDF();
+    generateInvoicePDF();
+    const orderConfirmation = generateOrderConfirmation(codigoFactura);
     
+    // Enviar por correo (simulado)
+    try {
+        // Aquí iría el código para enviar el correo electrónico
+        // En un entorno real, usarías un servicio como EmailJS o una API de correo
+        console.log('Enviando confirmación por correo...');
+        console.log(orderConfirmation);
+        
+        // Simular envío de correo
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        console.log('Confirmación enviada por correo');
+    } catch (error) {
+        console.error('Error al enviar el correo:', error);
+    }
+    
+    // Abrir WhatsApp
     window.open(urlWhatsApp, '_blank');
     
+    // Limpiar carrito
     carrito = [];
     updateCart();
     checkoutModal.style.display = 'none';
+    customerForm.reset();
     
-    alert(`¡Pedido enviado con éxito! Se ha abierto WhatsApp para que completes el proceso.\nCódigo de factura: ${codigoFactura}`);
+    // Mostrar confirmación
+    alert(`¡Pedido #${codigoFactura} enviado con éxito!\n\nSe ha abierto WhatsApp para que completes el proceso.\n\nTambién se ha enviado una copia a nuestro equipo.`);
 });
 
 categoryFilter.addEventListener('change', filterProducts);
