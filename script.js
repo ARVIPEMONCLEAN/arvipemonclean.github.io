@@ -293,9 +293,91 @@ const searchInput = document.getElementById('search');
 const customerType = document.getElementById('customer-type');
 const distributorNotice = document.getElementById('distributor-notice');
 const paymentMethod = document.getElementById('payment-method');
+const firstPurchaseBanner = document.getElementById('first-purchase-banner');
+const promoNotification = document.getElementById('promo-notification');
+const promoMessage = document.getElementById('promo-message');
 
 // Carrito de compras
 let carrito = [];
+
+// Verificar si es la primera visita del cliente
+function checkFirstVisit() {
+    const firstVisit = localStorage.getItem('firstVisit');
+    if (firstVisit === null) {
+        localStorage.setItem('firstVisit', 'true');
+        firstPurchaseBanner.style.display = 'block';
+    }
+}
+
+// Cargar datos del cliente si existen
+function loadCustomerData() {
+    const savedName = localStorage.getItem('customerName');
+    const savedPhone = localStorage.getItem('customerPhone');
+    const savedAddress = localStorage.getItem('customerAddress');
+    
+    if (savedName) document.getElementById('customer-name').value = savedName;
+    if (savedPhone) document.getElementById('customer-phone').value = savedPhone;
+    if (savedAddress) document.getElementById('customer-address').value = savedAddress;
+}
+
+// Guardar datos del cliente
+function saveCustomerData() {
+    const name = document.getElementById('customer-name').value;
+    const phone = document.getElementById('customer-phone').value;
+    const address = document.getElementById('customer-address').value;
+    
+    if (name) localStorage.setItem('customerName', name);
+    if (phone) localStorage.setItem('customerPhone', phone);
+    if (address) localStorage.setItem('customerAddress', address);
+}
+
+// Verificar y mostrar promociones
+function checkPromotions() {
+    const lastPromoDate = localStorage.getItem('lastPromoDate');
+    const now = new Date();
+    
+    // Mostrar promoción cada 7 días
+    if (!lastPromoDate || (now - new Date(lastPromoDate)) > 7 * 24 * 60 * 60 * 1000) {
+        const promotions = [
+            "¡Nueva promoción! 15% de descuento en productos automotrices",
+            "Oferta especial: Compra 2 productos y lleva el tercero con 30% de descuento",
+            "Descuento del 10% en tu próxima compra usando el código BIENVENIDO10"
+        ];
+        
+        const randomPromo = promotions[Math.floor(Math.random() * promotions.length)];
+        promoMessage.textContent = randomPromo;
+        promoNotification.style.display = 'block';
+        localStorage.setItem('lastPromoDate', now.toISOString());
+        
+        // Ocultar automáticamente después de 10 segundos
+        setTimeout(() => {
+            promoNotification.style.display = 'none';
+        }, 10000);
+    }
+}
+
+// Función para calcular el descuento (10% si 3 productos o más + 5% primera compra)
+function calculateDiscount() {
+    // No aplicar descuento a distribuidores/hoteles
+    if (customerType.value !== 'regular') {
+        return { discount: 0, firstPurchaseDiscount: 0 };
+    }
+    
+    const totalItems = carrito.reduce((total, item) => total + item.cantidad, 0);
+    const isFirstPurchase = localStorage.getItem('firstPurchase') === null;
+    const regularDiscount = totalItems >= 3 ? 0.1 : 0;
+    const firstPurchaseDiscount = isFirstPurchase && firstPurchaseBanner.style.display === 'block' ? 0.05 : 0;
+    
+    return {
+        discount: regularDiscount,
+        firstPurchaseDiscount: firstPurchaseDiscount
+    };
+}
+
+// Cerrar notificación de promoción
+document.querySelector('.close-promo').addEventListener('click', () => {
+    promoNotification.style.display = 'none';
+});
 
 // Mostrar/ocultar aviso para distribuidores/hoteles
 customerType.addEventListener('change', () => {
@@ -305,17 +387,6 @@ customerType.addEventListener('change', () => {
         distributorNotice.style.display = 'none';
     }
 });
-
-// Función para calcular el descuento (10% si 3 productos o más)
-function calculateDiscount() {
-    // No aplicar descuento a distribuidores/hoteles
-    if (customerType.value !== 'regular') {
-        return 0;
-    }
-    
-    const totalItems = carrito.reduce((total, item) => total + item.cantidad, 0);
-    return totalItems >= 3 ? 0.1 : 0;
-}
 
 function renderProducts(products) {
     productsContainer.innerHTML = '';
@@ -489,6 +560,9 @@ function renderCartItems() {
     const totalItems = carrito.reduce((total, item) => total + item.cantidad, 0);
     const tipoCliente = customerType.value;
     
+    // Calcular descuentos
+    const { discount, firstPurchaseDiscount } = calculateDiscount();
+    
     // Mostrar banner de promoción si aplica (3 o más productos y cliente regular)
     if (totalItems >= 3 && tipoCliente === 'regular') {
         const discountBanner = document.createElement('div');
@@ -498,6 +572,17 @@ function renderCartItems() {
             <span class="discount-badge">-10%</span>
         `;
         cartItems.appendChild(discountBanner);
+    }
+    
+    // Mostrar banner de primera compra si aplica
+    if (firstPurchaseDiscount > 0 && tipoCliente === 'regular') {
+        const firstPurchaseBanner = document.createElement('div');
+        firstPurchaseBanner.className = 'first-purchase-banner';
+        firstPurchaseBanner.innerHTML = `
+            🎁 ¡Descuento del 5% por primera compra!
+            <span class="discount-badge">-5%</span>
+        `;
+        cartItems.appendChild(firstPurchaseBanner);
     }
     
     // Mostrar aviso para distribuidores/hoteles
@@ -545,12 +630,12 @@ function renderCartItems() {
         cartItems.appendChild(cartItem);
     });
     
-    // Calcular descuento y total
-    const discount = calculateDiscount();
+    // Calcular total con descuentos
     const discountAmount = discount * subtotal;
-    const total = subtotal - discountAmount;
+    const firstPurchaseAmount = firstPurchaseDiscount * subtotal;
+    const total = subtotal - discountAmount - firstPurchaseAmount;
     
-    // Mostrar resumen con descuento
+    // Mostrar resumen con descuentos
     const summaryHTML = `
         <div class="cart-summary">
             <div class="cart-total-line">
@@ -562,6 +647,13 @@ function renderCartItems() {
             <div class="cart-total-line">
                 <span>Descuento (10%):</span>
                 <span class="cart-discount">-$${discountAmount.toLocaleString()}</span>
+            </div>
+            ` : ''}
+            
+            ${firstPurchaseDiscount > 0 ? `
+            <div class="cart-total-line">
+                <span>Descuento primera compra (5%):</span>
+                <span class="first-purchase-discount">-$${firstPurchaseAmount.toLocaleString()}</span>
             </div>
             ` : ''}
             
@@ -693,16 +785,11 @@ function generateWhatsAppMessage() {
         resumenPedido += `\n  Cantidad: ${item.cantidad} x $${item.precio.toLocaleString()} = $${itemTotal.toLocaleString()}`;
     });
     
-    // Calcular descuento (no aplica para distribuidores/hoteles)
-    let discount = 0;
-    let discountAmount = 0;
-    let total = subtotal;
-    
-    if (tipoCliente === 'regular') {
-        discount = calculateDiscount();
-        discountAmount = discount * subtotal;
-        total = subtotal - discountAmount;
-    }
+    // Calcular descuentos
+    const { discount, firstPurchaseDiscount } = calculateDiscount();
+    const discountAmount = discount * subtotal;
+    const firstPurchaseAmount = firstPurchaseDiscount * subtotal;
+    let total = subtotal - discountAmount - firstPurchaseAmount;
     
     // Crear mensaje
     let mensaje = `*NUEVO PEDIDO ${empresa.nombre}*%0A%0A`;
@@ -711,9 +798,13 @@ function generateWhatsAppMessage() {
     mensaje += `*Fecha de Pedido:* ${fechaPedido}%0A`;
     mensaje += `*Fecha de Entrega:* ${fechaEntregaFormateada}%0A`;
     
-    // Añadir información de descuento si aplica
+    // Añadir información de descuentos si aplican
     if (discount > 0) {
         mensaje += `*¡Descuento aplicado!* (${discount*100}% por comprar 3 productos o más)%0A`;
+    }
+    
+    if (firstPurchaseDiscount > 0) {
+        mensaje += `*¡Descuento por primera compra!* (5% adicional)%0A`;
     } else if (tipoCliente !== 'regular') {
         mensaje += `*Nota:* Precios especiales para ${tipoCliente === 'distribuidor' ? 'distribuidores' : 'hoteles/comercios'}. Será contactado por un asesor.%0A`;
     }
@@ -731,6 +822,10 @@ function generateWhatsAppMessage() {
     
     if (discount > 0) {
         mensaje += `Descuento (${discount*100}%): -$${discountAmount.toLocaleString()}%0A`;
+    }
+    
+    if (firstPurchaseDiscount > 0) {
+        mensaje += `Descuento primera compra (5%): -$${firstPurchaseAmount.toLocaleString()}%0A`;
     }
     
     if (tipoCliente !== 'regular') {
@@ -770,15 +865,10 @@ function generateInvoicePDF() {
     
     // Calcular totales
     const subtotal = carrito.reduce((total, item) => total + (item.precio * item.cantidad), 0);
-    let discount = 0;
-    let discountAmount = 0;
-    let total = subtotal;
-    
-    if (tipoCliente === 'regular') {
-        discount = calculateDiscount();
-        discountAmount = discount * subtotal;
-        total = subtotal - discountAmount;
-    }
+    const { discount, firstPurchaseDiscount } = calculateDiscount();
+    const discountAmount = discount * subtotal;
+    const firstPurchaseAmount = firstPurchaseDiscount * subtotal;
+    let total = subtotal - discountAmount - firstPurchaseAmount;
     
     // Encabezado con logo
     doc.addImage('images/logo.jpg', 'JPEG', 14, 10, 30, 30);
@@ -848,27 +938,31 @@ function generateInvoicePDF() {
         doc.text(`Descuento (10%): -$${discountAmount.toLocaleString()}`, 140, finalY + 5);
     }
     
+    if (firstPurchaseDiscount > 0) {
+        doc.text(`Descuento primera compra (5%): -$${firstPurchaseAmount.toLocaleString()}`, 140, finalY + (discount > 0 ? 10 : 5));
+    }
+    
     if (tipoCliente !== 'regular') {
         doc.setTextColor(255, 0, 0);
-        doc.text(`PRECIOS ESPECIALES - CONTACTAR CLIENTE`, 14, finalY + 10);
+        doc.text(`PRECIOS ESPECIALES - CONTACTAR CLIENTE`, 14, finalY + (firstPurchaseDiscount > 0 ? 15 : 10));
         doc.setTextColor(0);
     }
     
     doc.setFontSize(12);
     doc.setFont(undefined, 'bold');
-    doc.text(`TOTAL ${tipoCliente !== 'regular' ? 'REFERENCIAL' : 'A PAGAR'}: $${total.toLocaleString()}`, 140, finalY + (discount > 0 ? 10 : 5));
+    doc.text(`TOTAL ${tipoCliente !== 'regular' ? 'REFERENCIAL' : 'A PAGAR'}: $${total.toLocaleString()}`, 140, finalY + (discount > 0 || firstPurchaseDiscount > 0 ? 15 : 5));
     
     // Nota para distribuidores/hoteles
     if (tipoCliente !== 'regular') {
         doc.setFontSize(10);
         doc.setTextColor(100);
-        doc.text(`Nota: Los precios mostrados son referenciales. Un asesor se contactará para confirmar los`, 14, finalY + 15);
-        doc.text(`precios especiales para ${tipoCliente === 'distribuidor' ? 'distribuidores' : 'hoteles/comercios'}.`, 14, finalY + 20);
+        doc.text(`Nota: Los precios mostrados son referenciales. Un asesor se contactará para confirmar los`, 14, finalY + 20);
+        doc.text(`precios especiales para ${tipoCliente === 'distribuidor' ? 'distribuidores' : 'hoteles/comercios'}.`, 14, finalY + 25);
     }
     
     // Notas adicionales
     if (notas) {
-        doc.text(`Notas: ${notas}`, 14, finalY + (tipoCliente !== 'regular' ? 25 : 15));
+        doc.text(`Notas: ${notas}`, 14, finalY + (tipoCliente !== 'regular' ? 30 : 20));
     }
     
     // Aviso de pago contra entrega
@@ -895,15 +989,10 @@ function generateOrderConfirmation(codigoFactura) {
     
     // Calcular totales
     const subtotal = carrito.reduce((total, item) => total + (item.precio * item.cantidad), 0);
-    let discount = 0;
-    let discountAmount = 0;
-    let total = subtotal;
-    
-    if (tipoCliente === 'regular') {
-        discount = calculateDiscount();
-        discountAmount = discount * subtotal;
-        total = subtotal - discountAmount;
-    }
+    const { discount, firstPurchaseDiscount } = calculateDiscount();
+    const discountAmount = discount * subtotal;
+    const firstPurchaseAmount = firstPurchaseDiscount * subtotal;
+    let total = subtotal - discountAmount - firstPurchaseAmount;
     
     // Crear HTML para la confirmación
     let html = `
@@ -998,6 +1087,15 @@ function generateOrderConfirmation(codigoFactura) {
         `;
     }
     
+    if (firstPurchaseDiscount > 0) {
+        html += `
+                    <tr class="discount">
+                        <td colspan="4" style="text-align: right;"><strong>Descuento primera compra (5%):</strong></td>
+                        <td>-$${firstPurchaseAmount.toLocaleString()}</td>
+                    </tr>
+        `;
+    }
+    
     html += `
                     <tr class="total-row">
                         <td colspan="4" style="text-align: right;"><strong>TOTAL ${tipoCliente !== 'regular' ? 'REFERENCIAL' : 'A PAGAR'}:</strong></td>
@@ -1075,6 +1173,14 @@ customerForm.addEventListener('submit', async (e) => {
         }
     }
     
+    // Guardar datos del cliente
+    saveCustomerData();
+    
+    // Marcar que ya no es primera compra
+    if (firstPurchaseBanner.style.display === 'block') {
+        localStorage.setItem('firstPurchase', 'false');
+    }
+    
     // Generar documentos
     const { mensaje, codigoFactura } = generateWhatsAppMessage();
     const urlWhatsApp = `https://wa.me/${empresa.whatsapp}?text=${mensaje}`;
@@ -1122,5 +1228,10 @@ window.addEventListener('click', (e) => {
 });
 
 // Inicializar la aplicación
-renderProducts(productos);
-updateCart();
+document.addEventListener('DOMContentLoaded', function() {
+    renderProducts(productos);
+    updateCart();
+    checkFirstVisit();
+    loadCustomerData();
+    checkPromotions();
+});
