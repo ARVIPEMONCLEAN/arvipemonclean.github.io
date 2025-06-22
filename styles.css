@@ -8,6 +8,8 @@
     --danger-color: #f44336;
     --warning-color: #ff9800;
     --info-color: #2196F3;
+    --promo-color: #FF5722;
+    --first-purchase-color: #9C27B0;
 }
 
 * {
@@ -114,6 +116,20 @@ body {
     font-weight: bold;
     font-size: 1.1rem;
     border-left: 5px solid #FFC000;
+}
+
+.first-purchase-banner {
+    background-color: var(--first-purchase-color);
+    color: white;
+    padding: 15px;
+    text-align: center;
+    margin: 0 0 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    font-weight: bold;
+    font-size: 1.1rem;
+    border-left: 5px solid #7B1FA2;
+    display: none;
 }
 
 .discount-badge {
@@ -468,6 +484,11 @@ body {
     margin-bottom: 8px;
 }
 
+.first-purchase-discount {
+    color: var(--first-purchase-color);
+    font-weight: bold;
+}
+
 .cart-discount {
     color: var(--danger-color);
     font-weight: bold;
@@ -666,6 +687,65 @@ body {
     margin-right: 5px;
 }
 
+.promo-notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--promo-color);
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    z-index: 1000;
+    max-width: 320px;
+    display: none;
+    animation: slideIn 0.5s ease-out;
+}
+
+.promo-content {
+    position: relative;
+}
+
+.promo-content h3 {
+    margin-bottom: 8px;
+    font-size: 1.2rem;
+}
+
+.promo-content p {
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+}
+
+.close-promo {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: white;
+    border: none;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    color: var(--promo-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.promo-link {
+    color: white;
+    text-decoration: underline;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 5px;
+}
+
+@keyframes slideIn {
+    from { transform: translateY(100px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
 @media (max-width: 768px) {
     .products-grid {
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -682,6 +762,12 @@ body {
     
     .cart-modal {
         max-width: 100%;
+    }
+    
+    .promo-notification {
+        max-width: 280px;
+        right: 10px;
+        bottom: 10px;
     }
 }
 
@@ -701,5 +787,12 @@ body {
     .company-logo {
         height: 60px;
         margin-right: 10px;
+    }
+    
+    .promo-notification {
+        max-width: 90%;
+        right: 5%;
+        left: 5%;
+        bottom: 70px;
     }
 }
