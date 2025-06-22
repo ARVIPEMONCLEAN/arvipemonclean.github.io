@@ -9,6 +9,16 @@
     <link rel="icon" href="images/logo.jpg" type="image/jpeg">
 </head>
 <body>
+    <!-- Notificación de promoción -->
+    <div id="promo-notification" class="promo-notification" style="display: none;">
+        <div class="promo-content">
+            <button class="close-promo">&times;</button>
+            <h3>¡Nueva promoción disponible!</h3>
+            <p id="promo-message"></p>
+            <a href="#" class="promo-link">Ver promociones</a>
+        </div>
+    </div>
+
     <header class="header">
         <div class="logo-container">
             <img src="images/logo.jpg" alt="Logo ARVIPEMON CLEAN" class="company-logo">
@@ -34,6 +44,12 @@
         <div class="promotion-banner">
             🚀 ¡Oferta especial! 10% de descuento al comprar más de 3 productos
             <span class="discount-badge">-10%</span>
+        </div>
+        
+        <!-- Banner de primera compra -->
+        <div id="first-purchase-banner" class="first-purchase-banner" style="display: none;">
+            🎉 ¡Bienvenido! Por ser tu primera compra, recibes un 5% de descuento adicional
+            <span class="discount-badge">-5%</span>
         </div>
         
         <div class="filters">
@@ -103,6 +119,14 @@
                         <option value="regular">Cliente Regular</option>
                         <option value="distribuidor">Distribuidor/Mayorista</option>
                         <option value="hotel">Hotel/Comercio</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="payment-method"><i class="fas fa-money-bill-wave"></i> Método de Pago:</label>
+                    <select id="payment-method" required>
+                        <option value="efectivo">Efectivo (Contra entrega)</option>
+                        <option value="transferencia">Transferencia bancaria</option>
+                        <option value="tarjeta">Tarjeta de crédito/débito</option>
                     </select>
                 </div>
                 <div id="distributor-notice" class="distributor-notice" style="display: none;">
