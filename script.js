@@ -1503,4 +1503,36 @@ customerForm.addEventListener('submit', async (e) => {
     }
     
     // Abrir WhatsApp
+    window.open(urlWhatsApp, '_blank');
+    
+    // Limpiar carrito
+    carrito = [];
+    updateCart();
+    checkoutModal.style.display = 'none';
+    customerForm.reset();
+    
+    // Mostrar confirmación
+    alert(`¡Pedido #${codigoFactura} enviado con éxito!\n\nSe ha abierto WhatsApp para que completes el proceso.\n\nTambién se ha enviado una copia a nuestro equipo.`);
+});
+
+categoryFilter.addEventListener('change', filterProducts);
+searchInput.addEventListener('input', filterProducts);
+
+window.addEventListener('click', (e) => {
+    if (e.target === cartModal) {
+        cartModal.style.display = 'none';
+    }
+    if (e.target === checkoutModal) {
+        checkoutModal.style.display = 'none';
+    }
+});
+
+// Inicializar la aplicación
+document.addEventListener('DOMContentLoaded', function() {
+    renderProducts(productos);
+    updateCart();
+    checkFirstVisit();
+    loadCustomerData();
+    checkPromotions();
+});
    
