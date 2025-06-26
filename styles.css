@@ -10,6 +10,7 @@
     --info-color: #2196F3;
     --promo-color: #FF5722;
     --first-purchase-color: #9C27B0;
+    --combo-color: #FF9800;
 }
 
 * {
@@ -105,6 +106,59 @@ body {
     gap: 0.5rem;
 }
 
+.combo-promo-banner {
+    background: linear-gradient(135deg, #FF9800, #FFC107);
+    color: white;
+    padding: 15px;
+    text-align: center;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-left: 5px solid #F57C00;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.combo-promo-content {
+    max-width: 800px;
+}
+
+.combo-promo-banner h3 {
+    margin-bottom: 8px;
+    font-size: 1.3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.combo-promo-banner p {
+    margin-bottom: 12px;
+    font-size: 1rem;
+}
+
+.view-combos-btn {
+    background-color: white;
+    color: var(--combo-color);
+    border: none;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.view-combos-btn:hover {
+    background-color: #f5f5f5;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
 .promotion-banner {
     background-color: #FFD700;
     color: #333;
@@ -198,6 +252,31 @@ body {
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
+.combo-card {
+    border: 2px solid var(--combo-color);
+    position: relative;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(255,152,0,0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(255,152,0,0); }
+    100% { box-shadow: 0 0 0 0 rgba(255,152,0,0); }
+}
+
+.combo-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: var(--combo-color);
+    color: white;
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    z-index: 2;
+}
+
 .product-image {
     height: 200px;
     background-color: #f5f5f5;
@@ -205,6 +284,7 @@ body {
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    position: relative;
 }
 
 .product-image img {
@@ -230,6 +310,43 @@ body {
     font-size: 0.95rem;
 }
 
+.combo-included {
+    margin: 1rem 0;
+    background-color: #f8f9fa;
+    padding: 10px;
+    border-radius: 5px;
+    border-left: 3px solid var(--accent-color);
+}
+
+.combo-included h4 {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--dark-color);
+}
+
+.combo-included ul {
+    list-style-type: none;
+    margin-left: 5px;
+}
+
+.combo-included li {
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+    position: relative;
+    padding-left: 15px;
+}
+
+.combo-included li:before {
+    content: "•";
+    color: var(--combo-color);
+    position: absolute;
+    left: 0;
+    font-size: 1.2rem;
+    line-height: 0.9rem;
+}
+
 .product-details {
     margin: 1rem 0;
     font-size: 0.9rem;
@@ -237,6 +354,21 @@ body {
 
 .product-details p {
     margin-bottom: 0.5rem;
+}
+
+.combo-price {
+    font-weight: bold;
+    color: var(--combo-color);
+    font-size: 1.1rem;
+    margin: 10px 0;
+}
+
+.combo-notice {
+    font-size: 0.85rem;
+    color: #666;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
 }
 
 .product-options {
@@ -395,6 +527,7 @@ body {
     justify-content: center;
     border-radius: 4px;
     overflow: hidden;
+    position: relative;
 }
 
 .cart-item-image img {
@@ -746,6 +879,26 @@ body {
     to { transform: translateY(0); opacity: 1; }
 }
 
+/* Ajustes para combos en el carrito */
+.cart-item .combo-included {
+    background-color: transparent;
+    padding: 5px 0;
+    margin: 5px 0;
+}
+
+.cart-item .combo-included ul {
+    margin-left: 0;
+}
+
+.cart-item .combo-included li {
+    padding-left: 0;
+    font-size: 0.8rem;
+}
+
+.cart-item .combo-included li:before {
+    display: none;
+}
+
 @media (max-width: 768px) {
     .products-grid {
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -768,6 +921,15 @@ body {
         max-width: 280px;
         right: 10px;
         bottom: 10px;
+    }
+    
+    .combo-included li {
+        font-size: 0.8rem;
+    }
+    
+    .combo-promo-banner {
+        flex-direction: column;
+        text-align: center;
     }
 }
 
@@ -794,5 +956,23 @@ body {
         right: 5%;
         left: 5%;
         bottom: 70px;
+    }
+    
+    .combo-card {
+        border-width: 1px;
+        animation: none;
+    }
+    
+    .combo-badge {
+        font-size: 0.7rem;
+        padding: 2px 5px;
+    }
+    
+    .combo-promo-banner h3 {
+        font-size: 1.1rem;
+    }
+    
+    .combo-promo-banner p {
+        font-size: 0.9rem;
     }
 }
