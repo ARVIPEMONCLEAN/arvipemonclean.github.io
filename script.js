@@ -2,7 +2,7 @@
 const productos = [
     {
         id: 1,
-        nombre: "DESENGRASANTE INDUSTRIAL PH ACIDO",
+        nombre: "DESENGRASANTE INDUSTRIAL PH ÁCIDO",
         descripcion: "Desengrasante multipropósito para uso doméstico, industrial y automotriz. Producto muy fuerte, utilice guantes de caucho y tapabocas.",
         categoria: ["domestico", "industrial", "automotriz"],
         presentaciones: [
@@ -266,6 +266,120 @@ const fragancias = [
     "Chicle", "Canela", "Coco Limón", "Carro Nuevo"
 ];
 
+// Combos especiales (NO aplican descuento del 10%)
+const combos = [
+    {
+        id: 100,
+        nombre: "COMBO HOGAR BÁSICO",
+        descripcion: "Paquete esencial para limpieza del hogar con productos de alta calidad.",
+        categoria: ["combo", "domestico"],
+        precio: 30000,
+        productosIncluidos: [
+            { nombre: "JABÓN PREMIUM", presentacion: "Galón 4 litros", cantidad: 1 },
+            { nombre: "SUAVIZANTE SIN PARABENOS", presentacion: "1 litro (Floral o Talco)", cantidad: 1 }
+        ],
+        notaFragancia: "La fragancia se limita a las existencias en fábrica.",
+        esCombo: true
+    },
+    {
+        id: 101,
+        nombre: "COMBO INDUSTRIAL COMPLETO",
+        descripcion: "Paquete completo para limpieza industrial y desinfección.",
+        categoria: ["combo", "industrial"],
+        precio: 175000,
+        productosIncluidos: [
+            { nombre: "JABÓN PREMIUM", presentacion: "Garrafa de 20 litros", cantidad: 1 },
+            { nombre: "BLANQUEADOR 5.7%", presentacion: "Garrafa de 20 litros", cantidad: 1 },
+            { nombre: "DESENGRASANTE INDUSTRIAL PH ÁCIDO", presentacion: "Garrafa de 20 litros", cantidad: 1 }
+        ],
+        notaFragancia: "La fragancia se limita a las existencias en fábrica.",
+        esCombo: true
+    },
+    {
+        id: 102,
+        nombre: "COMBO HOGAR AVANZADO",
+        descripcion: "Paquete avanzado para limpieza profunda en hogares.",
+        categoria: ["combo", "domestico"],
+        precio: 105300,
+        productosIncluidos: [
+            { nombre: "JABÓN PREMIUM", presentacion: "Garrafa de 20 litros", cantidad: 1 },
+            { nombre: "DESENGRASANTE INDUSTRIAL PH ÁCIDO", presentacion: "Galón 4 litros", cantidad: 1 }
+        ],
+        notaFragancia: "La fragancia se limita a las existencias en fábrica.",
+        esCombo: true
+    },
+    {
+        id: 103,
+        nombre: "COMBO LIMPIEZA PROFUNDA",
+        descripcion: "Paquete para limpieza profunda y desinfección intensiva.",
+        categoria: ["combo", "domestico", "industrial"],
+        precio: 185000,
+        productosIncluidos: [
+            { nombre: "JABÓN PREMIUM", presentacion: "Garrafa de 20 litros", cantidad: 2 },
+            { nombre: "BLANQUEADOR 5.7%", presentacion: "Garrafa de 20 litros", cantidad: 1 }
+        ],
+        notaFragancia: "La fragancia se limita a las existencias en fábrica.",
+        esCombo: true
+    },
+    {
+        id: 104,
+        nombre: "COMBO HOGAR PREMIUM",
+        descripcion: "Paquete premium para cuidado de ropa y limpieza del hogar.",
+        categoria: ["combo", "domestico"],
+        precio: 110000,
+        productosIncluidos: [
+            { nombre: "JABÓN PREMIUM", presentacion: "Garrafa de 20 litros", cantidad: 1 },
+            { nombre: "SUAVIZANTE SIN PARABENOS", presentacion: "Galón 4 litros (Floral o Talco)", cantidad: 1 },
+            { nombre: "BLANQUEADOR 5.7%", presentacion: "Galón 4 litros", cantidad: 1 }
+        ],
+        notaFragancia: "La fragancia se limita a las existencias en fábrica.",
+        esCombo: true
+    },
+    {
+        id: 105,
+        nombre: "COMBO INDUSTRIAL SUPERIOR",
+        descripcion: "Paquete completo para necesidades industriales de limpieza.",
+        categoria: ["combo", "industrial"],
+        precio: 250000,
+        productosIncluidos: [
+            { nombre: "JABÓN PREMIUM", presentacion: "Garrafa de 20 litros", cantidad: 1 },
+            { nombre: "SUAVIZANTE SIN PARABENOS", presentacion: "Garrafa de 20 litros (Floral o Talco)", cantidad: 1 },
+            { nombre: "DESENGRASANTE INDUSTRIAL PH ÁCIDO", presentacion: "Garrafa de 20 litros", cantidad: 1 },
+            { nombre: "BLANQUEADOR 5.7%", presentacion: "Garrafa de 20 litros", cantidad: 1 }
+        ],
+        notaFragancia: "La fragancia se limita a las existencias en fábrica.",
+        esCombo: true
+    },
+    {
+        id: 106,
+        nombre: "COMBO PODER DEL REY",
+        descripcion: "Paquete especial con el poderoso Jabón Poder del Rey y complementos.",
+        categoria: ["combo", "domestico"],
+        precio: 100000,
+        productosIncluidos: [
+            { nombre: "JABÓN PODER DEL REY", presentacion: "Garrafa de 20 litros", cantidad: 1 },
+            { nombre: "LIMPIADOR AROMATIZANTE PARA PISOS", presentacion: "Galón 4 litros", cantidad: 1 },
+            { nombre: "BLANQUEADOR 5.7%", presentacion: "Galón 4 litros", cantidad: 1 }
+        ],
+        notaFragancia: "La fragancia se limita a las existencias en fábrica.",
+        esCombo: true
+    },
+    {
+        id: 107,
+        nombre: "COMBO LIMPIEZA INTEGRAL",
+        descripcion: "Paquete integral para limpieza completa de cualquier espacio.",
+        categoria: ["combo", "domestico", "industrial"],
+        precio: 170000,
+        productosIncluidos: [
+            { nombre: "JABÓN PODER DEL REY", presentacion: "Garrafa de 20 litros", cantidad: 1 },
+            { nombre: "DESENGRASANTE INDUSTRIAL PH ÁCIDO", presentacion: "Garrafa de 20 litros", cantidad: 1 },
+            { nombre: "LIMPIADOR AROMATIZANTE PARA PISOS", presentacion: "Garrafa de 20 litros", cantidad: 1 }
+        ],
+        notaFragancia: "La fragancia se limita a las existencias en fábrica.",
+        esCombo: true
+    }
+];
+
 // Datos de la empresa
 const empresa = {
     nombre: "ARVIPEMON CLEAN",
@@ -296,6 +410,7 @@ const paymentMethod = document.getElementById('payment-method');
 const firstPurchaseBanner = document.getElementById('first-purchase-banner');
 const promoNotification = document.getElementById('promo-notification');
 const promoMessage = document.getElementById('promo-message');
+const viewCombosBtn = document.getElementById('view-combos-btn');
 
 // Carrito de compras
 let carrito = [];
@@ -305,6 +420,14 @@ function checkFirstVisit() {
     const firstVisit = localStorage.getItem('firstVisit');
     if (firstVisit === null) {
         localStorage.setItem('firstVisit', 'true');
+        firstPurchaseBanner.style.display = 'block';
+    }
+}
+
+// Verificar si es primera compra
+function checkFirstPurchase() {
+    const firstPurchase = localStorage.getItem('firstPurchase');
+    if (firstPurchase === null) {
         firstPurchaseBanner.style.display = 'block';
     }
 }
@@ -363,7 +486,10 @@ function calculateDiscount() {
         return { discount: 0, firstPurchaseDiscount: 0 };
     }
     
-    const totalItems = carrito.reduce((total, item) => total + item.cantidad, 0);
+    // Filtrar items que no son combos para calcular el descuento
+    const normalItems = carrito.filter(item => !item.esCombo);
+    const totalItems = normalItems.reduce((total, item) => total + item.cantidad, 0);
+    
     const isFirstPurchase = localStorage.getItem('firstPurchase') === null;
     const regularDiscount = totalItems >= 3 ? 0.1 : 0;
     const firstPurchaseDiscount = isFirstPurchase && firstPurchaseBanner.style.display === 'block' ? 0.05 : 0;
@@ -388,6 +514,13 @@ customerType.addEventListener('change', () => {
     }
 });
 
+// Filtrar para mostrar solo combos
+viewCombosBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    categoryFilter.value = 'combo';
+    filterProducts();
+});
+
 function renderProducts(products) {
     productsContainer.innerHTML = '';
     
@@ -396,73 +529,125 @@ function renderProducts(products) {
         return;
     }
     
-    products.forEach(producto => {
+    // Combinar productos normales y combos para renderizar
+    const allProducts = [...products];
+    
+    allProducts.forEach(producto => {
         const productCard = document.createElement('div');
-        productCard.className = 'product-card';
         
-        // Generar nombre de imagen compatible
-        const imageName = producto.nombre.toLowerCase()
-            .replace(/[^a-z0-9áéíóúüñ]/g, '-')
-            .replace(/-+/g, '-')
-            .replace(/^-|-$/g, '');
-        
-        // Imagen del producto con manejo de errores
-        const imageHTML = `
-            <div class="product-image">
-                <img src="images/${imageName}.jpg" alt="${producto.nombre}" 
-                     onerror="this.onerror=null;this.src='images/default-product.jpg';this.alt='Imagen no disponible'">
-            </div>
-        `;
-        
-        // Opciones de presentación
-        const optionsHTML = producto.presentaciones.map(pres => `
-            <option value="${pres.codigo}" data-precio="${pres.precio}">
-                ${pres.tamaño} - $${pres.precio.toLocaleString()}
-            </option>
-        `).join('');
-        
-        // Opciones de fragancia (si aplica)
-        const fragranceHTML = producto.tieneFragancia ? `
-            <div class="option-group">
-                <label><i class="fas fa-spray-can"></i> Fragancia:</label>
-                <select class="product-fragrance">
-                    ${fragancias.map(frag => `<option>${frag}</option>`).join('')}
-                </select>
-            </div>
-        ` : '';
-        
-        productCard.innerHTML = `
-            ${imageHTML}
-            <div class="product-info">
-                <h3 class="product-title">${producto.nombre}</h3>
-                <p class="product-description">${producto.descripcion}</p>
-                
-                <div class="product-details">
-                    <p><strong>Modo de uso:</strong> ${producto.modoUso}</p>
-                    <p><strong>Precauciones:</strong> ${producto.contraindicaciones}</p>
+        if (producto.esCombo) {
+            // Renderizar combo
+            productCard.className = 'product-card combo-card';
+            
+            const imageName = producto.nombre.toLowerCase()
+                .replace(/[^a-z0-9áéíóúüñ]/g, '-')
+                .replace(/-+/g, '-')
+                .replace(/^-|-$/g, '');
+            
+            productCard.innerHTML = `
+                <div class="product-image">
+                    <img src="images/${imageName}.jpg" alt="${producto.nombre}" 
+                         onerror="this.onerror=null;this.src='images/default-combo.jpg';this.alt='Imagen no disponible'">
+                    <div class="combo-badge">COMBO</div>
                 </div>
-                
-                <div class="product-options">
-                    <div class="option-group">
-                        <label><i class="fas fa-box-open"></i> Presentación:</label>
-                        <select class="product-presentation">
-                            ${optionsHTML}
-                        </select>
+                <div class="product-info">
+                    <h3 class="product-title">${producto.nombre}</h3>
+                    <p class="product-description">${producto.descripcion}</p>
+                    
+                    <div class="combo-included">
+                        <h4><i class="fas fa-boxes"></i> Productos Incluidos:</h4>
+                        <ul>
+                            ${producto.productosIncluidos.map(item => `
+                                <li>${item.cantidad} x ${item.nombre} (${item.presentacion})</li>
+                            `).join('')}
+                        </ul>
                     </div>
                     
-                    ${fragranceHTML}
-                    
-                    <div class="option-group">
-                        <label><i class="fas fa-calculator"></i> Cantidad:</label>
-                        <input type="number" class="product-quantity" min="1" value="1">
+                    <div class="product-details">
+                        <p class="combo-price"><strong>Precio especial:</strong> $${producto.precio.toLocaleString()}</p>
+                        <p class="combo-notice"><i class="fas fa-info-circle"></i> ${producto.notaFragancia}</p>
                     </div>
+                    
+                    <div class="product-options">
+                        <div class="option-group">
+                            <label><i class="fas fa-calculator"></i> Cantidad:</label>
+                            <input type="number" class="product-quantity" min="1" value="1">
+                        </div>
+                    </div>
+                    
+                    <button class="add-to-cart" data-id="${producto.id}" data-combo="true">
+                        <i class="fas fa-cart-plus"></i> Agregar al carrito
+                    </button>
                 </div>
-                
-                <button class="add-to-cart" data-id="${producto.id}">
-                    <i class="fas fa-cart-plus"></i> Agregar al carrito
-                </button>
-            </div>
-        `;
+            `;
+        } else {
+            // Renderizar producto normal
+            productCard.className = 'product-card';
+            
+            // Generar nombre de imagen compatible
+            const imageName = producto.nombre.toLowerCase()
+                .replace(/[^a-z0-9áéíóúüñ]/g, '-')
+                .replace(/-+/g, '-')
+                .replace(/^-|-$/g, '');
+            
+            // Imagen del producto con manejo de errores
+            const imageHTML = `
+                <div class="product-image">
+                    <img src="images/${imageName}.jpg" alt="${producto.nombre}" 
+                         onerror="this.onerror=null;this.src='images/default-product.jpg';this.alt='Imagen no disponible'">
+                </div>
+            `;
+            
+            // Opciones de presentación
+            const optionsHTML = producto.presentaciones.map(pres => `
+                <option value="${pres.codigo}" data-precio="${pres.precio}">
+                    ${pres.tamaño} - $${pres.precio.toLocaleString()}
+                </option>
+            `).join('');
+            
+            // Opciones de fragancia (si aplica)
+            const fragranceHTML = producto.tieneFragancia ? `
+                <div class="option-group">
+                    <label><i class="fas fa-spray-can"></i> Fragancia:</label>
+                    <select class="product-fragrance">
+                        ${fragancias.map(frag => `<option>${frag}</option>`).join('')}
+                    </select>
+                </div>
+            ` : '';
+            
+            productCard.innerHTML = `
+                ${imageHTML}
+                <div class="product-info">
+                    <h3 class="product-title">${producto.nombre}</h3>
+                    <p class="product-description">${producto.descripcion}</p>
+                    
+                    <div class="product-details">
+                        <p><strong>Modo de uso:</strong> ${producto.modoUso}</p>
+                        <p><strong>Precauciones:</strong> ${producto.contraindicaciones}</p>
+                    </div>
+                    
+                    <div class="product-options">
+                        <div class="option-group">
+                            <label><i class="fas fa-box-open"></i> Presentación:</label>
+                            <select class="product-presentation">
+                                ${optionsHTML}
+                            </select>
+                        </div>
+                        
+                        ${fragranceHTML}
+                        
+                        <div class="option-group">
+                            <label><i class="fas fa-calculator"></i> Cantidad:</label>
+                            <input type="number" class="product-quantity" min="1" value="1">
+                        </div>
+                    </div>
+                    
+                    <button class="add-to-cart" data-id="${producto.id}">
+                        <i class="fas fa-cart-plus"></i> Agregar al carrito
+                    </button>
+                </div>
+            `;
+        }
         
         productsContainer.appendChild(productCard);
     });
@@ -476,39 +661,57 @@ function renderProducts(products) {
 function addToCart(e) {
     const button = e.target.closest('.add-to-cart');
     const productId = parseInt(button.dataset.id);
+    const isCombo = button.dataset.combo === 'true';
     const productCard = button.closest('.product-card');
     
-    const producto = productos.find(p => p.id === productId);
-    const presentacionSelect = productCard.querySelector('.product-presentation');
-    const selectedOption = presentacionSelect.options[presentacionSelect.selectedIndex];
-    const precio = parseFloat(selectedOption.dataset.precio);
-    const presentacion = selectedOption.text;
-    const cantidad = parseInt(productCard.querySelector('.product-quantity').value);
-    
-    let fragancia = '';
-    if (producto.tieneFragancia) {
-        fragancia = productCard.querySelector('.product-fragrance').value;
-    }
-    
-    // Verificar si el producto ya está en el carrito
-    const existingItem = carrito.find(item => 
-        item.id === productId && 
-        item.presentacion === presentacion &&
-        item.fragancia === fragancia
-    );
-    
-    if (existingItem) {
-        existingItem.cantidad += cantidad;
-    } else {
+    if (isCombo) {
+        const combo = combos.find(c => c.id === productId);
+        const cantidad = parseInt(productCard.querySelector('.product-quantity').value);
+        
         carrito.push({
-            id: productId,
-            nombre: producto.nombre,
-            presentacion,
-            precio,
+            id: combo.id,
+            nombre: combo.nombre,
+            esCombo: true,
+            precio: combo.precio,
             cantidad,
-            fragancia,
-            image: `images/${producto.nombre.toLowerCase().replace(/[^a-z0-9áéíóúüñ]/g, '-')}.jpg`
+            productosIncluidos: combo.productosIncluidos,
+            image: `images/${combo.nombre.toLowerCase().replace(/[^a-z0-9áéíóúüñ]/g, '-')}.jpg`
         });
+    } else {
+        const producto = productos.find(p => p.id === productId);
+        const presentacionSelect = productCard.querySelector('.product-presentation');
+        const selectedOption = presentacionSelect.options[presentacionSelect.selectedIndex];
+        const precio = parseFloat(selectedOption.dataset.precio);
+        const presentacion = selectedOption.text;
+        const cantidad = parseInt(productCard.querySelector('.product-quantity').value);
+        
+        let fragancia = '';
+        if (producto.tieneFragancia) {
+            fragancia = productCard.querySelector('.product-fragrance').value;
+        }
+        
+        // Verificar si el producto ya está en el carrito
+        const existingItem = carrito.find(item => 
+            item.id === productId && 
+            item.presentacion === presentacion &&
+            item.fragancia === fragancia &&
+            !item.esCombo
+        );
+        
+        if (existingItem) {
+            existingItem.cantidad += cantidad;
+        } else {
+            carrito.push({
+                id: productId,
+                nombre: producto.nombre,
+                presentacion,
+                precio,
+                cantidad,
+                fragancia,
+                esCombo: false,
+                image: `images/${producto.nombre.toLowerCase().replace(/[^a-z0-9áéíóúüñ]/g, '-')}.jpg`
+            });
+        }
     }
     
     updateCart();
@@ -539,9 +742,6 @@ function updateCart() {
     // Actualizar contador
     const totalItems = carrito.reduce((total, item) => total + item.cantidad, 0);
     cartCount.textContent = totalItems;
-    
-    // Mostrar/ocultar botón de checkout
-    checkoutBtn.disabled = carrito.length === 0;
     
     // Si el carrito está abierto, actualizar los items
     if (cartModal.style.display === 'flex') {
@@ -603,29 +803,63 @@ function renderCartItems() {
         
         const cartItem = document.createElement('div');
         cartItem.className = 'cart-item';
-        cartItem.innerHTML = `
-            <div class="cart-item-image">
-                <img src="${item.image}" alt="${item.nombre}" 
-                     onerror="this.onerror=null;this.src='images/default-product.jpg';this.alt='Imagen no disponible'">
-            </div>
-            <div class="cart-item-info">
-                <h4 class="cart-item-title">${item.nombre}</h4>
-                <p class="cart-item-details">${item.presentacion}</p>
-                ${item.fragancia ? `<p class="cart-item-details">Fragancia: ${item.fragancia}</p>` : ''}
-                <p class="cart-item-price">$${(item.precio * item.cantidad).toLocaleString()}</p>
-                
-                <div class="cart-item-actions">
-                    <div class="cart-item-quantity">
-                        <button class="decrease-quantity" data-index="${index}">-</button>
-                        <input type="number" value="${item.cantidad}" min="1" class="item-quantity" data-index="${index}">
-                        <button class="increase-quantity" data-index="${index}">+</button>
-                    </div>
-                    <span class="remove-item" data-index="${index}">
-                        <i class="fas fa-trash"></i> Eliminar
-                    </span>
+        
+        if (item.esCombo) {
+            cartItem.innerHTML = `
+                <div class="cart-item-image">
+                    <img src="${item.image}" alt="${item.nombre}" 
+                         onerror="this.onerror=null;this.src='images/default-combo.jpg';this.alt='Imagen no disponible'">
+                    <div class="combo-badge">COMBO</div>
                 </div>
-            </div>
-        `;
+                <div class="cart-item-info">
+                    <h4 class="cart-item-title">${item.nombre}</h4>
+                    <div class="combo-included">
+                        <p><strong>Contenido:</strong></p>
+                        <ul>
+                            ${item.productosIncluidos.map(prod => `
+                                <li>${prod.cantidad} x ${prod.nombre} (${prod.presentacion})</li>
+                            `).join('')}
+                        </ul>
+                    </div>
+                    <p class="cart-item-price">$${(item.precio * item.cantidad).toLocaleString()}</p>
+                    
+                    <div class="cart-item-actions">
+                        <div class="cart-item-quantity">
+                            <button class="decrease-quantity" data-index="${index}">-</button>
+                            <input type="number" value="${item.cantidad}" min="1" class="item-quantity" data-index="${index}">
+                            <button class="increase-quantity" data-index="${index}">+</button>
+                        </div>
+                        <span class="remove-item" data-index="${index}">
+                            <i class="fas fa-trash"></i> Eliminar
+                        </span>
+                    </div>
+                </div>
+            `;
+        } else {
+            cartItem.innerHTML = `
+                <div class="cart-item-image">
+                    <img src="${item.image}" alt="${item.nombre}" 
+                         onerror="this.onerror=null;this.src='images/default-product.jpg';this.alt='Imagen no disponible'">
+                </div>
+                <div class="cart-item-info">
+                    <h4 class="cart-item-title">${item.nombre}</h4>
+                    <p class="cart-item-details">${item.presentacion}</p>
+                    ${item.fragancia ? `<p class="cart-item-details">Fragancia: ${item.fragancia}</p>` : ''}
+                    <p class="cart-item-price">$${(item.precio * item.cantidad).toLocaleString()}</p>
+                    
+                    <div class="cart-item-actions">
+                        <div class="cart-item-quantity">
+                            <button class="decrease-quantity" data-index="${index}">-</button>
+                            <input type="number" value="${item.cantidad}" min="1" class="item-quantity" data-index="${index}">
+                            <button class="increase-quantity" data-index="${index}">+</button>
+                        </div>
+                        <span class="remove-item" data-index="${index}">
+                            <i class="fas fa-trash"></i> Eliminar
+                        </span>
+                    </div>
+                </div>
+            `;
+        }
         
         cartItems.appendChild(cartItem);
     });
@@ -730,7 +964,12 @@ function filterProducts() {
     const category = categoryFilter.value;
     const searchTerm = searchInput.value.toLowerCase();
     
-    let filteredProducts = productos;
+    let filteredProducts = [...productos];
+    
+    // Agregar combos si no se está filtrando por categoría o si se selecciona "combo"
+    if (category === 'all' || category === 'combo') {
+        filteredProducts = [...filteredProducts, ...combos];
+    }
     
     // Filtrar por categoría
     if (category !== 'all') {
@@ -778,11 +1017,20 @@ function generateWhatsAppMessage() {
         const itemTotal = item.precio * item.cantidad;
         subtotal += itemTotal;
         
-        resumenPedido += `\n- ${item.nombre} (${item.presentacion})`;
-        if (item.fragancia) {
-            resumenPedido += ` - Fragancia: ${item.fragancia}`;
+        if (item.esCombo) {
+            resumenPedido += `\n- ${item.nombre} (COMBO ESPECIAL)`;
+            resumenPedido += `\n  Cantidad: ${item.cantidad} x $${item.precio.toLocaleString()} = $${itemTotal.toLocaleString()}`;
+            resumenPedido += `\n  Contenido:`;
+            item.productosIncluidos.forEach(prod => {
+                resumenPedido += `\n    • ${prod.cantidad} x ${prod.nombre} (${prod.presentacion})`;
+            });
+        } else {
+            resumenPedido += `\n- ${item.nombre} (${item.presentacion})`;
+            if (item.fragancia) {
+                resumenPedido += ` - Fragancia: ${item.fragancia}`;
+            }
+            resumenPedido += `\n  Cantidad: ${item.cantidad} x $${item.precio.toLocaleString()} = $${itemTotal.toLocaleString()}`;
         }
-        resumenPedido += `\n  Cantidad: ${item.cantidad} x $${item.precio.toLocaleString()} = $${itemTotal.toLocaleString()}`;
     });
     
     // Calcular descuentos
@@ -901,13 +1149,37 @@ function generateInvoicePDF() {
     
     // Tabla de productos
     const headers = [['Producto', 'Presentación', 'Cantidad', 'Precio', 'Total']];
-    const data = carrito.map(item => [
-        item.nombre + (item.fragancia ? ` (${item.fragancia})` : ''),
-        item.presentacion.split(' - ')[0],
-        item.cantidad,
-        `$${item.precio.toLocaleString()}`,
-        `$${(item.precio * item.cantidad).toLocaleString()}`
-    ]);
+    const data = [];
+    
+    carrito.forEach(item => {
+        if (item.esCombo) {
+            data.push([
+                item.nombre + ' (COMBO)',
+                'Varios',
+                item.cantidad,
+                `$${item.precio.toLocaleString()}`,
+                `$${(item.precio * item.cantidad).toLocaleString()}`
+            ]);
+            
+            item.productosIncluidos.forEach(prod => {
+                data.push([
+                    `  • ${prod.nombre}`,
+                    prod.presentacion,
+                    prod.cantidad,
+                    '',
+                    ''
+                ]);
+            });
+        } else {
+            data.push([
+                item.nombre + (item.fragancia ? ` (${item.fragancia})` : ''),
+                item.presentacion.split(' - ')[0],
+                item.cantidad,
+                `$${item.precio.toLocaleString()}`,
+                `$${(item.precio * item.cantidad).toLocaleString()}`
+            ]);
+        }
+    });
     
     doc.autoTable({
         startY: 95,
@@ -1016,6 +1288,7 @@ function generateOrderConfirmation(codigoFactura) {
                 .discount { color: #dc3545; }
                 .notice { background-color: #fff3cd; padding: 10px; border-radius: 5px; margin: 10px 0; }
                 .footer { margin-top: 30px; font-size: 0.9em; color: #666; text-align: center; }
+                .combo-item { background-color: #f9f9f9; }
             </style>
         </head>
         <body>
@@ -1057,15 +1330,42 @@ function generateOrderConfirmation(codigoFactura) {
     
     // Agregar productos
     carrito.forEach(item => {
-        html += `
-            <tr>
-                <td>${item.nombre}${item.fragancia ? ` (${item.fragancia})` : ''}</td>
-                <td>${item.presentacion.split(' - ')[0]}</td>
-                <td>${item.cantidad}</td>
-                <td>$${item.precio.toLocaleString()}</td>
-                <td>$${(item.precio * item.cantidad).toLocaleString()}</td>
-            </tr>
-        `;
+        if (item.esCombo) {
+            html += `
+                <tr class="combo-item">
+                    <td colspan="5"><strong>${item.nombre} (COMBO ESPECIAL)</strong></td>
+                </tr>
+                <tr class="combo-item">
+                    <td colspan="5">
+                        <ul>
+                            ${item.productosIncluidos.map(prod => `
+                                <li>${prod.cantidad} x ${prod.nombre} (${prod.presentacion})</li>
+                            `).join('')}
+                        </ul>
+                    </td>
+                </tr>
+                <tr class="combo-item">
+                    <td colspan="3"></td>
+                    <td><strong>Precio Combo:</strong></td>
+                    <td>$${item.precio.toLocaleString()}</td>
+                </tr>
+                <tr class="combo-item">
+                    <td colspan="3"></td>
+                    <td><strong>Total:</strong></td>
+                    <td>$${(item.precio * item.cantidad).toLocaleString()}</td>
+                </tr>
+            `;
+        } else {
+            html += `
+                <tr>
+                    <td>${item.nombre}${item.fragancia ? ` (${item.fragancia})` : ''}</td>
+                    <td>${item.presentacion.split(' - ')[0]}</td>
+                    <td>${item.cantidad}</td>
+                    <td>$${item.precio.toLocaleString()}</td>
+                    <td>$${(item.precio * item.cantidad).toLocaleString()}</td>
+                </tr>
+            `;
+        }
     });
     
     // Agregar totales
@@ -1203,35 +1503,4 @@ customerForm.addEventListener('submit', async (e) => {
     }
     
     // Abrir WhatsApp
-    window.open(urlWhatsApp, '_blank');
-    
-    // Limpiar carrito
-    carrito = [];
-    updateCart();
-    checkoutModal.style.display = 'none';
-    customerForm.reset();
-    
-    // Mostrar confirmación
-    alert(`¡Pedido #${codigoFactura} enviado con éxito!\n\nSe ha abierto WhatsApp para que completes el proceso.\n\nTambién se ha enviado una copia a nuestro equipo.`);
-});
-
-categoryFilter.addEventListener('change', filterProducts);
-searchInput.addEventListener('input', filterProducts);
-
-window.addEventListener('click', (e) => {
-    if (e.target === cartModal) {
-        cartModal.style.display = 'none';
-    }
-    if (e.target === checkoutModal) {
-        checkoutModal.style.display = 'none';
-    }
-});
-
-// Inicializar la aplicación
-document.addEventListener('DOMContentLoaded', function() {
-    renderProducts(productos);
-    updateCart();
-    checkFirstVisit();
-    loadCustomerData();
-    checkPromotions();
-});
+   
