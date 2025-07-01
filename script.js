@@ -1039,32 +1039,21 @@ function generateWhatsAppMessage() {
     const firstPurchaseAmount = firstPurchaseDiscount * subtotal;
     let total = subtotal - discountAmount - firstPurchaseAmount;
     
-    // Crear mensaje
+    // Crear mensaje completo
     let mensaje = `*NUEVO PEDIDO ${empresa.nombre}*%0A%0A`;
     mensaje += `*Código de Factura:* ${codigoFactura}%0A`;
     mensaje += `*Tipo de Cliente:* ${tipoCliente === 'regular' ? 'Regular' : tipoCliente === 'distribuidor' ? 'Distribuidor/Mayorista' : 'Hotel/Comercio'}%0A`;
     mensaje += `*Fecha de Pedido:* ${fechaPedido}%0A`;
-    mensaje += `*Fecha de Entrega:* ${fechaEntregaFormateada}%0A`;
+    mensaje += `*Fecha de Entrega:* ${fechaEntregaFormateada}%0A%0A`;
     
-    // Añadir información de descuentos si aplican
-    if (discount > 0) {
-        mensaje += `*¡Descuento aplicado!* (${discount*100}% por comprar 3 productos o más)%0A`;
-    }
-    
-    if (firstPurchaseDiscount > 0) {
-        mensaje += `*¡Descuento por primera compra!* (5% adicional)%0A`;
-    } else if (tipoCliente !== 'regular') {
-        mensaje += `*Nota:* Precios especiales para ${tipoCliente === 'distribuidor' ? 'distribuidores' : 'hoteles/comercios'}. Será contactado por un asesor.%0A`;
-    }
-    
-    mensaje += `%0A*Datos del Cliente:*%0A`;
+    mensaje += `*Datos del Cliente:*%0A`;
     mensaje += `Nombre: ${nombre}%0A`;
     mensaje += `Dirección: ${direccion}%0A`;
-    mensaje += `Teléfono: ${telefono}%0A`;
-    mensaje += `%0A*Detalles del Pedido:*%0A`;
+    mensaje += `Teléfono: ${telefono}%0A%0A`;
+    
+    mensaje += `*Detalles del Pedido:*%0A`;
     mensaje += resumenPedido.replace(/\n/g, '%0A');
     
-    // Añadir resumen financiero
     mensaje += `%0A%0A*RESUMEN DE PAGO*%0A`;
     mensaje += `Subtotal: $${subtotal.toLocaleString()}%0A`;
     
@@ -1076,18 +1065,14 @@ function generateWhatsAppMessage() {
         mensaje += `Descuento primera compra (5%): -$${firstPurchaseAmount.toLocaleString()}%0A`;
     }
     
-    if (tipoCliente !== 'regular') {
-        mensaje += `*PRECIOS ESPECIALES*: Será contactado por un asesor para confirmar valores%0A`;
-    }
-    
     mensaje += `*TOTAL ${tipoCliente !== 'regular' ? 'REFERENCIAL' : 'A PAGAR'}: $${total.toLocaleString()}*%0A`;
     mensaje += `*Método de Pago:* ${metodoPago === 'efectivo' ? 'Efectivo contra entrega' : metodoPago === 'transferencia' ? 'Transferencia bancaria' : 'Tarjeta de crédito/débito'}%0A`;
     
     if (notas) {
-        mensaje += `%0A*Notas adicionales:*%0A${notas.replace(/\n/g, '%0A')}`;
+        mensaje += `%0A*Notas adicionales:*%0A${notas.replace(/\n/g, '%0A')}%0A`;
     }
     
-    mensaje += `%0A%0A*INFORMACIÓN DE LA EMPRESA*%0A`;
+    mensaje += `%0A*INFORMACIÓN DE LA EMPRESA*%0A`;
     mensaje += `Empresa: ${empresa.nombre}%0A`;
     mensaje += `NIT: ${empresa.nit}%0A`;
     mensaje += `Teléfono: ${empresa.telefono}%0A`;
@@ -1535,4 +1520,3 @@ document.addEventListener('DOMContentLoaded', function() {
     loadCustomerData();
     checkPromotions();
 });
-   
