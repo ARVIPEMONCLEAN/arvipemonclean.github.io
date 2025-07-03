@@ -415,25 +415,22 @@ const viewCombosBtn = document.getElementById('view-combos-btn');
 // Carrito de compras
 let carrito = [];
 
-// Función para formatear fecha correctamente (CORREGIDO)
-function formatDeliveryDate(dateString) {
-    if (!dateString) return '';
-    
-    // Parsear la fecha como fecha local, no UTC
-    const parts = dateString.split('-');
-    const year = parseInt(parts[0]);
-    const month = parseInt(parts[1]) - 1; // Los meses en JavaScript van de 0-11
-    const day = parseInt(parts[2]);
-    
-    // Crear fecha en zona horaria local
-    const date = new Date(year, month, day);
-    
-    // Formatear en español
-    return date.toLocaleDateString('es-ES', {
-        day: '2-digit',
-        month: '2-digit',
-        year: 'numeric'
-    });
+// Función para formatear fechas correctamente (formato DD/MM/YYYY)
+function formatDate(dateString) {
+    const date = new Date(dateString + 'T00:00:00'); // Agregar tiempo para evitar problemas de zona horaria
+    const day = date.getDate().toString().padStart(2, '0');
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const year = date.getFullYear();
+    return `${day}/${month}/${year}`;
+}
+
+// Función para formatear fecha actual
+function getCurrentDate() {
+    const now = new Date();
+    const day = now.getDate().toString().padStart(2, '0');
+    const month = (now.getMonth() + 1).toString().padStart(2, '0');
+    const year = now.getFullYear();
+    return `${day}/${month}/${year}`;
 }
 
 // Verificar si es la primera visita del cliente
@@ -696,7 +693,7 @@ function addToCart(e) {
             precio: combo.precio,
             cantidad,
             productosIncluidos: combo.productosIncluidos,
-            image: `images/${combo.nombre.toLowerCase().replace(/[^a-z0-9áéíóúüñ]/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '')}.jpg`
+            image: `images/${combo.nombre.toLowerCase().replace(/[^a-z0-9áéíóúüñ]/g, '-')}.jpg`
         });
     } else {
         const producto = productos.find(p => p.id === productId);
@@ -730,7 +727,7 @@ function addToCart(e) {
                 cantidad,
                 fragancia,
                 esCombo: false,
-                image: `images/${producto.nombre.toLowerCase().replace(/[^a-z0-9áéíóúüñ]/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '')}.jpg`
+                image: `images/${producto.nombre.toLowerCase().replace(/[^a-z0-9áéíóúüñ]/g, '-')}.jpg`
             });
         }
     }
@@ -1014,8 +1011,8 @@ function generateWhatsAppMessage() {
     const nombre = document.getElementById('customer-name').value;
     const direccion = document.getElementById('customer-address').value;
     const telefono = document.getElementById('customer-phone').value;
-    const fechaPedido = new Date().toLocaleDateString('es-ES');
-    const fechaEntrega = formatDeliveryDate(document.getElementById('delivery-date').value); // CORREGIDO
+    const fechaPedido = getCurrentDate();
+    const fechaEntrega = formatDate(document.getElementById('delivery-date').value);
     const notas = document.getElementById('customer-notes').value;
     const tipoCliente = document.getElementById('customer-type').value;
     const metodoPago = document.getElementById('payment-method').value;
@@ -1057,15 +1054,15 @@ function generateWhatsAppMessage() {
     let mensaje = `*NUEVO PEDIDO ${empresa.nombre}*%0A%0A`;
     mensaje += `*Código de Factura:* ${codigoFactura}%0A`;
     mensaje += `*Tipo de Cliente:* ${tipoCliente === 'regular' ? 'Regular' : tipoCliente === 'distribuidor' ? 'Distribuidor/Mayorista' : 'Hotel/Comercio'}%0A`;
-    mensaje += `*Fecha de Pedido:* ${fechaPedido}%0A`;
-    mensaje += `*Fecha de Entrega:* ${fechaEntrega}%0A%0A`;
+    mensaje += `*FECHA VENTA:* ${fechaPedido}%0A`;
+    mensaje += `*FECHA ENTREGA:* ${fechaEntrega}%0A%0A`;
     
-    mensaje += `*Datos del Cliente:*%0A`;
+    mensaje += `*DATOS DEL CLIENTE:*%0A`;
     mensaje += `Nombre: ${nombre}%0A`;
     mensaje += `Dirección: ${direccion}%0A`;
     mensaje += `Teléfono: ${telefono}%0A%0A`;
     
-    mensaje += `*Detalles del Pedido:*%0A`;
+    mensaje += `*DETALLES DEL PEDIDO:*%0A`;
     mensaje += resumenPedido.replace(/\n/g, '%0A');
     
     mensaje += `%0A%0A*RESUMEN DE PAGO*%0A`;
@@ -1091,6 +1088,7 @@ function generateWhatsAppMessage() {
     mensaje += `NIT: ${empresa.nit}%0A`;
     mensaje += `Teléfono: ${empresa.telefono}%0A`;
     mensaje += `Correo: ${empresa.correo}%0A`;
+    mensaje += `Dirección: ${empresa.direccion}%0A`;
     mensaje += `"${empresa.eslogan}"`;
     
     return { mensaje, codigoFactura };
@@ -1105,8 +1103,8 @@ function generateInvoicePDF() {
     const telefono = document.getElementById('customer-phone').value;
     const tipoCliente = document.getElementById('customer-type').value;
     const metodoPago = document.getElementById('payment-method').value;
-    const fechaPedido = new Date().toLocaleDateString('es-ES');
-    const fechaEntrega = formatDeliveryDate(document.getElementById('delivery-date').value); // CORREGIDO
+    const fechaPedido = getCurrentDate();
+    const fechaEntrega = formatDate(document.getElementById('delivery-date').value);
     const notas = document.getElementById('customer-notes').value;
     const codigoFactura = 'ARV-' + Math.floor(100000 + Math.random() * 900000);
     
@@ -1138,8 +1136,8 @@ function generateInvoicePDF() {
     doc.setFontSize(10);
     doc.setTextColor(0);
     doc.text(`No. Factura: ${codigoFactura}`, 14, 55);
-    doc.text(`Fecha Pedido: ${fechaPedido}`, 14, 60);
-    doc.text(`Fecha Entrega: ${fechaEntrega}`, 14, 65);
+    doc.text(`FECHA VENTA: ${fechaPedido}`, 14, 60);
+    doc.text(`FECHA ENTREGA: ${fechaEntrega}`, 14, 65);
     doc.text(`Cliente: ${nombre}`, 14, 70);
     doc.text(`Dirección: ${direccion}`, 14, 75);
     doc.text(`Teléfono: ${telefono}`, 14, 80);
@@ -1252,8 +1250,8 @@ function generateOrderConfirmation(codigoFactura) {
     const nombre = document.getElementById('customer-name').value;
     const direccion = document.getElementById('customer-address').value;
     const telefono = document.getElementById('customer-phone').value;
-    const fechaPedido = new Date().toLocaleDateString('es-ES');
-    const fechaEntrega = formatDeliveryDate(document.getElementById('delivery-date').value); // CORREGIDO
+    const fechaPedido = getCurrentDate();
+    const fechaEntrega = formatDate(document.getElementById('delivery-date').value);
     const tipoCliente = document.getElementById('customer-type').value;
     const metodoPago = document.getElementById('payment-method').value;
     const notas = document.getElementById('customer-notes').value;
@@ -1302,8 +1300,8 @@ function generateOrderConfirmation(codigoFactura) {
             </div>
             
             <h2>Confirmación de Pedido #${codigoFactura}</h2>
-            <p><strong>Fecha de Pedido:</strong> ${fechaPedido}</p>
-            <p><strong>Fecha de Entrega:</strong> ${fechaEntrega}</p>
+            <p><strong>FECHA VENTA:</strong> ${fechaPedido}</p>
+            <p><strong>FECHA ENTREGA:</strong> ${fechaEntrega}</p>
             <p><strong>Tipo de Cliente:</strong> ${tipoCliente === 'regular' ? 'Regular' : tipoCliente === 'distribuidor' ? 'Distribuidor/Mayorista' : 'Hotel/Comercio'}</p>
             
             <h2>Datos del Cliente</h2>
