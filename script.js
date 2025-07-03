@@ -223,7 +223,7 @@ const productos = [
         categoria: ["automotriz"],
         presentaciones: [
             { tamaño: "1 litro", precio: 24000, codigo: "1L" },
-            { tamaño: "Galón 4 litros", precio: 62000, codigo: "4L" },
+            { tamaño: "Galón 4 litros", prix: 62000, codigo: "4L" },
             { tamaño: "Garrafa 20 litros", precio: 258000, codigo: "20L" }
         ],
         tieneFragancia: false,
@@ -415,6 +415,47 @@ const viewCombosBtn = document.getElementById('view-combos-btn');
 // Carrito de compras
 let carrito = [];
 
+// Función para formatear fechas sin problemas de zona horaria
+function formatDateForPDF(dateString) {
+    if (!dateString) return '';
+    
+    // Dividir la fecha en partes (formato YYYY-MM-DD)
+    const parts = dateString.split('-');
+    if (parts.length !== 3) return dateString;
+    
+    // Crear fecha en formato local sin ajustes de zona horaria
+    const localDate = new Date(parts[0], parts[1] - 1, parts[2]);
+    
+    return localDate.toLocaleDateString('es-ES', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric'
+    });
+}
+
+// Función para obtener ruta de imagen de producto
+function getProductImagePath(productName) {
+    const imageName = productName.toLowerCase()
+        .normalize("NFD").replace(/[\u0300-\u036f]/g, "") // Elimina acentos
+        .replace(/[^a-z0-9]/g, '-')
+        .replace(/-+/g, '-')
+        .replace(/^-|-$/g, '');
+    
+    // Ruta relativa desde la raíz
+    return `images/products/${imageName}.jpg?v=1.0`;
+}
+
+// Función para obtener ruta de imagen de combo
+function getComboImagePath(comboName) {
+    const imageName = comboName.toLowerCase()
+        .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+        .replace(/[^a-z0-9]/g, '-')
+        .replace(/-+/g, '-')
+        .replace(/^-|-$/g, '');
+    
+    return `images/combos/${imageName}.jpg?v=1.0`;
+}
+
 // Verificar si es la primera visita del cliente
 function checkFirstVisit() {
     const firstVisit = localStorage.getItem('firstVisit');
@@ -539,14 +580,9 @@ function renderProducts(products) {
             // Renderizar combo
             productCard.className = 'product-card combo-card';
             
-            const imageName = producto.nombre.toLowerCase()
-                .replace(/[^a-z0-9áéíóúüñ]/g, '-')
-                .replace(/-+/g, '-')
-                .replace(/^-|-$/g, '');
-            
             productCard.innerHTML = `
                 <div class="product-image">
-                    <img src="images/${imageName}.jpg" alt="${producto.nombre}" 
+                    <img src="${getComboImagePath(producto.nombre)}" alt="${producto.nombre}" 
                          onerror="this.onerror=null;this.src='images/default-combo.jpg';this.alt='Imagen no disponible'">
                     <div class="combo-badge">COMBO</div>
                 </div>
@@ -584,16 +620,10 @@ function renderProducts(products) {
             // Renderizar producto normal
             productCard.className = 'product-card';
             
-            // Generar nombre de imagen compatible
-            const imageName = producto.nombre.toLowerCase()
-                .replace(/[^a-z0-9áéíóúüñ]/g, '-')
-                .replace(/-+/g, '-')
-                .replace(/^-|-$/g, '');
-            
             // Imagen del producto con manejo de errores
             const imageHTML = `
                 <div class="product-image">
-                    <img src="images/${imageName}.jpg" alt="${producto.nombre}" 
+                    <img src="${getProductImagePath(producto.nombre)}" alt="${producto.nombre}" 
                          onerror="this.onerror=null;this.src='images/default-product.jpg';this.alt='Imagen no disponible'">
                 </div>
             `;
@@ -675,7 +705,7 @@ function addToCart(e) {
             precio: combo.precio,
             cantidad,
             productosIncluidos: combo.productosIncluidos,
-            image: `images/${combo.nombre.toLowerCase().replace(/[^a-z0-9áéíóúüñ]/g, '-')}.jpg`
+            image: getComboImagePath(combo.nombre)
         });
     } else {
         const producto = productos.find(p => p.id === productId);
@@ -709,7 +739,7 @@ function addToCart(e) {
                 cantidad,
                 fragancia,
                 esCombo: false,
-                image: `images/${producto.nombre.toLowerCase().replace(/[^a-z0-9áéíóúüñ]/g, '-')}.jpg`
+                image: getProductImagePath(producto.nombre)
             });
         }
     }
@@ -1000,11 +1030,7 @@ function generateWhatsAppMessage() {
     const metodoPago = document.getElementById('payment-method').value;
     
     // Formatear fecha de entrega
-    const fechaEntregaFormateada = new Date(fechaEntrega).toLocaleDateString('es-ES', {
-        day: '2-digit',
-        month: '2-digit',
-        year: 'numeric'
-    });
+    const fechaEntregaFormateada = formatDateForPDF(fechaEntrega);
     
     // Generar código de factura
     const codigoFactura = 'ARV-' + Math.floor(100000 + Math.random() * 900000);
@@ -1092,7 +1118,7 @@ function generateInvoicePDF() {
     const tipoCliente = document.getElementById('customer-type').value;
     const metodoPago = document.getElementById('payment-method').value;
     const fechaPedido = new Date().toLocaleDateString('es-ES');
-    const fechaEntrega = new Date(document.getElementById('delivery-date').value).toLocaleDateString('es-ES');
+    const fechaEntrega = formatDateForPDF(document.getElementById('delivery-date').value);
     const notas = document.getElementById('customer-notes').value;
     const codigoFactura = 'ARV-' + Math.floor(100000 + Math.random() * 900000);
     
@@ -1239,7 +1265,7 @@ function generateOrderConfirmation(codigoFactura) {
     const direccion = document.getElementById('customer-address').value;
     const telefono = document.getElementById('customer-phone').value;
     const fechaPedido = new Date().toLocaleDateString('es-ES');
-    const fechaEntrega = new Date(document.getElementById('delivery-date').value).toLocaleDateString('es-ES');
+    const fechaEntrega = formatDateForPDF(document.getElementById('delivery-date').value);
     const tipoCliente = document.getElementById('customer-type').value;
     const metodoPago = document.getElementById('payment-method').value;
     const notas = document.getElementById('customer-notes').value;
@@ -1442,6 +1468,17 @@ customerForm.addEventListener('submit', async (e) => {
             field.style.borderColor = '';
         }
     });
+    
+    // Validar fecha de entrega
+    const deliveryDate = new Date(document.getElementById('delivery-date').value);
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    
+    if (deliveryDate < today) {
+        alert('La fecha de entrega no puede ser anterior a hoy');
+        document.getElementById('delivery-date').style.borderColor = 'red';
+        isValid = false;
+    }
     
     if (!isValid) {
         alert('Por favor complete todos los campos requeridos marcados en rojo.');
