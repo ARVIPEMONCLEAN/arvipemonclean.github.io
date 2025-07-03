@@ -415,6 +415,27 @@ const viewCombosBtn = document.getElementById('view-combos-btn');
 // Carrito de compras
 let carrito = [];
 
+// Función para formatear fecha correctamente (CORREGIDO)
+function formatDeliveryDate(dateString) {
+    if (!dateString) return '';
+    
+    // Parsear la fecha como fecha local, no UTC
+    const parts = dateString.split('-');
+    const year = parseInt(parts[0]);
+    const month = parseInt(parts[1]) - 1; // Los meses en JavaScript van de 0-11
+    const day = parseInt(parts[2]);
+    
+    // Crear fecha en zona horaria local
+    const date = new Date(year, month, day);
+    
+    // Formatear en español
+    return date.toLocaleDateString('es-ES', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric'
+    });
+}
+
 // Verificar si es la primera visita del cliente
 function checkFirstVisit() {
     const firstVisit = localStorage.getItem('firstVisit');
@@ -675,7 +696,7 @@ function addToCart(e) {
             precio: combo.precio,
             cantidad,
             productosIncluidos: combo.productosIncluidos,
-            image: `images/${combo.nombre.toLowerCase().replace(/[^a-z0-9áéíóúüñ]/g, '-')}.jpg`
+            image: `images/${combo.nombre.toLowerCase().replace(/[^a-z0-9áéíóúüñ]/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '')}.jpg`
         });
     } else {
         const producto = productos.find(p => p.id === productId);
@@ -709,7 +730,7 @@ function addToCart(e) {
                 cantidad,
                 fragancia,
                 esCombo: false,
-                image: `images/${producto.nombre.toLowerCase().replace(/[^a-z0-9áéíóúüñ]/g, '-')}.jpg`
+                image: `images/${producto.nombre.toLowerCase().replace(/[^a-z0-9áéíóúüñ]/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '')}.jpg`
             });
         }
     }
@@ -994,17 +1015,10 @@ function generateWhatsAppMessage() {
     const direccion = document.getElementById('customer-address').value;
     const telefono = document.getElementById('customer-phone').value;
     const fechaPedido = new Date().toLocaleDateString('es-ES');
-    const fechaEntrega = document.getElementById('delivery-date').value;
+    const fechaEntrega = formatDeliveryDate(document.getElementById('delivery-date').value); // CORREGIDO
     const notas = document.getElementById('customer-notes').value;
     const tipoCliente = document.getElementById('customer-type').value;
     const metodoPago = document.getElementById('payment-method').value;
-    
-    // Formatear fecha de entrega
-    const fechaEntregaFormateada = new Date(fechaEntrega).toLocaleDateString('es-ES', {
-        day: '2-digit',
-        month: '2-digit',
-        year: 'numeric'
-    });
     
     // Generar código de factura
     const codigoFactura = 'ARV-' + Math.floor(100000 + Math.random() * 900000);
@@ -1044,7 +1058,7 @@ function generateWhatsAppMessage() {
     mensaje += `*Código de Factura:* ${codigoFactura}%0A`;
     mensaje += `*Tipo de Cliente:* ${tipoCliente === 'regular' ? 'Regular' : tipoCliente === 'distribuidor' ? 'Distribuidor/Mayorista' : 'Hotel/Comercio'}%0A`;
     mensaje += `*Fecha de Pedido:* ${fechaPedido}%0A`;
-    mensaje += `*Fecha de Entrega:* ${fechaEntregaFormateada}%0A%0A`;
+    mensaje += `*Fecha de Entrega:* ${fechaEntrega}%0A%0A`;
     
     mensaje += `*Datos del Cliente:*%0A`;
     mensaje += `Nombre: ${nombre}%0A`;
@@ -1092,7 +1106,7 @@ function generateInvoicePDF() {
     const tipoCliente = document.getElementById('customer-type').value;
     const metodoPago = document.getElementById('payment-method').value;
     const fechaPedido = new Date().toLocaleDateString('es-ES');
-    const fechaEntrega = document.getElementById('delivery-date').value; // Obtener directamente el valor del input
+    const fechaEntrega = formatDeliveryDate(document.getElementById('delivery-date').value); // CORREGIDO
     const notas = document.getElementById('customer-notes').value;
     const codigoFactura = 'ARV-' + Math.floor(100000 + Math.random() * 900000);
     
@@ -1125,7 +1139,7 @@ function generateInvoicePDF() {
     doc.setTextColor(0);
     doc.text(`No. Factura: ${codigoFactura}`, 14, 55);
     doc.text(`Fecha Pedido: ${fechaPedido}`, 14, 60);
-    doc.text(`Fecha Entrega: ${fechaEntrega}`, 14, 65); // Usar directamente el valor del input sin conversión
+    doc.text(`Fecha Entrega: ${fechaEntrega}`, 14, 65);
     doc.text(`Cliente: ${nombre}`, 14, 70);
     doc.text(`Dirección: ${direccion}`, 14, 75);
     doc.text(`Teléfono: ${telefono}`, 14, 80);
@@ -1239,7 +1253,7 @@ function generateOrderConfirmation(codigoFactura) {
     const direccion = document.getElementById('customer-address').value;
     const telefono = document.getElementById('customer-phone').value;
     const fechaPedido = new Date().toLocaleDateString('es-ES');
-    const fechaEntrega = document.getElementById('delivery-date').value; // Usar directamente el valor del input
+    const fechaEntrega = formatDeliveryDate(document.getElementById('delivery-date').value); // CORREGIDO
     const tipoCliente = document.getElementById('customer-type').value;
     const metodoPago = document.getElementById('payment-method').value;
     const notas = document.getElementById('customer-notes').value;
