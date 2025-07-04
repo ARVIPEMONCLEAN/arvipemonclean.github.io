@@ -5,6 +5,7 @@ const productos = [
         nombre: "DESENGRASANTE INDUSTRIAL PH ÁCIDO",
         descripcion: "Desengrasante multipropósito para uso doméstico, industrial y automotriz. Producto muy fuerte, utilice guantes de caucho y tapabocas.",
         categoria: ["domestico", "industrial", "automotriz"],
+        imagen: "desengrasante-industrial-ph-acido.jpeg",
         presentaciones: [
             { tamaño: "Galón 4 litros", precio: 25000, codigo: "4L" },
             { tamaño: "Garrafa de 20 litros", precio: 95700, codigo: "20L" }
@@ -18,6 +19,7 @@ const productos = [
         nombre: "JABÓN LÍQUIDO MANOS",
         descripcion: "PH NEUTRO. Elimina de manera efectiva los gérmenes protegiendo las manos de la contaminación.",
         categoria: ["domestico"],
+        imagen: "jabon-liquido-manos.jpeg",
         presentaciones: [
             { tamaño: "Galón 4 litros", precio: 28000, codigo: "4L" },
             { tamaño: "Garrafa de 20 litros", precio: 92000, codigo: "20L" }
@@ -31,6 +33,7 @@ const productos = [
         nombre: "JABÓN PREMIUM",
         descripcion: "PH 8.5, amigable con la piel. Apto para ropa, pisos, madera, metales, plásticos, vidrio.",
         categoria: ["domestico"],
+        imagen: "jabon-premium.jpeg",
         presentaciones: [
             { tamaño: "Galón 4 litros", precio: 27000, codigo: "4L" },
             { tamaño: "Garrafa de 20 litros", precio: 92000, codigo: "20L" }
@@ -44,6 +47,7 @@ const productos = [
         nombre: "JABÓN LAVA LOZAS LÍQUIDO",
         descripcion: "Especial para lavado de utensilios de cocina. Elimina fácilmente todo tipo de grasas y suciedad.",
         categoria: ["domestico"],
+        imagen: "jabon-lava-lozas.jpeg",
         presentaciones: [
             { tamaño: "Galón 4 litros", precio: 30000, codigo: "4L" },
             { tamaño: "Garrafa 20 litros", precio: 100000, codigo: "20L" }
@@ -57,6 +61,7 @@ const productos = [
         nombre: "LIMPIADOR AROMATIZANTE PARA PISOS",
         descripcion: "PH Ácido. Fragancia concentrada que inspira limpieza. Apto para cerámica, baldosas, cemento.",
         categoria: ["domestico"],
+        imagen: "limpiador-aromatizante-pisos.jpeg",
         presentaciones: [
             { tamaño: "Galón 4 litros", precio: 23000, codigo: "4L" },
             { tamaño: "Garrafa 20 litros", precio: 65000, codigo: "20L" }
@@ -70,6 +75,7 @@ const productos = [
         nombre: "JABÓN PODER DEL REY",
         descripcion: "PH 8. Contiene bicarbonato y desengrasante concentrados. Apto para ropa muy sucia, baños.",
         categoria: ["domestico"],
+        imagen: "jabon-poder-del-rey.jpeg",
         presentaciones: [
             { tamaño: "Galón 4 litros", precio: 22500, codigo: "4L" },
             { tamaño: "Garrafa 20 litros", precio: 85000, codigo: "20L" }
@@ -83,6 +89,7 @@ const productos = [
         nombre: "JABÓN MULTIPROPÓSITO",
         descripcion: "PH 7, amigable con la piel. Apto para manos, loza, ropa, pisos, paredes.",
         categoria: ["domestico"],
+        imagen: "jabon-multiproposito.jpeg",
         presentaciones: [
             { tamaño: "Galón 4 litros", precio: 22500, codigo: "4L" },
             { tamaño: "Garrafa 20 litros", precio: 85000, codigo: "20L" }
@@ -96,6 +103,7 @@ const productos = [
         nombre: "BLANQUEADOR 5.7%",
         descripcion: "Cloro blanqueador y desinfectante de alto rendimiento. Para ropa blanca, pisos, paredes.",
         categoria: ["domestico", "industrial"],
+        imagen: "blanqueador.jpeg",
         presentaciones: [
             { tamaño: "Galón 4 litros", precio: 15500, codigo: "4L" },
             { tamaño: "Garrafa 20 litros", precio: 38000, codigo: "20L" }
@@ -109,6 +117,7 @@ const productos = [
         nombre: "SUAVIZANTE SIN PARABENOS",
         descripcion: "Para ropa y telas. Disponible en aromas floral y talco.",
         categoria: ["domestico"],
+        imagen: "suavizante.jpeg",
         presentaciones: [
             { tamaño: "Galón 4 litros (Floral)", precio: 25000, codigo: "4LF" },
             { tamaño: "Galón 4 litros (Talco)", precio: 25000, codigo: "4LT" },
@@ -124,6 +133,7 @@ const productos = [
         nombre: "SILICONA MULTIPROPÓSITO",
         descripcion: "Producto puro sin glicerina ni tensoactivos. No corrosivo. Para dar brillo y protección.",
         categoria: ["domestico", "automotriz"],
+        imagen: "silicona-multiproposito.jpeg",
         presentaciones: [
             { tamaño: "500 ml", precio: 15600, codigo: "500ML" },
             { tamaño: "1 litro", precio: 20000, codigo: "1L" },
@@ -139,6 +149,7 @@ const productos = [
         nombre: "AMBIENTADOR MULTIPROPÓSITO",
         descripcion: "Alta concentración de fragancia. No nocivo para la salud.",
         categoria: ["domestico", "automotriz"],
+        imagen: "ambientador.jpeg",
         presentaciones: [
             { tamaño: "500 ml", precio: 17000, codigo: "500ML" },
             { tamaño: "1 litro", precio: 24000, codigo: "1L" },
@@ -153,6 +164,7 @@ const productos = [
         nombre: "SHAMPOO ESPUMA JACUZZI",
         descripcion: "PH neutro, amigable con la piel. No contiene glicerina ni formol.",
         categoria: ["domestico"],
+        imagen: "shampoo-jacuzzi.jpeg",
         presentaciones: [
             { tamaño: "Galón 4 litros", precio: 37000, codigo: "4L" },
             { tamaño: "Garrafa 20 litros", precio: 155000, codigo: "20L" }
@@ -166,6 +178,7 @@ const productos = [
         nombre: "CERA MULTIPROPÓSITO",
         descripcion: "Para encerado y ultra brillado. Mezclar con silicona para protección UV.",
         categoria: ["domestico", "automotriz"],
+        imagen: "cera-multiproposito.jpeg",
         presentaciones: [
             { tamaño: "500 ml", precio: 8000, codigo: "500ML" },
             { tamaño: "1 litro", precio: 14000, codigo: "1L" },
@@ -181,6 +194,7 @@ const productos = [
         nombre: "JABÓN ESPUMA ACTIVA LAVA AUTOS",
         descripcion: "PH 4, especial para lavado de automotores. Crea capa protectora con filtro UV.",
         categoria: ["automotriz"],
+        imagen: "jabon-lava-autos.jpeg",
         presentaciones: [
             { tamaño: "Galón 4 litros", precio: 25000, codigo: "4L" },
             { tamaño: "Garrafa 20 litros", precio: 74000, codigo: "20L" }
@@ -194,6 +208,7 @@ const productos = [
         nombre: "DESENGRASANTE INDUSTRIAL SEMIESPESO PH ALCALINO",
         descripcion: "Especial para lavado de automotores en establecimientos especializados.",
         categoria: ["industrial", "automotriz"],
+        imagen: "desengrasante-alcalino.jpeg",
         presentaciones: [
             { tamaño: "Galón 4 litros", precio: 25000, codigo: "4L" },
             { tamaño: "Garrafa 20 litros", precio: 95700, codigo: "20L" }
@@ -207,6 +222,7 @@ const productos = [
         nombre: "ABRILLANTADOR FORMULA ULTRA",
         descripcion: "Especial para recubrimiento y protección de llantas y plásticos. Protege por 3 meses.",
         categoria: ["automotriz"],
+        imagen: "abrillantador.jpeg",
         presentaciones: [
             { tamaño: "1 kilo", precio: 19000, codigo: "1KG" },
             { tamaño: "Galón 4 kilos", precio: 60000, codigo: "4KG" },
@@ -221,6 +237,7 @@ const productos = [
         nombre: "LAVADO EN SECO",
         descripcion: "Para limpieza sin agua. Con efecto ceroso para brillo.",
         categoria: ["automotriz"],
+        imagen: "lavado-en-seco.jpeg",
         presentaciones: [
             { tamaño: "1 litro", precio: 24000, codigo: "1L" },
             { tamaño: "Galón 4 litros", precio: 62000, codigo: "4L" },
@@ -235,6 +252,7 @@ const productos = [
         nombre: "OXÍGENO ACTIVO",
         descripcion: "Altamente alcalino. Anti-bacterial, alguicida, repele bichos rastreros.",
         categoria: ["domestico"],
+        imagen: "oxigeno-activo.jpeg",
         presentaciones: [
             { tamaño: "Galón 4 litros", precio: 25000, codigo: "4L" },
             { tamaño: "Garrafa 20 litros", precio: 95500, codigo: "20L" }
@@ -248,6 +266,7 @@ const productos = [
         nombre: "DESMANCHADOR",
         descripcion: "Altamente alcalino. Para tela, tapizados, plásticos, madera, metal, vidrio.",
         categoria: ["domestico", "automotriz"],
+        imagen: "desmanchador.jpeg",
         presentaciones: [
             { tamaño: "1 litro", precio: 18000, codigo: "1L" },
             { tamaño: "Galón 4 litros", precio: 37500, codigo: "4L" },
@@ -273,6 +292,7 @@ const combos = [
         nombre: "COMBO HOGAR BÁSICO",
         descripcion: "Paquete esencial para limpieza del hogar con productos de alta calidad.",
         categoria: ["combo", "domestico"],
+        imagen: "combo-hogar-basico.jpeg",
         precio: 30000,
         productosIncluidos: [
             { nombre: "JABÓN PREMIUM", presentacion: "Galón 4 litros", cantidad: 1 },
@@ -286,6 +306,7 @@ const combos = [
         nombre: "COMBO INDUSTRIAL COMPLETO",
         descripcion: "Paquete completo para limpieza industrial y desinfección.",
         categoria: ["combo", "industrial"],
+        imagen: "combo-industrial.jpeg",
         precio: 175000,
         productosIncluidos: [
             { nombre: "JABÓN PREMIUM", presentacion: "Garrafa de 20 litros", cantidad: 1 },
@@ -300,6 +321,7 @@ const combos = [
         nombre: "COMBO HOGAR AVANZADO",
         descripcion: "Paquete avanzado para limpieza profunda en hogares.",
         categoria: ["combo", "domestico"],
+        imagen: "combo-hogar-avanzado.jpeg",
         precio: 105300,
         productosIncluidos: [
             { nombre: "JABÓN PREMIUM", presentacion: "Garrafa de 20 litros", cantidad: 1 },
@@ -313,6 +335,7 @@ const combos = [
         nombre: "COMBO LIMPIEZA PROFUNDA",
         descripcion: "Paquete para limpieza profunda y desinfección intensiva.",
         categoria: ["combo", "domestico", "industrial"],
+        imagen: "combo-limpieza-profunda.jpeg",
         precio: 185000,
         productosIncluidos: [
             { nombre: "JABÓN PREMIUM", presentacion: "Garrafa de 20 litros", cantidad: 2 },
@@ -326,6 +349,7 @@ const combos = [
         nombre: "COMBO HOGAR PREMIUM",
         descripcion: "Paquete premium para cuidado de ropa y limpieza del hogar.",
         categoria: ["combo", "domestico"],
+        imagen: "combo-hogar-premium.jpeg",
         precio: 110000,
         productosIncluidos: [
             { nombre: "JABÓN PREMIUM", presentacion: "Garrafa de 20 litros", cantidad: 1 },
@@ -340,6 +364,7 @@ const combos = [
         nombre: "COMBO INDUSTRIAL SUPERIOR",
         descripcion: "Paquete completo para necesidades industriales de limpieza.",
         categoria: ["combo", "industrial"],
+        imagen: "combo-industrial-superior.jpeg",
         precio: 250000,
         productosIncluidos: [
             { nombre: "JABÓN PREMIUM", presentacion: "Garrafa de 20 litros", cantidad: 1 },
@@ -355,6 +380,7 @@ const combos = [
         nombre: "COMBO PODER DEL REY",
         descripcion: "Paquete especial con el poderoso Jabón Poder del Rey y complementos.",
         categoria: ["combo", "domestico"],
+        imagen: "combo-poder-del-rey.jpeg",
         precio: 100000,
         productosIncluidos: [
             { nombre: "JABÓN PODER DEL REY", presentacion: "Garrafa de 20 litros", cantidad: 1 },
@@ -369,6 +395,7 @@ const combos = [
         nombre: "COMBO LIMPIEZA INTEGRAL",
         descripcion: "Paquete integral para limpieza completa de cualquier espacio.",
         categoria: ["combo", "domestico", "industrial"],
+        imagen: "combo-limpieza-integral.jpeg",
         precio: 170000,
         productosIncluidos: [
             { nombre: "JABÓN PODER DEL REY", presentacion: "Garrafa de 20 litros", cantidad: 1 },
@@ -414,6 +441,16 @@ const viewCombosBtn = document.getElementById('view-combos-btn');
 
 // Carrito de compras
 let carrito = [];
+
+// Función para obtener la ruta correcta de la imagen
+function getImagePath(imageName) {
+    // Si ya tiene la carpeta en el nombre, devolverlo tal como está
+    if (imageName.includes('/')) {
+        return imageName;
+    }
+    // Si no, agregar la carpeta de imágenes
+    return `imagenes/${imageName}`;
+}
 
 // Función para formatear fechas correctamente (formato DD/MM/YYYY)
 function formatDate(dateString) {
@@ -547,26 +584,17 @@ function renderProducts(products) {
         return;
     }
     
-    // Combinar productos normales y combos para renderizar
-    const allProducts = [...products];
-    
-    allProducts.forEach(producto => {
+    products.forEach(producto => {
         const productCard = document.createElement('div');
         
         if (producto.esCombo) {
             // Renderizar combo
             productCard.className = 'product-card combo-card';
             
-            const imageName = producto.nombre.toLowerCase()
-                .replace(/[^a-z0-9áéíóúüñ]/g, '-')
-                .replace(/-+/g, '-')
-                .replace(/^-|-$/g, '');
-            
             productCard.innerHTML = `
                 <div class="product-image">
-                    <img src="images/${imageName}.jpg" alt="${producto.nombre}" 
-                         onerror="this.onerror=null;this.src='images/default-combo.jpg';this.alt='Imagen no disponible'">
-                    <div class="combo-badge">COMBO</div>
+                    <div class="combo-badge"><i class="fas fa-boxes"></i> COMBO</div>
+                    <img src="${getImagePath(producto.imagen)}" alt="${producto.nombre}" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%)'; this.parentElement.innerHTML='<div style=\\"display: flex; align-items: center; justify-content: center; height: 100%; color: #6b7280;\\"><i class=\\"fas fa-boxes\\" style=\\"font-size: 3rem;\\"></i></div>';">
                 </div>
                 <div class="product-info">
                     <h3 class="product-title">${producto.nombre}</h3>
@@ -602,39 +630,10 @@ function renderProducts(products) {
             // Renderizar producto normal
             productCard.className = 'product-card';
             
-            // Generar nombre de imagen compatible
-            const imageName = producto.nombre.toLowerCase()
-                .replace(/[^a-z0-9áéíóúüñ]/g, '-')
-                .replace(/-+/g, '-')
-                .replace(/^-|-$/g, '');
-            
-            // Imagen del producto con manejo de errores
-            const imageHTML = `
-                <div class="product-image">
-                    <img src="images/${imageName}.jpg" alt="${producto.nombre}" 
-                         onerror="this.onerror=null;this.src='images/default-product.jpg';this.alt='Imagen no disponible'">
-                </div>
-            `;
-            
-            // Opciones de presentación
-            const optionsHTML = producto.presentaciones.map(pres => `
-                <option value="${pres.codigo}" data-precio="${pres.precio}">
-                    ${pres.tamaño} - $${pres.precio.toLocaleString()}
-                </option>
-            `).join('');
-            
-            // Opciones de fragancia (si aplica)
-            const fragranceHTML = producto.tieneFragancia ? `
-                <div class="option-group">
-                    <label><i class="fas fa-spray-can"></i> Fragancia:</label>
-                    <select class="product-fragrance">
-                        ${fragancias.map(frag => `<option>${frag}</option>`).join('')}
-                    </select>
-                </div>
-            ` : '';
-            
             productCard.innerHTML = `
-                ${imageHTML}
+                <div class="product-image">
+                    <img src="${getImagePath(producto.imagen)}" alt="${producto.nombre}" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%)'; this.parentElement.innerHTML='<div style=\\"display: flex; align-items: center; justify-content: center; height: 100%; color: #6b7280;\\"><i class=\\"fas fa-spray-can\\" style=\\"font-size: 3rem;\\"></i></div>';">
+                </div>
                 <div class="product-info">
                     <h3 class="product-title">${producto.nombre}</h3>
                     <p class="product-description">${producto.descripcion}</p>
@@ -648,11 +647,22 @@ function renderProducts(products) {
                         <div class="option-group">
                             <label><i class="fas fa-box-open"></i> Presentación:</label>
                             <select class="product-presentation">
-                                ${optionsHTML}
+                                ${producto.presentaciones.map(pres => `
+                                    <option value="${pres.codigo}" data-precio="${pres.precio}">
+                                        ${pres.tamaño} - $${pres.precio.toLocaleString()}
+                                    </option>
+                                `).join('')}
                             </select>
                         </div>
                         
-                        ${fragranceHTML}
+                        ${producto.tieneFragancia ? `
+                        <div class="option-group">
+                            <label><i class="fas fa-spray-can"></i> Fragancia:</label>
+                            <select class="product-fragrance">
+                                ${fragancias.map(frag => `<option>${frag}</option>`).join('')}
+                            </select>
+                        </div>
+                        ` : ''}
                         
                         <div class="option-group">
                             <label><i class="fas fa-calculator"></i> Cantidad:</label>
@@ -692,8 +702,7 @@ function addToCart(e) {
             esCombo: true,
             precio: combo.precio,
             cantidad,
-            productosIncluidos: combo.productosIncluidos,
-            image: `images/${combo.nombre.toLowerCase().replace(/[^a-z0-9áéíóúüñ]/g, '-')}.jpg`
+            productosIncluidos: combo.productosIncluidos
         });
     } else {
         const producto = productos.find(p => p.id === productId);
@@ -726,8 +735,7 @@ function addToCart(e) {
                 precio,
                 cantidad,
                 fragancia,
-                esCombo: false,
-                image: `images/${producto.nombre.toLowerCase().replace(/[^a-z0-9áéíóúüñ]/g, '-')}.jpg`
+                esCombo: false
             });
         }
     }
@@ -769,7 +777,13 @@ function updateCart() {
 
 function renderCartItems() {
     if (carrito.length === 0) {
-        cartItems.innerHTML = '<p class="empty-cart">Tu carrito está vacío</p>';
+        cartItems.innerHTML = `
+            <div class="empty-cart">
+                <i class="fas fa-shopping-cart"></i>
+                <p>Tu carrito está vacío</p>
+                <p class="empty-cart-subtitle">Agrega productos para continuar</p>
+            </div>
+        `;
         return;
     }
     
@@ -809,7 +823,7 @@ function renderCartItems() {
         noticeBanner.className = 'distributor-notice';
         noticeBanner.innerHTML = `
             <i class="fas fa-info-circle"></i> 
-            ${tipoCliente === 'distribuidor' ? 'DISTRIBUIDOR/MAYORISTA' : 'HOTEL/COMERCIO'}: Precios especiales. Un asesor se contactará para confirmar su pedido.
+            ${tipoCliente === 'distributor' ? 'DISTRIBUIDOR/MAYORISTA' : 'HOTEL/COMERCIO'}: Precios especiales. Un asesor se contactará para confirmar su pedido.
         `;
         cartItems.appendChild(noticeBanner);
     }
@@ -825,8 +839,6 @@ function renderCartItems() {
         if (item.esCombo) {
             cartItem.innerHTML = `
                 <div class="cart-item-image">
-                    <img src="${item.image}" alt="${item.nombre}" 
-                         onerror="this.onerror=null;this.src='images/default-combo.jpg';this.alt='Imagen no disponible'">
                     <div class="combo-badge">COMBO</div>
                 </div>
                 <div class="cart-item-info">
@@ -855,10 +867,7 @@ function renderCartItems() {
             `;
         } else {
             cartItem.innerHTML = `
-                <div class="cart-item-image">
-                    <img src="${item.image}" alt="${item.nombre}" 
-                         onerror="this.onerror=null;this.src='images/default-product.jpg';this.alt='Imagen no disponible'">
-                </div>
+                <div class="cart-item-image"></div>
                 <div class="cart-item-info">
                     <h4 class="cart-item-title">${item.nombre}</h4>
                     <p class="cart-item-details">${item.presentacion}</p>
@@ -916,7 +925,7 @@ function renderCartItems() {
             
             ${tipoCliente !== 'regular' ? `
             <div class="distributor-notice">
-                <i class="fas fa-info-circle"></i> Precios especiales para ${tipoCliente === 'distribuidor' ? 'distribuidores' : 'hoteles/comercios'}. Será contactado por un asesor.
+                <i class="fas fa-info-circle"></i> Precios especiales para ${tipoCliente === 'distributor' ? 'distribuidores' : 'hoteles/comercios'}. Será contactado por un asesor.
             </div>
             ` : ''}
             
@@ -982,16 +991,17 @@ function filterProducts() {
     const category = categoryFilter.value;
     const searchTerm = searchInput.value.toLowerCase();
     
-    let filteredProducts = [...productos];
+    let filteredProducts = [];
     
-    // Agregar combos si no se está filtrando por categoría o si se selecciona "combo"
-    if (category === 'all' || category === 'combo') {
-        filteredProducts = [...filteredProducts, ...combos];
-    }
-    
-    // Filtrar por categoría
-    if (category !== 'all') {
-        filteredProducts = filteredProducts.filter(producto => 
+    if (category === 'all') {
+        filteredProducts = [...productos];
+        if (searchTerm === '') {
+            filteredProducts = [...filteredProducts, ...combos];
+        }
+    } else if (category === 'combo') {
+        filteredProducts = [...combos];
+    } else {
+        filteredProducts = productos.filter(producto => 
             producto.categoria.includes(category)
         );
     }
@@ -1053,7 +1063,7 @@ function generateWhatsAppMessage() {
     // Crear mensaje completo
     let mensaje = `*NUEVO PEDIDO ${empresa.nombre}*%0A%0A`;
     mensaje += `*Código de Factura:* ${codigoFactura}%0A`;
-    mensaje += `*Tipo de Cliente:* ${tipoCliente === 'regular' ? 'Regular' : tipoCliente === 'distribuidor' ? 'Distribuidor/Mayorista' : 'Hotel/Comercio'}%0A`;
+    mensaje += `*Tipo de Cliente:* ${tipoCliente === 'regular' ? 'Regular' : tipoCliente === 'distributor' ? 'Distribuidor/Mayorista' : 'Hotel/Comercio'}%0A`;
     mensaje += `*FECHA VENTA:* ${fechaPedido}%0A`;
     mensaje += `*FECHA ENTREGA:* ${fechaEntrega}%0A%0A`;
     
@@ -1116,16 +1126,13 @@ function generateInvoicePDF() {
     let total = subtotal - discountAmount - firstPurchaseAmount;
     
     // Encabezado con logo
-    doc.addImage('images/logo.jpg', 'JPEG', 14, 10, 30, 30);
-    
-    // Información de la empresa
     doc.setFontSize(10);
     doc.setTextColor(100);
-    doc.text(empresa.nombre, 50, 15);
-    doc.text(`NIT: ${empresa.nit}`, 50, 20);
-    doc.text(`Tel: ${empresa.telefono}`, 50, 25);
-    doc.text(`Correo: ${empresa.correo}`, 50, 30);
-    doc.text(`"${empresa.eslogan}"`, 50, 35);
+    doc.text(empresa.nombre, 14, 15);
+    doc.text(`NIT: ${empresa.nit}`, 14, 20);
+    doc.text(`Tel: ${empresa.telefono}`, 14, 25);
+    doc.text(`Correo: ${empresa.correo}`, 14, 30);
+    doc.text(`"${empresa.eslogan}"`, 14, 35);
     
     // Título de factura
     doc.setFontSize(18);
@@ -1141,7 +1148,7 @@ function generateInvoicePDF() {
     doc.text(`Cliente: ${nombre}`, 14, 70);
     doc.text(`Dirección: ${direccion}`, 14, 75);
     doc.text(`Teléfono: ${telefono}`, 14, 80);
-    doc.text(`Tipo Cliente: ${tipoCliente === 'regular' ? 'Regular' : tipoCliente === 'distribuidor' ? 'Distribuidor/Mayorista' : 'Hotel/Comercio'}`, 14, 85);
+    doc.text(`Tipo Cliente: ${tipoCliente === 'regular' ? 'Regular' : tipoCliente === 'distributor' ? 'Distribuidor/Mayorista' : 'Hotel/Comercio'}`, 14, 85);
     doc.text(`Método Pago: ${metodoPago === 'efectivo' ? 'Efectivo contra entrega' : metodoPago === 'transferencia' ? 'Transferencia bancaria' : 'Tarjeta de crédito/débito'}`, 14, 90);
     
     // Tabla de productos
@@ -1226,7 +1233,7 @@ function generateInvoicePDF() {
         doc.setFontSize(10);
         doc.setTextColor(100);
         doc.text(`Nota: Los precios mostrados son referenciales. Un asesor se contactará para confirmar los`, 14, finalY + 20);
-        doc.text(`precios especiales para ${tipoCliente === 'distribuidor' ? 'distribuidores' : 'hoteles/comercios'}.`, 14, finalY + 25);
+        doc.text(`precios especiales para ${tipoCliente === 'distributor' ? 'distribuidores' : 'hoteles/comercios'}.`, 14, finalY + 25);
     }
     
     // Notas adicionales
@@ -1290,7 +1297,6 @@ function generateOrderConfirmation(codigoFactura) {
         </head>
         <body>
             <div class="header">
-                <img src="images/logo.jpg" alt="${empresa.nombre}" class="logo" onerror="this.style.display='none'">
                 <div class="company-info">
                     <h1>${empresa.nombre}</h1>
                     <p>NIT: ${empresa.nit} | Tel: ${empresa.telefono}</p>
@@ -1302,7 +1308,7 @@ function generateOrderConfirmation(codigoFactura) {
             <h2>Confirmación de Pedido #${codigoFactura}</h2>
             <p><strong>FECHA VENTA:</strong> ${fechaPedido}</p>
             <p><strong>FECHA ENTREGA:</strong> ${fechaEntrega}</p>
-            <p><strong>Tipo de Cliente:</strong> ${tipoCliente === 'regular' ? 'Regular' : tipoCliente === 'distribuidor' ? 'Distribuidor/Mayorista' : 'Hotel/Comercio'}</p>
+            <p><strong>Tipo de Cliente:</strong> ${tipoCliente === 'regular' ? 'Regular' : tipoCliente === 'distributor' ? 'Distribuidor/Mayorista' : 'Hotel/Comercio'}</p>
             
             <h2>Datos del Cliente</h2>
             <p><strong>Nombre:</strong> ${nombre}</p>
@@ -1405,7 +1411,7 @@ function generateOrderConfirmation(codigoFactura) {
     if (tipoCliente !== 'regular') {
         html += `
             <div class="notice">
-                <strong>NOTA:</strong> Los precios mostrados son referenciales para ${tipoCliente === 'distribuidor' ? 'distribuidores/mayoristas' : 'hoteles/comercios'}. 
+                <strong>NOTA:</strong> Los precios mostrados son referenciales para ${tipoCliente === 'distributor' ? 'distribuidores/mayoristas' : 'hoteles/comercios'}. 
                 Un asesor se contactará para confirmar los precios especiales aplicables a su pedido.
             </div>
         `;
@@ -1463,7 +1469,7 @@ customerForm.addEventListener('submit', async (e) => {
     const tipoCliente = document.getElementById('customer-type').value;
     
     if (tipoCliente !== 'regular') {
-        const confirmar = confirm(`Está registrando un pedido como ${tipoCliente === 'distribuidor' ? 'DISTRIBUIDOR/MAYORISTA' : 'HOTEL/COMERCIO'}. Los precios mostrados son referenciales y será contactado por un asesor para confirmar los precios especiales. ¿Desea continuar?`);
+        const confirmar = confirm(`Está registrando un pedido como ${tipoCliente === 'distributor' ? 'DISTRIBUIDOR/MAYORISTA' : 'HOTEL/COMERCIO'}. Los precios mostrados son referenciales y será contactado por un asesor para confirmar los precios especiales. ¿Desea continuar?`);
         
         if (!confirmar) {
             return;
@@ -1526,9 +1532,17 @@ window.addEventListener('click', (e) => {
 
 // Inicializar la aplicación
 document.addEventListener('DOMContentLoaded', function() {
-    renderProducts(productos);
-    updateCart();
-    checkFirstVisit();
-    loadCustomerData();
-    checkPromotions();
+    // Simular carga
+    setTimeout(() => {
+        document.getElementById('loading-spinner').style.display = 'none';
+        renderProducts([...productos, ...combos]);
+        updateCart();
+        checkFirstVisit();
+        loadCustomerData();
+        checkPromotions();
+    }, 1500);
+    
+    // Configurar fecha mínima para el campo de fecha de entrega
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('delivery-date').min = today;
 });
