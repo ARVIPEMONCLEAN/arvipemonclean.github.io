@@ -5,7 +5,7 @@ const productos = [
         nombre: "DESENGRASANTE INDUSTRIAL PH ÁCIDO",
         descripcion: "Desengrasante multipropósito para uso doméstico, industrial y automotriz. Producto muy fuerte, utilice guantes de caucho y tapabocas.",
         categoria: ["domestico", "industrial", "automotriz"],
-        imagen: "desengrasante-industrial-ph-acido.jpeg",
+        imagen: "desengrasante-industrial-ph-acido.jpg",
         presentaciones: [
             { tamaño: "Galón 4 litros", precio: 25000, codigo: "4L" },
             { tamaño: "Garrafa de 20 litros", precio: 95700, codigo: "20L" }
@@ -19,7 +19,7 @@ const productos = [
         nombre: "JABÓN LÍQUIDO MANOS",
         descripcion: "PH NEUTRO. Elimina de manera efectiva los gérmenes protegiendo las manos de la contaminación.",
         categoria: ["domestico"],
-        imagen: "jabon-liquido-manos.jpeg",
+        imagen: "jabon-liquido-manos.jpg",
         presentaciones: [
             { tamaño: "Galón 4 litros", precio: 28000, codigo: "4L" },
             { tamaño: "Garrafa de 20 litros", precio: 92000, codigo: "20L" }
@@ -33,7 +33,7 @@ const productos = [
         nombre: "JABÓN PREMIUM",
         descripcion: "PH 8.5, amigable con la piel. Apto para ropa, pisos, madera, metales, plásticos, vidrio.",
         categoria: ["domestico"],
-        imagen: "jabon-premium.jpeg",
+        imagen: "jabon-premium.jpg",
         presentaciones: [
             { tamaño: "Galón 4 litros", precio: 27000, codigo: "4L" },
             { tamaño: "Garrafa de 20 litros", precio: 92000, codigo: "20L" }
@@ -47,7 +47,7 @@ const productos = [
         nombre: "JABÓN LAVA LOZAS LÍQUIDO",
         descripcion: "Especial para lavado de utensilios de cocina. Elimina fácilmente todo tipo de grasas y suciedad.",
         categoria: ["domestico"],
-        imagen: "jabon-lava-lozas.jpeg",
+        imagen: "jabon-lava-lozas.jpg",
         presentaciones: [
             { tamaño: "Galón 4 litros", precio: 30000, codigo: "4L" },
             { tamaño: "Garrafa 20 litros", precio: 100000, codigo: "20L" }
@@ -61,7 +61,7 @@ const productos = [
         nombre: "LIMPIADOR AROMATIZANTE PARA PISOS",
         descripcion: "PH Ácido. Fragancia concentrada que inspira limpieza. Apto para cerámica, baldosas, cemento.",
         categoria: ["domestico"],
-        imagen: "limpiador-aromatizante-pisos.jpeg",
+        imagen: "limpiador-aromatizante-pisos.jpg",
         presentaciones: [
             { tamaño: "Galón 4 litros", precio: 23000, codigo: "4L" },
             { tamaño: "Garrafa 20 litros", precio: 65000, codigo: "20L" }
@@ -75,7 +75,7 @@ const productos = [
         nombre: "JABÓN PODER DEL REY",
         descripcion: "PH 8. Contiene bicarbonato y desengrasante concentrados. Apto para ropa muy sucia, baños.",
         categoria: ["domestico"],
-        imagen: "jabon-poder-del-rey.jpeg",
+        imagen: "jabon-poder-del-rey.jpg",
         presentaciones: [
             { tamaño: "Galón 4 litros", precio: 22500, codigo: "4L" },
             { tamaño: "Garrafa 20 litros", precio: 85000, codigo: "20L" }
@@ -89,7 +89,7 @@ const productos = [
         nombre: "JABÓN MULTIPROPÓSITO",
         descripcion: "PH 7, amigable con la piel. Apto para manos, loza, ropa, pisos, paredes.",
         categoria: ["domestico"],
-        imagen: "jabon-multiproposito.jpeg",
+        imagen: "jabon-multiproposito.jpg",
         presentaciones: [
             { tamaño: "Galón 4 litros", precio: 22500, codigo: "4L" },
             { tamaño: "Garrafa 20 litros", precio: 85000, codigo: "20L" }
@@ -103,7 +103,7 @@ const productos = [
         nombre: "BLANQUEADOR 5.7%",
         descripcion: "Cloro blanqueador y desinfectante de alto rendimiento. Para ropa blanca, pisos, paredes.",
         categoria: ["domestico", "industrial"],
-        imagen: "blanqueador.jpeg",
+        imagen: "blanqueador.jpg",
         presentaciones: [
             { tamaño: "Galón 4 litros", precio: 15500, codigo: "4L" },
             { tamaño: "Garrafa 20 litros", precio: 38000, codigo: "20L" }
@@ -117,7 +117,7 @@ const productos = [
         nombre: "SUAVIZANTE SIN PARABENOS",
         descripcion: "Para ropa y telas. Disponible en aromas floral y talco.",
         categoria: ["domestico"],
-        imagen: "suavizante.jpeg",
+        imagen: "suavizante.jpg",
         presentaciones: [
             { tamaño: "Galón 4 litros (Floral)", precio: 25000, codigo: "4LF" },
             { tamaño: "Galón 4 litros (Talco)", precio: 25000, codigo: "4LT" },
@@ -133,7 +133,7 @@ const productos = [
         nombre: "SILICONA MULTIPROPÓSITO",
         descripcion: "Producto puro sin glicerina ni tensoactivos. No corrosivo. Para dar brillo y protección.",
         categoria: ["domestico", "automotriz"],
-        imagen: "silicona-multiproposito.jpeg",
+        imagen: "silicona-multiproposito.jpg",
         presentaciones: [
             { tamaño: "500 ml", precio: 15600, codigo: "500ML" },
             { tamaño: "1 litro", precio: 20000, codigo: "1L" },
@@ -149,7 +149,7 @@ const productos = [
         nombre: "AMBIENTADOR MULTIPROPÓSITO",
         descripcion: "Alta concentración de fragancia. No nocivo para la salud.",
         categoria: ["domestico", "automotriz"],
-        imagen: "ambientador.jpeg",
+        imagen: "ambientador.jpg",
         presentaciones: [
             { tamaño: "500 ml", precio: 17000, codigo: "500ML" },
             { tamaño: "1 litro", precio: 24000, codigo: "1L" },
@@ -164,7 +164,7 @@ const productos = [
         nombre: "SHAMPOO ESPUMA JACUZZI",
         descripcion: "PH neutro, amigable con la piel. No contiene glicerina ni formol.",
         categoria: ["domestico"],
-        imagen: "shampoo-jacuzzi.jpeg",
+        imagen: "shampoo-jacuzzi.jpg",
         presentaciones: [
             { tamaño: "Galón 4 litros", precio: 37000, codigo: "4L" },
             { tamaño: "Garrafa 20 litros", precio: 155000, codigo: "20L" }
@@ -178,7 +178,7 @@ const productos = [
         nombre: "CERA MULTIPROPÓSITO",
         descripcion: "Para encerado y ultra brillado. Mezclar con silicona para protección UV.",
         categoria: ["domestico", "automotriz"],
-        imagen: "cera-multiproposito.jpeg",
+        imagen: "cera-multiproposito.jpg",
         presentaciones: [
             { tamaño: "500 ml", precio: 8000, codigo: "500ML" },
             { tamaño: "1 litro", precio: 14000, codigo: "1L" },
@@ -194,7 +194,7 @@ const productos = [
         nombre: "JABÓN ESPUMA ACTIVA LAVA AUTOS",
         descripcion: "PH 4, especial para lavado de automotores. Crea capa protectora con filtro UV.",
         categoria: ["automotriz"],
-        imagen: "jabon-lava-autos.jpeg",
+        imagen: "jabon-lava-autos.jpg",
         presentaciones: [
             { tamaño: "Galón 4 litros", precio: 25000, codigo: "4L" },
             { tamaño: "Garrafa 20 litros", precio: 74000, codigo: "20L" }
@@ -208,7 +208,7 @@ const productos = [
         nombre: "DESENGRASANTE INDUSTRIAL SEMIESPESO PH ALCALINO",
         descripcion: "Especial para lavado de automotores en establecimientos especializados.",
         categoria: ["industrial", "automotriz"],
-        imagen: "desengrasante-alcalino.jpeg",
+        imagen: "desengrasante-alcalino.jpg",
         presentaciones: [
             { tamaño: "Galón 4 litros", precio: 25000, codigo: "4L" },
             { tamaño: "Garrafa 20 litros", precio: 95700, codigo: "20L" }
@@ -237,7 +237,7 @@ const productos = [
         nombre: "LAVADO EN SECO",
         descripcion: "Para limpieza sin agua. Con efecto ceroso para brillo.",
         categoria: ["automotriz"],
-        imagen: "lavado-en-seco.jpeg",
+        imagen: "lavado-en-seco.jpg",
         presentaciones: [
             { tamaño: "1 litro", precio: 24000, codigo: "1L" },
             { tamaño: "Galón 4 litros", precio: 62000, codigo: "4L" },
@@ -252,7 +252,7 @@ const productos = [
         nombre: "OXÍGENO ACTIVO",
         descripcion: "Altamente alcalino. Anti-bacterial, alguicida, repele bichos rastreros.",
         categoria: ["domestico"],
-        imagen: "oxigeno-activo.jpeg",
+        imagen: "oxigeno-activo.jpg",
         presentaciones: [
             { tamaño: "Galón 4 litros", precio: 25000, codigo: "4L" },
             { tamaño: "Garrafa 20 litros", precio: 95500, codigo: "20L" }
@@ -266,7 +266,7 @@ const productos = [
         nombre: "DESMANCHADOR",
         descripcion: "Altamente alcalino. Para tela, tapizados, plásticos, madera, metal, vidrio.",
         categoria: ["domestico", "automotriz"],
-        imagen: "desmanchador.jpeg",
+        imagen: "desmanchador.jpg",
         presentaciones: [
             { tamaño: "1 litro", precio: 18000, codigo: "1L" },
             { tamaño: "Galón 4 litros", precio: 37500, codigo: "4L" },
@@ -282,7 +282,8 @@ const productos = [
 const fragancias = [
     "Neutro", "Lavanda", "Floral", "Talco", "Bebé", 
     "Maracuyá", "Frutos Rojos", "Citronela", "Pino", 
-    "Chicle", "Canela", "Coco Limón", "Carro Nuevo"
+    "Chicle", "Canela", "Coco Limón", "Carro Nuevo", 
+	"Premium", "Avena", "Vainilla"
 ];
 
 // Combos especiales (NO aplican descuento del 10%)
@@ -292,7 +293,7 @@ const combos = [
         nombre: "COMBO HOGAR BÁSICO",
         descripcion: "Paquete esencial para limpieza del hogar con productos de alta calidad.",
         categoria: ["combo", "domestico"],
-        imagen: "combo-hogar-basico.jpeg",
+        imagen: "combo-hogar-basico.jpg",
         precio: 30000,
         productosIncluidos: [
             { nombre: "JABÓN PREMIUM", presentacion: "Galón 4 litros", cantidad: 1 },
@@ -306,7 +307,7 @@ const combos = [
         nombre: "COMBO INDUSTRIAL COMPLETO",
         descripcion: "Paquete completo para limpieza industrial y desinfección.",
         categoria: ["combo", "industrial"],
-        imagen: "combo-industrial.jpeg",
+        imagen: "combo-industrial.jpg",
         precio: 175000,
         productosIncluidos: [
             { nombre: "JABÓN PREMIUM", presentacion: "Garrafa de 20 litros", cantidad: 1 },
@@ -321,7 +322,7 @@ const combos = [
         nombre: "COMBO HOGAR AVANZADO",
         descripcion: "Paquete avanzado para limpieza profunda en hogares.",
         categoria: ["combo", "domestico"],
-        imagen: "combo-hogar-avanzado.jpeg",
+        imagen: "combo-hogar-avanzado.jpg",
         precio: 105300,
         productosIncluidos: [
             { nombre: "JABÓN PREMIUM", presentacion: "Garrafa de 20 litros", cantidad: 1 },
@@ -335,7 +336,7 @@ const combos = [
         nombre: "COMBO LIMPIEZA PROFUNDA",
         descripcion: "Paquete para limpieza profunda y desinfección intensiva.",
         categoria: ["combo", "domestico", "industrial"],
-        imagen: "combo-limpieza-profunda.jpeg",
+        imagen: "combo-limpieza-profunda.jpg",
         precio: 185000,
         productosIncluidos: [
             { nombre: "JABÓN PREMIUM", presentacion: "Garrafa de 20 litros", cantidad: 2 },
@@ -349,7 +350,7 @@ const combos = [
         nombre: "COMBO HOGAR PREMIUM",
         descripcion: "Paquete premium para cuidado de ropa y limpieza del hogar.",
         categoria: ["combo", "domestico"],
-        imagen: "combo-hogar-premium.jpeg",
+        imagen: "combo-hogar-premium.jpg",
         precio: 110000,
         productosIncluidos: [
             { nombre: "JABÓN PREMIUM", presentacion: "Garrafa de 20 litros", cantidad: 1 },
@@ -364,7 +365,7 @@ const combos = [
         nombre: "COMBO INDUSTRIAL SUPERIOR",
         descripcion: "Paquete completo para necesidades industriales de limpieza.",
         categoria: ["combo", "industrial"],
-        imagen: "combo-industrial-superior.jpeg",
+        imagen: "combo-industrial-superior.jpg",
         precio: 250000,
         productosIncluidos: [
             { nombre: "JABÓN PREMIUM", presentacion: "Garrafa de 20 litros", cantidad: 1 },
@@ -380,7 +381,7 @@ const combos = [
         nombre: "COMBO PODER DEL REY",
         descripcion: "Paquete especial con el poderoso Jabón Poder del Rey y complementos.",
         categoria: ["combo", "domestico"],
-        imagen: "combo-poder-del-rey.jpeg",
+        imagen: "combo-poder-del-rey.jpg",
         precio: 100000,
         productosIncluidos: [
             { nombre: "JABÓN PODER DEL REY", presentacion: "Garrafa de 20 litros", cantidad: 1 },
@@ -395,7 +396,7 @@ const combos = [
         nombre: "COMBO LIMPIEZA INTEGRAL",
         descripcion: "Paquete integral para limpieza completa de cualquier espacio.",
         categoria: ["combo", "domestico", "industrial"],
-        imagen: "combo-limpieza-integral.jpeg",
+        imagen: "combo-limpieza-integral.jpg",
         precio: 170000,
         productosIncluidos: [
             { nombre: "JABÓN PODER DEL REY", presentacion: "Garrafa de 20 litros", cantidad: 1 },
