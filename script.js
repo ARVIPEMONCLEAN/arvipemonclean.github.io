@@ -222,7 +222,7 @@ const productos = [
         nombre: "ABRILLANTADOR FORMULA ULTRA",
         descripcion: "Especial para recubrimiento y protección de llantas y plásticos. Protege por 3 meses.",
         categoria: ["automotriz"],
-        imagen: "abrillantador.jpeg",
+        imagen: "abrillantador.jpg",
         presentaciones: [
             { tamaño: "1 kilo", precio: 19000, codigo: "1KG" },
             { tamaño: "Galón 4 kilos", precio: 60000, codigo: "4KG" },
@@ -382,11 +382,11 @@ const combos = [
         descripcion: "Paquete especial con el poderoso Jabón Poder del Rey y complementos.",
         categoria: ["combo", "domestico"],
         imagen: "combo-poder-del-rey.jpg",
-        precio: 100000,
+        precio: 110000,
         productosIncluidos: [
             { nombre: "JABÓN PODER DEL REY", presentacion: "Garrafa de 20 litros", cantidad: 1 },
             { nombre: "LIMPIADOR AROMATIZANTE PARA PISOS", presentacion: "Galón 4 litros", cantidad: 1 },
-            { nombre: "BLANQUEADOR 5.7%", presentacion: "Galón 4 litros", cantidad: 1 }
+            { nombre: "BLANQUEADOR 5.7%", presentacion: "Galón 20 litros", cantidad: 1 }
         ],
         notaFragancia: "La fragancia se limita a las existencias en fábrica.",
         esCombo: true
@@ -397,11 +397,11 @@ const combos = [
         descripcion: "Paquete integral para limpieza completa de cualquier espacio.",
         categoria: ["combo", "domestico", "industrial"],
         imagen: "combo-limpieza-integral.jpg",
-        precio: 170000,
+        precio: 105000,
         productosIncluidos: [
-            { nombre: "JABÓN PODER DEL REY", presentacion: "Garrafa de 20 litros", cantidad: 1 },
-            { nombre: "DESENGRASANTE INDUSTRIAL PH ÁCIDO", presentacion: "Garrafa de 20 litros", cantidad: 1 },
-            { nombre: "LIMPIADOR AROMATIZANTE PARA PISOS", presentacion: "Garrafa de 20 litros", cantidad: 1 }
+            { nombre: "JABÓN PREMIUM", presentacion: "Garrafa de 20 litros", cantidad: 1 },
+            { nombre: "BLANQUEADOR 5.7%", presentacion: "Galón 4 litros", cantidad: 1 },
+            { nombre: "LIMPIADOR AROMATIZANTE PARA PISOS", presentacion: "Galón 4 litros", cantidad: 1 }
         ],
         notaFragancia: "La fragancia se limita a las existencias en fábrica.",
         esCombo: true
