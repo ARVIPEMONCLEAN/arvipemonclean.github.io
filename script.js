@@ -166,8 +166,8 @@ const productos = [
         categoria: ["domestico"],
         imagen: "shampoo-jacuzzi.jpg",
         presentaciones: [
-            { tamaño: "Galón 4 litros", precio: 37000, codigo: "4L" },
-            { tamaño: "Garrafa 20 litros", precio: 155000, codigo: "20L" }
+            { tamaño: "Galón 4 litros", precio: 65000, codigo: "4L" },
+            { tamaño: "Garrafa 20 litros", precio: 180000, codigo: "20L" }
         ],
         tieneFragancia: true,
         modoUso: "Aplicar 5 ml por uso en bañera personal.",
