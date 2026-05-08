@@ -7,8 +7,8 @@ const productos = [
         categoria: ["domestico", "industrial", "automotriz"],
         imagen: "desengrasante-industrial-ph-acido.jpg",
         presentaciones: [
-            { tamaño: "Galón 4 litros", precio: 25000, codigo: "4L" },
-            { tamaño: "Garrafa de 20 litros", precio: 95700, codigo: "20L" }
+            { tamaño: "Galón 4 litros", codigo: "4L" },
+            { tamaño: "Garrafa de 20 litros", codigo: "20L" }
         ],
         tieneFragancia: false,
         modoUso: "Aplíquese en pequeñas porciones. En áreas con grasa excesiva, dejar actuar 5 minutos.",
@@ -21,8 +21,8 @@ const productos = [
         categoria: ["domestico"],
         imagen: "jabon-liquido-manos.jpg",
         presentaciones: [
-            { tamaño: "Galón 4 litros", precio: 28000, codigo: "4L" },
-            { tamaño: "Garrafa de 20 litros", precio: 92000, codigo: "20L" }
+            { tamaño: "Galón 4 litros", codigo: "4L" },
+            { tamaño: "Garrafa de 20 litros", codigo: "20L" }
         ],
         tieneFragancia: true,
         modoUso: "Humedecer manos, aplicar producto, frotar por 15 segundos y enjuagar.",
@@ -35,8 +35,8 @@ const productos = [
         categoria: ["domestico"],
         imagen: "jabon-premium.jpg",
         presentaciones: [
-            { tamaño: "Galón 4 litros", precio: 27000, codigo: "4L" },
-            { tamaño: "Garrafa de 20 litros", precio: 92000, codigo: "20L" }
+            { tamaño: "Galón 4 litros", codigo: "4L" },
+            { tamaño: "Garrafa de 20 litros", codigo: "20L" }
         ],
         tieneFragancia: true,
         modoUso: "Aplíquese según necesidad. Rinde hasta 3 veces más que jabones corrientes.",
@@ -49,8 +49,8 @@ const productos = [
         categoria: ["domestico"],
         imagen: "jabon-lava-lozas.jpg",
         presentaciones: [
-            { tamaño: "Galón 4 litros", precio: 30000, codigo: "4L" },
-            { tamaño: "Garrafa 20 litros", precio: 100000, codigo: "20L" }
+            { tamaño: "Galón 4 litros", codigo: "4L" },
+            { tamaño: "Garrafa 20 litros", codigo: "20L" }
         ],
         tieneFragancia: true,
         modoUso: "Aplicar pequeña cantidad en esponja, frotar superficie y enjuagar.",
@@ -63,8 +63,8 @@ const productos = [
         categoria: ["domestico"],
         imagen: "limpiador-aromatizante-pisos.jpg",
         presentaciones: [
-            { tamaño: "Galón 4 litros", precio: 23000, codigo: "4L" },
-            { tamaño: "Garrafa 20 litros", precio: 65000, codigo: "20L" }
+            { tamaño: "Galón 4 litros", codigo: "4L" },
+            { tamaño: "Garrafa 20 litros", codigo: "20L" }
         ],
         tieneFragancia: true,
         modoUso: "Humedecer trapeador con producto y trapear pisos ya limpios.",
@@ -77,8 +77,8 @@ const productos = [
         categoria: ["domestico"],
         imagen: "jabon-poder-del-rey.jpg",
         presentaciones: [
-            { tamaño: "Galón 4 litros", precio: 22500, codigo: "4L" },
-            { tamaño: "Garrafa 20 litros", precio: 85000, codigo: "20L" }
+            { tamaño: "Galón 4 litros", codigo: "4L" },
+            { tamaño: "Garrafa 20 litros", codigo: "20L" }
         ],
         tieneFragancia: true,
         modoUso: "Aplicar según necesidad. Rinde hasta 3 veces más que jabones corrientes.",
@@ -91,8 +91,8 @@ const productos = [
         categoria: ["domestico"],
         imagen: "jabon-multiproposito.jpg",
         presentaciones: [
-            { tamaño: "Galón 4 litros", precio: 22500, codigo: "4L" },
-            { tamaño: "Garrafa 20 litros", precio: 85000, codigo: "20L" }
+            { tamaño: "Galón 4 litros", codigo: "4L" },
+            { tamaño: "Garrafa 20 litros", codigo: "20L" }
         ],
         tieneFragancia: true,
         modoUso: "Aplicar según necesidad. Sistema de recarga disponible.",
@@ -105,8 +105,8 @@ const productos = [
         categoria: ["domestico", "industrial"],
         imagen: "blanqueador.jpg",
         presentaciones: [
-            { tamaño: "Galón 4 litros", precio: 15500, codigo: "4L" },
-            { tamaño: "Garrafa 20 litros", precio: 38000, codigo: "20L" }
+            { tamaño: "Galón 4 litros", codigo: "4L" },
+            { tamaño: "Garrafa 20 litros", codigo: "20L" }
         ],
         tieneFragancia: false,
         modoUso: "Mezclar con agua según necesidad. No genera olor fuerte.",
@@ -119,10 +119,10 @@ const productos = [
         categoria: ["domestico"],
         imagen: "suavizante.jpg",
         presentaciones: [
-            { tamaño: "Galón 4 litros (Floral)", precio: 25000, codigo: "4LF" },
-            { tamaño: "Galón 4 litros (Talco)", precio: 25000, codigo: "4LT" },
-            { tamaño: "Garrafa 20 litros (Floral)", precio: 80000, codigo: "20LF" },
-            { tamaño: "Garrafa 20 litros (Talco)", precio: 80000, codigo: "20LT" }
+            { tamaño: "Galón 4 litros (Floral)", codigo: "4LF" },
+            { tamaño: "Galón 4 litros (Talco)", codigo: "4LT" },
+            { tamaño: "Garrafa 20 litros (Floral)", codigo: "20LF" },
+            { tamaño: "Garrafa 20 litros (Talco)", codigo: "20LT" }
         ],
         tieneFragancia: true,
         modoUso: "Agitar antes de usar. Disolver en agua antes de aplicar a la ropa.",
@@ -135,10 +135,10 @@ const productos = [
         categoria: ["domestico", "automotriz"],
         imagen: "silicona-multiproposito.jpg",
         presentaciones: [
-            { tamaño: "500 ml", precio: 15600, codigo: "500ML" },
-            { tamaño: "1 litro", precio: 20000, codigo: "1L" },
-            { tamaño: "Galón 4 litros", precio: 63000, codigo: "4L" },
-            { tamaño: "Garrafa 20 litros", precio: 270000, codigo: "20L" }
+            { tamaño: "500 ml", codigo: "500ML" },
+            { tamaño: "1 litro", codigo: "1L" },
+            { tamaño: "Galón 4 litros", codigo: "4L" },
+            { tamaño: "Garrafa 20 litros", codigo: "20L" }
         ],
         tieneFragancia: false,
         modoUso: "Aplicar pequeñas proporciones sobre superficie a relucir.",
@@ -151,9 +151,9 @@ const productos = [
         categoria: ["domestico", "automotriz"],
         imagen: "ambientador.jpg",
         presentaciones: [
-            { tamaño: "500 ml", precio: 17000, codigo: "500ML" },
-            { tamaño: "1 litro", precio: 24000, codigo: "1L" },
-            { tamaño: "Galón 4 litros", precio: 65000, codigo: "4L" }
+            { tamaño: "500 ml", codigo: "500ML" },
+            { tamaño: "1 litro", codigo: "1L" },
+            { tamaño: "Galón 4 litros", codigo: "4L" }
         ],
         tieneFragancia: true,
         modoUso: "Usar según gusto personal.",
@@ -166,8 +166,8 @@ const productos = [
         categoria: ["domestico"],
         imagen: "shampoo-jacuzzi.jpg",
         presentaciones: [
-            { tamaño: "Galón 4 litros", precio: 65000, codigo: "4L" },
-            { tamaño: "Garrafa 20 litros", precio: 180000, codigo: "20L" }
+            { tamaño: "Galón 4 litros", codigo: "4L" },
+            { tamaño: "Garrafa 20 litros", codigo: "20L" }
         ],
         tieneFragancia: true,
         modoUso: "Aplicar 5 ml por uso en bañera personal.",
@@ -180,10 +180,10 @@ const productos = [
         categoria: ["domestico", "automotriz"],
         imagen: "cera-multiproposito.jpg",
         presentaciones: [
-            { tamaño: "500 ml", precio: 8000, codigo: "500ML" },
-            { tamaño: "1 litro", precio: 14000, codigo: "1L" },
-            { tamaño: "Galón 4 litros", precio: 28200, codigo: "4L" },
-            { tamaño: "Garrafa 20 litros", precio: 98500, codigo: "20L" }
+            { tamaño: "500 ml", codigo: "500ML" },
+            { tamaño: "1 litro", codigo: "1L" },
+            { tamaño: "Galón 4 litros", codigo: "4L" },
+            { tamaño: "Garrafa 20 litros", codigo: "20L" }
         ],
         tieneFragancia: false,
         modoUso: "Aplicar en pocas proporciones, dejar actuar 3 segundos y pulir.",
@@ -196,8 +196,8 @@ const productos = [
         categoria: ["automotriz"],
         imagen: "jabon-lava-autos.jpg",
         presentaciones: [
-            { tamaño: "Galón 4 litros", precio: 25000, codigo: "4L" },
-            { tamaño: "Garrafa 20 litros", precio: 74000, codigo: "20L" }
+            { tamaño: "Galón 4 litros", codigo: "4L" },
+            { tamaño: "Garrafa 20 litros", codigo: "20L" }
         ],
         tieneFragancia: false,
         modoUso: "Mezclar en agua y administrar a presión.",
@@ -210,8 +210,8 @@ const productos = [
         categoria: ["industrial", "automotriz"],
         imagen: "desengrasante-alcalino.jpg",
         presentaciones: [
-            { tamaño: "Galón 4 litros", precio: 25000, codigo: "4L" },
-            { tamaño: "Garrafa 20 litros", precio: 95700, codigo: "20L" }
+            { tamaño: "Galón 4 litros", codigo: "4L" },
+            { tamaño: "Garrafa 20 litros", codigo: "20L" }
         ],
         tieneFragancia: false,
         modoUso: "Mezclar en agua y administrar a presión. Dejar actuar 1 minuto.",
@@ -224,9 +224,9 @@ const productos = [
         categoria: ["automotriz"],
         imagen: "abrillantador.jpg",
         presentaciones: [
-            { tamaño: "1 kilo", precio: 19000, codigo: "1KG" },
-            { tamaño: "Galón 4 kilos", precio: 60000, codigo: "4KG" },
-            { tamaño: "Garrafa 20 kilos", precio: 232000, codigo: "20KG" }
+            { tamaño: "1 kilo", codigo: "1KG" },
+            { tamaño: "Galón 4 kilos", codigo: "4KG" },
+            { tamaño: "Garrafa 20 kilos", codigo: "20KG" }
         ],
         tieneFragancia: false,
         modoUso: "Mezclar en agua y aplicar con franela limpia.",
@@ -239,9 +239,9 @@ const productos = [
         categoria: ["automotriz"],
         imagen: "lavado-en-seco.jpg",
         presentaciones: [
-            { tamaño: "1 litro", precio: 24000, codigo: "1L" },
-            { tamaño: "Galón 4 litros", precio: 62000, codigo: "4L" },
-            { tamaño: "Garrafa 20 litros", precio: 258000, codigo: "20L" }
+            { tamaño: "1 litro", codigo: "1L" },
+            { tamaño: "Galón 4 litros", codigo: "4L" },
+            { tamaño: "Garrafa 20 litros", codigo: "20L" }
         ],
         tieneFragancia: false,
         modoUso: "Agitar antes de usar. Aplicar con atomizador.",
@@ -254,8 +254,8 @@ const productos = [
         categoria: ["domestico"],
         imagen: "oxigeno-activo.jpg",
         presentaciones: [
-            { tamaño: "Galón 4 litros", precio: 25000, codigo: "4L" },
-            { tamaño: "Garrafa 20 litros", precio: 95500, codigo: "20L" }
+            { tamaño: "Galón 4 litros", codigo: "4L" },
+            { tamaño: "Garrafa 20 litros", codigo: "20L" }
         ],
         tieneFragancia: true,
         modoUso: "100 ml en lavadora para desmanchar. 1:1 en agua para pisos.",
@@ -268,9 +268,9 @@ const productos = [
         categoria: ["domestico", "automotriz"],
         imagen: "desmanchador.jpg",
         presentaciones: [
-            { tamaño: "1 litro", precio: 18000, codigo: "1L" },
-            { tamaño: "Galón 4 litros", precio: 37500, codigo: "4L" },
-            { tamaño: "Garrafa 20 litros", precio: 140000, codigo: "20L" }
+            { tamaño: "1 litro", codigo: "1L" },
+            { tamaño: "Galón 4 litros", codigo: "4L" },
+            { tamaño: "Garrafa 20 litros", codigo: "20L" }
         ],
         tieneFragancia: false,
         modoUso: "Aplicar con atomizador y cepillo de cerdas suaves.",
@@ -283,7 +283,7 @@ const fragancias = [
     "Neutro", "Lavanda", "Floral", "Talco", "Bebé", 
     "Maracuyá", "Frutos Rojos", "Citronela", "Pino", 
     "Chicle", "Canela", "Coco Limón", "Carro Nuevo", 
-	"Premium", "Avena", "Vainilla"
+    "Premium", "Avena", "Vainilla"
 ];
 
 // Combos especiales (NO aplican descuento del 10%)
@@ -294,7 +294,6 @@ const combos = [
         descripcion: "Paquete esencial para limpieza del hogar con productos de alta calidad.",
         categoria: ["combo", "domestico"],
         imagen: "combo-hogar-basico.jpg",
-        precio: 30000,
         productosIncluidos: [
             { nombre: "JABÓN PREMIUM", presentacion: "Galón 4 litros", cantidad: 1 },
             { nombre: "SUAVIZANTE SIN PARABENOS", presentacion: "1 litro (Floral o Talco)", cantidad: 1 }
@@ -308,7 +307,6 @@ const combos = [
         descripcion: "Paquete completo para limpieza industrial y desinfección.",
         categoria: ["combo", "industrial"],
         imagen: "combo-industrial.jpg",
-        precio: 175000,
         productosIncluidos: [
             { nombre: "JABÓN PREMIUM", presentacion: "Garrafa de 20 litros", cantidad: 1 },
             { nombre: "BLANQUEADOR 5.7%", presentacion: "Garrafa de 20 litros", cantidad: 1 },
@@ -323,7 +321,6 @@ const combos = [
         descripcion: "Paquete avanzado para limpieza profunda en hogares.",
         categoria: ["combo", "domestico"],
         imagen: "combo-hogar-avanzado.jpg",
-        precio: 105300,
         productosIncluidos: [
             { nombre: "JABÓN PREMIUM", presentacion: "Garrafa de 20 litros", cantidad: 1 },
             { nombre: "DESENGRASANTE INDUSTRIAL PH ÁCIDO", presentacion: "Galón 4 litros", cantidad: 1 }
@@ -337,7 +334,6 @@ const combos = [
         descripcion: "Paquete para limpieza profunda y desinfección intensiva.",
         categoria: ["combo", "domestico", "industrial"],
         imagen: "combo-limpieza-profunda.jpg",
-        precio: 185000,
         productosIncluidos: [
             { nombre: "JABÓN PREMIUM", presentacion: "Garrafa de 20 litros", cantidad: 2 },
             { nombre: "BLANQUEADOR 5.7%", presentacion: "Garrafa de 20 litros", cantidad: 1 }
@@ -351,7 +347,6 @@ const combos = [
         descripcion: "Paquete premium para cuidado de ropa y limpieza del hogar.",
         categoria: ["combo", "domestico"],
         imagen: "combo-hogar-premium.jpg",
-        precio: 110000,
         productosIncluidos: [
             { nombre: "JABÓN PREMIUM", presentacion: "Garrafa de 20 litros", cantidad: 1 },
             { nombre: "SUAVIZANTE SIN PARABENOS", presentacion: "Galón 4 litros (Floral o Talco)", cantidad: 1 },
@@ -366,7 +361,6 @@ const combos = [
         descripcion: "Paquete completo para necesidades industriales de limpieza.",
         categoria: ["combo", "industrial"],
         imagen: "combo-industrial-superior.jpg",
-        precio: 250000,
         productosIncluidos: [
             { nombre: "JABÓN PREMIUM", presentacion: "Garrafa de 20 litros", cantidad: 1 },
             { nombre: "SUAVIZANTE SIN PARABENOS", presentacion: "Garrafa de 20 litros (Floral o Talco)", cantidad: 1 },
@@ -382,11 +376,10 @@ const combos = [
         descripcion: "Paquete especial con el poderoso Jabón Poder del Rey y complementos.",
         categoria: ["combo", "domestico"],
         imagen: "combo-poder-del-rey.jpg",
-        precio: 110000,
         productosIncluidos: [
             { nombre: "JABÓN PODER DEL REY", presentacion: "Garrafa de 20 litros", cantidad: 1 },
             { nombre: "LIMPIADOR AROMATIZANTE PARA PISOS", presentacion: "Galón 4 litros", cantidad: 1 },
-            { nombre: "BLANQUEADOR 5.7%", presentacion: "Galón 20 litros", cantidad: 1 }
+            { nombre: "BLANQUEADOR 5.7%", presentacion: "Garrafa 20 litros", cantidad: 1 }
         ],
         notaFragancia: "La fragancia se limita a las existencias en fábrica.",
         esCombo: true
@@ -397,7 +390,6 @@ const combos = [
         descripcion: "Paquete integral para limpieza completa de cualquier espacio.",
         categoria: ["combo", "domestico", "industrial"],
         imagen: "combo-limpieza-integral.jpg",
-        precio: 105000,
         productosIncluidos: [
             { nombre: "JABÓN PREMIUM", presentacion: "Garrafa de 20 litros", cantidad: 1 },
             { nombre: "BLANQUEADOR 5.7%", presentacion: "Galón 4 litros", cantidad: 1 },
@@ -443,19 +435,20 @@ const viewCombosBtn = document.getElementById('view-combos-btn');
 // Carrito de compras
 let carrito = [];
 
+// Variable para el descuento manual
+let descuentoManual = 0;
+
 // Función para obtener la ruta correcta de la imagen
 function getImagePath(imageName) {
-    // Si ya tiene la carpeta en el nombre, devolverlo tal como está
     if (imageName.includes('/')) {
         return imageName;
     }
-    // Si no, agregar la carpeta de imágenes
     return `imagenes/${imageName}`;
 }
 
 // Función para formatear fechas correctamente (formato DD/MM/YYYY)
 function formatDate(dateString) {
-    const date = new Date(dateString + 'T00:00:00'); // Agregar tiempo para evitar problemas de zona horaria
+    const date = new Date(dateString + 'T00:00:00');
     const day = date.getDate().toString().padStart(2, '0');
     const month = (date.getMonth() + 1).toString().padStart(2, '0');
     const year = date.getFullYear();
@@ -515,7 +508,6 @@ function checkPromotions() {
     const lastPromoDate = localStorage.getItem('lastPromoDate');
     const now = new Date();
     
-    // Mostrar promoción cada 7 días
     if (!lastPromoDate || (now - new Date(lastPromoDate)) > 7 * 24 * 60 * 60 * 1000) {
         const promotions = [
             "¡Nueva promoción! 15% de descuento en productos automotrices",
@@ -528,32 +520,10 @@ function checkPromotions() {
         promoNotification.style.display = 'block';
         localStorage.setItem('lastPromoDate', now.toISOString());
         
-        // Ocultar automáticamente después de 10 segundos
         setTimeout(() => {
             promoNotification.style.display = 'none';
         }, 10000);
     }
-}
-
-// Función para calcular el descuento (10% si 3 productos o más + 5% primera compra)
-function calculateDiscount() {
-    // No aplicar descuento a distribuidores/hoteles
-    if (customerType.value !== 'regular') {
-        return { discount: 0, firstPurchaseDiscount: 0 };
-    }
-    
-    // Filtrar items que no son combos para calcular el descuento
-    const normalItems = carrito.filter(item => !item.esCombo);
-    const totalItems = normalItems.reduce((total, item) => total + item.cantidad, 0);
-    
-    const isFirstPurchase = localStorage.getItem('firstPurchase') === null;
-    const regularDiscount = totalItems >= 3 ? 0.1 : 0;
-    const firstPurchaseDiscount = isFirstPurchase && firstPurchaseBanner.style.display === 'block' ? 0.05 : 0;
-    
-    return {
-        discount: regularDiscount,
-        firstPurchaseDiscount: firstPurchaseDiscount
-    };
 }
 
 // Cerrar notificación de promoción
@@ -595,7 +565,7 @@ function renderProducts(products) {
             productCard.innerHTML = `
                 <div class="product-image">
                     <div class="combo-badge"><i class="fas fa-boxes"></i> COMBO</div>
-                    <img src="${getImagePath(producto.imagen)}" alt="${producto.nombre}" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%)'; this.parentElement.innerHTML='<div style=\\"display: flex; align-items: center; justify-content: center; height: 100%; color: #6b7280;\\"><i class=\\"fas fa-boxes\\" style=\\"font-size: 3rem;\\"></i></div>';">
+                    <img src="${getImagePath(producto.imagen)}" alt="${producto.nombre}" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%)'; this.parentElement.innerHTML='<div style=\"display: flex; align-items: center; justify-content: center; height: 100%; color: #6b7280;\"><i class=\"fas fa-boxes\" style=\"font-size: 3rem;\"></i></div>';"> 
                 </div>
                 <div class="product-info">
                     <h3 class="product-title">${producto.nombre}</h3>
@@ -611,11 +581,15 @@ function renderProducts(products) {
                     </div>
                     
                     <div class="product-details">
-                        <p class="combo-price"><strong>Precio especial:</strong> $${producto.precio.toLocaleString()}</p>
                         <p class="combo-notice"><i class="fas fa-info-circle"></i> ${producto.notaFragancia}</p>
                     </div>
                     
                     <div class="product-options">
+                        <div class="option-group price-input-group">
+                            <label><i class="fas fa-tag"></i> Precio Unitario del Combo:</label>
+                            <input type="number" class="product-price" min="0" placeholder="Ingrese el precio unitario" step="1">
+                            <p class="price-hint">Ingrese el precio de venta de este combo</p>
+                        </div>
                         <div class="option-group">
                             <label><i class="fas fa-calculator"></i> Cantidad:</label>
                             <input type="number" class="product-quantity" min="1" value="1">
@@ -633,7 +607,7 @@ function renderProducts(products) {
             
             productCard.innerHTML = `
                 <div class="product-image">
-                    <img src="${getImagePath(producto.imagen)}" alt="${producto.nombre}" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%)'; this.parentElement.innerHTML='<div style=\\"display: flex; align-items: center; justify-content: center; height: 100%; color: #6b7280;\\"><i class=\\"fas fa-spray-can\\" style=\\"font-size: 3rem;\\"></i></div>';">
+                    <img src="${getImagePath(producto.imagen)}" alt="${producto.nombre}" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%)'; this.parentElement.innerHTML='<div style=\"display: flex; align-items: center; justify-content: center; height: 100%; color: #6b7280;\"><i class=\"fas fa-spray-can\" style=\"font-size: 3rem;\"></i></div>';"> 
                 </div>
                 <div class="product-info">
                     <h3 class="product-title">${producto.nombre}</h3>
@@ -649,8 +623,8 @@ function renderProducts(products) {
                             <label><i class="fas fa-box-open"></i> Presentación:</label>
                             <select class="product-presentation">
                                 ${producto.presentaciones.map(pres => `
-                                    <option value="${pres.codigo}" data-precio="${pres.precio}">
-                                        ${pres.tamaño} - $${pres.precio.toLocaleString()}
+                                    <option value="${pres.codigo}">
+                                        ${pres.tamaño}
                                     </option>
                                 `).join('')}
                             </select>
@@ -664,6 +638,12 @@ function renderProducts(products) {
                             </select>
                         </div>
                         ` : ''}
+                        
+                        <div class="option-group price-input-group">
+                            <label><i class="fas fa-tag"></i> Precio Unitario:</label>
+                            <input type="number" class="product-price" min="0" placeholder="Ingrese el precio unitario" step="1">
+                            <p class="price-hint">Ingrese el precio de venta por unidad</p>
+                        </div>
                         
                         <div class="option-group">
                             <label><i class="fas fa-calculator"></i> Cantidad:</label>
@@ -693,6 +673,17 @@ function addToCart(e) {
     const isCombo = button.dataset.combo === 'true';
     const productCard = button.closest('.product-card');
     
+    // Obtener el precio unitario
+    const priceInput = productCard.querySelector('.product-price');
+    const precioUnitario = parseFloat(priceInput.value);
+    
+    // Validar que el precio sea un número válido
+    if (isNaN(precioUnitario) || precioUnitario <= 0) {
+        alert('Por favor ingrese un precio unitario válido antes de agregar al carrito.');
+        priceInput.focus();
+        return;
+    }
+    
     if (isCombo) {
         const combo = combos.find(c => c.id === productId);
         const cantidad = parseInt(productCard.querySelector('.product-quantity').value);
@@ -701,7 +692,7 @@ function addToCart(e) {
             id: combo.id,
             nombre: combo.nombre,
             esCombo: true,
-            precio: combo.precio,
+            precio: precioUnitario,
             cantidad,
             productosIncluidos: combo.productosIncluidos
         });
@@ -709,7 +700,6 @@ function addToCart(e) {
         const producto = productos.find(p => p.id === productId);
         const presentacionSelect = productCard.querySelector('.product-presentation');
         const selectedOption = presentacionSelect.options[presentacionSelect.selectedIndex];
-        const precio = parseFloat(selectedOption.dataset.precio);
         const presentacion = selectedOption.text;
         const cantidad = parseInt(productCard.querySelector('.product-quantity').value);
         
@@ -723,7 +713,8 @@ function addToCart(e) {
             item.id === productId && 
             item.presentacion === presentacion &&
             item.fragancia === fragancia &&
-            !item.esCombo
+            !item.esCombo &&
+            item.precio === precioUnitario
         );
         
         if (existingItem) {
@@ -733,7 +724,7 @@ function addToCart(e) {
                 id: productId,
                 nombre: producto.nombre,
                 presentacion,
-                precio,
+                precio: precioUnitario,
                 cantidad,
                 fragancia,
                 esCombo: false
@@ -766,11 +757,9 @@ function showCartNotification() {
 }
 
 function updateCart() {
-    // Actualizar contador
     const totalItems = carrito.reduce((total, item) => total + item.cantidad, 0);
     cartCount.textContent = totalItems;
     
-    // Si el carrito está abierto, actualizar los items
     if (cartModal.style.display === 'flex') {
         renderCartItems();
     }
@@ -790,33 +779,7 @@ function renderCartItems() {
     
     cartItems.innerHTML = '';
     let subtotal = 0;
-    const totalItems = carrito.reduce((total, item) => total + item.cantidad, 0);
     const tipoCliente = customerType.value;
-    
-    // Calcular descuentos
-    const { discount, firstPurchaseDiscount } = calculateDiscount();
-    
-    // Mostrar banner de promoción si aplica (3 o más productos y cliente regular)
-    if (totalItems >= 3 && tipoCliente === 'regular') {
-        const discountBanner = document.createElement('div');
-        discountBanner.className = 'promotion-banner';
-        discountBanner.innerHTML = `
-            🎉 ¡Descuento del 10% aplicado! Por comprar 3 productos o más
-            <span class="discount-badge">-10%</span>
-        `;
-        cartItems.appendChild(discountBanner);
-    }
-    
-    // Mostrar banner de primera compra si aplica
-    if (firstPurchaseDiscount > 0 && tipoCliente === 'regular') {
-        const firstPurchaseBanner = document.createElement('div');
-        firstPurchaseBanner.className = 'first-purchase-banner';
-        firstPurchaseBanner.innerHTML = `
-            🎁 ¡Descuento del 5% por primera compra!
-            <span class="discount-badge">-5%</span>
-        `;
-        cartItems.appendChild(firstPurchaseBanner);
-    }
     
     // Mostrar aviso para distribuidores/hoteles
     if (tipoCliente !== 'regular') {
@@ -852,7 +815,8 @@ function renderCartItems() {
                             `).join('')}
                         </ul>
                     </div>
-                    <p class="cart-item-price">$${(item.precio * item.cantidad).toLocaleString()}</p>
+                    <p class="cart-item-price">Precio Unitario: $${item.precio.toLocaleString()}</p>
+                    <p class="cart-item-price">Subtotal: $${(item.precio * item.cantidad).toLocaleString()}</p>
                     
                     <div class="cart-item-actions">
                         <div class="cart-item-quantity">
@@ -873,7 +837,8 @@ function renderCartItems() {
                     <h4 class="cart-item-title">${item.nombre}</h4>
                     <p class="cart-item-details">${item.presentacion}</p>
                     ${item.fragancia ? `<p class="cart-item-details">Fragancia: ${item.fragancia}</p>` : ''}
-                    <p class="cart-item-price">$${(item.precio * item.cantidad).toLocaleString()}</p>
+                    <p class="cart-item-price">Precio Unitario: $${item.precio.toLocaleString()}</p>
+                    <p class="cart-item-price">Subtotal: $${(item.precio * item.cantidad).toLocaleString()}</p>
                     
                     <div class="cart-item-actions">
                         <div class="cart-item-quantity">
@@ -892,30 +857,27 @@ function renderCartItems() {
         cartItems.appendChild(cartItem);
     });
     
-    // Calcular total con descuentos
-    const discountAmount = discount * subtotal;
-    const firstPurchaseAmount = firstPurchaseDiscount * subtotal;
-    const total = subtotal - discountAmount - firstPurchaseAmount;
+    // Calcular descuento manual
+    const descuentoManualAmount = (descuentoManual / 100) * subtotal;
+    const total = subtotal - descuentoManualAmount;
     
-    // Mostrar resumen con descuentos
+    // Mostrar resumen con descuento manual
     const summaryHTML = `
+        <div class="discount-section">
+            <label for="manual-discount"><i class="fas fa-percent"></i> Descuento Manual (%):</label>
+            <input type="number" id="manual-discount" min="0" max="100" value="${descuentoManual}" step="0.01" placeholder="0 = Sin descuento">
+            <p class="discount-hint">Ingrese el porcentaje de descuento. Deje en 0 si no hay descuento.</p>
+        </div>
         <div class="cart-summary">
             <div class="cart-total-line">
                 <span>Subtotal:</span>
                 <span>$${subtotal.toLocaleString()}</span>
             </div>
             
-            ${discount > 0 ? `
+            ${descuentoManual > 0 ? `
             <div class="cart-total-line">
-                <span>Descuento (10%):</span>
-                <span class="cart-discount">-$${discountAmount.toLocaleString()}</span>
-            </div>
-            ` : ''}
-            
-            ${firstPurchaseDiscount > 0 ? `
-            <div class="cart-total-line">
-                <span>Descuento primera compra (5%):</span>
-                <span class="first-purchase-discount">-$${firstPurchaseAmount.toLocaleString()}</span>
+                <span>Descuento Manual (${descuentoManual}%):</span>
+                <span class="cart-discount">-$${descuentoManualAmount.toLocaleString()}</span>
             </div>
             ` : ''}
             
@@ -937,6 +899,14 @@ function renderCartItems() {
     `;
     
     cartItems.insertAdjacentHTML('beforeend', summaryHTML);
+    
+    // Event listener para el descuento manual
+    document.getElementById('manual-discount').addEventListener('input', (e) => {
+        descuentoManual = parseFloat(e.target.value) || 0;
+        if (descuentoManual < 0) descuentoManual = 0;
+        if (descuentoManual > 100) descuentoManual = 100;
+        renderCartItems();
+    });
     
     // Agregar event listeners para los controles del carrito
     document.getElementById('checkout-btn').addEventListener('click', () => {
@@ -1007,7 +977,6 @@ function filterProducts() {
         );
     }
     
-    // Filtrar por término de búsqueda
     if (searchTerm) {
         filteredProducts = filteredProducts.filter(producto => 
             producto.nombre.toLowerCase().includes(searchTerm) ||
@@ -1028,10 +997,8 @@ function generateWhatsAppMessage() {
     const tipoCliente = document.getElementById('customer-type').value;
     const metodoPago = document.getElementById('payment-method').value;
     
-    // Generar código de factura
     const codigoFactura = 'ARV-' + Math.floor(100000 + Math.random() * 900000);
     
-    // Crear resumen del pedido
     let resumenPedido = '';
     let subtotal = 0;
     
@@ -1041,6 +1008,7 @@ function generateWhatsAppMessage() {
         
         if (item.esCombo) {
             resumenPedido += `\n- ${item.nombre} (COMBO ESPECIAL)`;
+            resumenPedido += `\n  Precio Unitario: $${item.precio.toLocaleString()}`;
             resumenPedido += `\n  Cantidad: ${item.cantidad} x $${item.precio.toLocaleString()} = $${itemTotal.toLocaleString()}`;
             resumenPedido += `\n  Contenido:`;
             item.productosIncluidos.forEach(prod => {
@@ -1051,17 +1019,14 @@ function generateWhatsAppMessage() {
             if (item.fragancia) {
                 resumenPedido += ` - Fragancia: ${item.fragancia}`;
             }
+            resumenPedido += `\n  Precio Unitario: $${item.precio.toLocaleString()}`;
             resumenPedido += `\n  Cantidad: ${item.cantidad} x $${item.precio.toLocaleString()} = $${itemTotal.toLocaleString()}`;
         }
     });
     
-    // Calcular descuentos
-    const { discount, firstPurchaseDiscount } = calculateDiscount();
-    const discountAmount = discount * subtotal;
-    const firstPurchaseAmount = firstPurchaseDiscount * subtotal;
-    let total = subtotal - discountAmount - firstPurchaseAmount;
+    const descuentoManualAmount = (descuentoManual / 100) * subtotal;
+    const total = subtotal - descuentoManualAmount;
     
-    // Crear mensaje completo
     let mensaje = `*NUEVO PEDIDO ${empresa.nombre}*%0A%0A`;
     mensaje += `*Código de Factura:* ${codigoFactura}%0A`;
     mensaje += `*Tipo de Cliente:* ${tipoCliente === 'regular' ? 'Regular' : tipoCliente === 'distributor' ? 'Distribuidor/Mayorista' : 'Hotel/Comercio'}%0A`;
@@ -1079,12 +1044,8 @@ function generateWhatsAppMessage() {
     mensaje += `%0A%0A*RESUMEN DE PAGO*%0A`;
     mensaje += `Subtotal: $${subtotal.toLocaleString()}%0A`;
     
-    if (discount > 0) {
-        mensaje += `Descuento (${discount*100}%): -$${discountAmount.toLocaleString()}%0A`;
-    }
-    
-    if (firstPurchaseDiscount > 0) {
-        mensaje += `Descuento primera compra (5%): -$${firstPurchaseAmount.toLocaleString()}%0A`;
+    if (descuentoManual > 0) {
+        mensaje += `Descuento Manual (${descuentoManual}%): -$${descuentoManualAmount.toLocaleString()}%0A`;
     }
     
     mensaje += `*TOTAL ${tipoCliente !== 'regular' ? 'REFERENCIAL' : 'A PAGAR'}: $${total.toLocaleString()}*%0A`;
@@ -1119,14 +1080,10 @@ function generateInvoicePDF() {
     const notas = document.getElementById('customer-notes').value;
     const codigoFactura = 'ARV-' + Math.floor(100000 + Math.random() * 900000);
     
-    // Calcular totales
     const subtotal = carrito.reduce((total, item) => total + (item.precio * item.cantidad), 0);
-    const { discount, firstPurchaseDiscount } = calculateDiscount();
-    const discountAmount = discount * subtotal;
-    const firstPurchaseAmount = firstPurchaseDiscount * subtotal;
-    let total = subtotal - discountAmount - firstPurchaseAmount;
+    const descuentoManualAmount = (descuentoManual / 100) * subtotal;
+    const total = subtotal - descuentoManualAmount;
     
-    // Encabezado con logo
     doc.setFontSize(10);
     doc.setTextColor(100);
     doc.text(empresa.nombre, 14, 15);
@@ -1135,12 +1092,10 @@ function generateInvoicePDF() {
     doc.text(`Correo: ${empresa.correo}`, 14, 30);
     doc.text(`"${empresa.eslogan}"`, 14, 35);
     
-    // Título de factura
     doc.setFontSize(18);
     doc.setTextColor(40, 167, 69);
     doc.text('FACTURA DE VENTA', 105, 45, { align: 'center' });
     
-    // Información de la factura
     doc.setFontSize(10);
     doc.setTextColor(0);
     doc.text(`No. Factura: ${codigoFactura}`, 14, 55);
@@ -1152,8 +1107,7 @@ function generateInvoicePDF() {
     doc.text(`Tipo Cliente: ${tipoCliente === 'regular' ? 'Regular' : tipoCliente === 'distributor' ? 'Distribuidor/Mayorista' : 'Hotel/Comercio'}`, 14, 85);
     doc.text(`Método Pago: ${metodoPago === 'efectivo' ? 'Efectivo contra entrega' : metodoPago === 'transferencia' ? 'Transferencia bancaria' : 'Tarjeta de crédito/débito'}`, 14, 90);
     
-    // Tabla de productos
-    const headers = [['Producto', 'Presentación', 'Cantidad', 'Precio', 'Total']];
+    const headers = [['Producto', 'Presentación', 'Precio Unit.', 'Cantidad', 'Total']];
     const data = [];
     
     carrito.forEach(item => {
@@ -1161,8 +1115,8 @@ function generateInvoicePDF() {
             data.push([
                 item.nombre + ' (COMBO)',
                 'Varios',
-                item.cantidad,
                 `$${item.precio.toLocaleString()}`,
+                item.cantidad,
                 `$${(item.precio * item.cantidad).toLocaleString()}`
             ]);
             
@@ -1170,8 +1124,8 @@ function generateInvoicePDF() {
                 data.push([
                     `  • ${prod.nombre}`,
                     prod.presentacion,
-                    prod.cantidad,
                     '',
+                    prod.cantidad,
                     ''
                 ]);
             });
@@ -1179,8 +1133,8 @@ function generateInvoicePDF() {
             data.push([
                 item.nombre + (item.fragancia ? ` (${item.fragancia})` : ''),
                 item.presentacion.split(' - ')[0],
-                item.cantidad,
                 `$${item.precio.toLocaleString()}`,
+                item.cantidad,
                 `$${(item.precio * item.cantidad).toLocaleString()}`
             ]);
         }
@@ -1207,29 +1161,23 @@ function generateInvoicePDF() {
         }
     });
     
-    // Totales
     const finalY = doc.lastAutoTable.finalY + 10;
     doc.text(`Subtotal: $${subtotal.toLocaleString()}`, 140, finalY);
     
-    if (discount > 0) {
-        doc.text(`Descuento (10%): -$${discountAmount.toLocaleString()}`, 140, finalY + 5);
-    }
-    
-    if (firstPurchaseDiscount > 0) {
-        doc.text(`Descuento primera compra (5%): -$${firstPurchaseAmount.toLocaleString()}`, 140, finalY + (discount > 0 ? 10 : 5));
+    if (descuentoManual > 0) {
+        doc.text(`Descuento Manual (${descuentoManual}%): -$${descuentoManualAmount.toLocaleString()}`, 140, finalY + 5);
     }
     
     if (tipoCliente !== 'regular') {
         doc.setTextColor(255, 0, 0);
-        doc.text(`PRECIOS ESPECIALES - CONTACTAR CLIENTE`, 14, finalY + (firstPurchaseDiscount > 0 ? 15 : 10));
+        doc.text(`PRECIOS ESPECIALES - CONTACTAR CLIENTE`, 14, finalY + (descuentoManual > 0 ? 15 : 10));
         doc.setTextColor(0);
     }
     
     doc.setFontSize(12);
     doc.setFont(undefined, 'bold');
-    doc.text(`TOTAL ${tipoCliente !== 'regular' ? 'REFERENCIAL' : 'A PAGAR'}: $${total.toLocaleString()}`, 140, finalY + (discount > 0 || firstPurchaseDiscount > 0 ? 15 : 5));
+    doc.text(`TOTAL ${tipoCliente !== 'regular' ? 'REFERENCIAL' : 'A PAGAR'}: $${total.toLocaleString()}`, 140, finalY + (descuentoManual > 0 ? 15 : 5));
     
-    // Nota para distribuidores/hoteles
     if (tipoCliente !== 'regular') {
         doc.setFontSize(10);
         doc.setTextColor(100);
@@ -1237,18 +1185,15 @@ function generateInvoicePDF() {
         doc.text(`precios especiales para ${tipoCliente === 'distributor' ? 'distribuidores' : 'hoteles/comercios'}.`, 14, finalY + 25);
     }
     
-    // Notas adicionales
     if (notas) {
         doc.text(`Notas: ${notas}`, 14, finalY + (tipoCliente !== 'regular' ? 30 : 20));
     }
     
-    // Aviso de pago contra entrega
     doc.setFontSize(10);
     doc.setTextColor(100);
     doc.text(`Forma de pago: ${metodoPago === 'efectivo' ? 'Contra entrega en efectivo' : metodoPago === 'transferencia' ? 'Transferencia bancaria' : 'Tarjeta de crédito/débito'}`, 
              14, doc.internal.pageSize.height - 20);
     
-    // Guardar el PDF
     doc.save(`factura-${empresa.nombre.toLowerCase()}-${codigoFactura}.pdf`);
     
     return codigoFactura;
@@ -1264,14 +1209,10 @@ function generateOrderConfirmation(codigoFactura) {
     const metodoPago = document.getElementById('payment-method').value;
     const notas = document.getElementById('customer-notes').value;
     
-    // Calcular totales
     const subtotal = carrito.reduce((total, item) => total + (item.precio * item.cantidad), 0);
-    const { discount, firstPurchaseDiscount } = calculateDiscount();
-    const discountAmount = discount * subtotal;
-    const firstPurchaseAmount = firstPurchaseDiscount * subtotal;
-    let total = subtotal - discountAmount - firstPurchaseAmount;
+    const descuentoManualAmount = (descuentoManual / 100) * subtotal;
+    const total = subtotal - descuentoManualAmount;
     
-    // Crear HTML para la confirmación
     let html = `
         <!DOCTYPE html>
         <html lang="es">
@@ -1323,16 +1264,15 @@ function generateOrderConfirmation(codigoFactura) {
                 <thead>
                     <tr>
                         <th>Producto</th>
-                        <th>Presentación</th>
-                        <th>Cantidad</th>
+                        <th>Presentación</th>;
                         <th>Precio Unitario</th>
+                        <th>Cantidad</th>
                         <th>Total</th>
                     </tr>
                 </thead>
                 <tbody>
     `;
     
-    // Agregar productos
     carrito.forEach(item => {
         if (item.esCombo) {
             html += `
@@ -1349,13 +1289,9 @@ function generateOrderConfirmation(codigoFactura) {
                     </td>
                 </tr>
                 <tr class="combo-item">
-                    <td colspan="3"></td>
-                    <td><strong>Precio Combo:</strong></td>
+                    <td colspan="2"></td>
                     <td>$${item.precio.toLocaleString()}</td>
-                </tr>
-                <tr class="combo-item">
-                    <td colspan="3"></td>
-                    <td><strong>Total:</strong></td>
+                    <td>${item.cantidad}</td>
                     <td>$${(item.precio * item.cantidad).toLocaleString()}</td>
                 </tr>
             `;
@@ -1364,15 +1300,14 @@ function generateOrderConfirmation(codigoFactura) {
                 <tr>
                     <td>${item.nombre}${item.fragancia ? ` (${item.fragancia})` : ''}</td>
                     <td>${item.presentacion.split(' - ')[0]}</td>
-                    <td>${item.cantidad}</td>
                     <td>$${item.precio.toLocaleString()}</td>
+                    <td>${item.cantidad}</td>
                     <td>$${(item.precio * item.cantidad).toLocaleString()}</td>
                 </tr>
             `;
         }
     });
     
-    // Agregar totales
     html += `
                 </tbody>
                 <tfoot>
@@ -1382,20 +1317,11 @@ function generateOrderConfirmation(codigoFactura) {
                     </tr>
     `;
     
-    if (discount > 0) {
+    if (descuentoManual > 0) {
         html += `
                     <tr class="discount">
-                        <td colspan="4" style="text-align: right;"><strong>Descuento (${discount*100}%):</strong></td>
-                        <td>-$${discountAmount.toLocaleString()}</td>
-                    </tr>
-        `;
-    }
-    
-    if (firstPurchaseDiscount > 0) {
-        html += `
-                    <tr class="discount">
-                        <td colspan="4" style="text-align: right;"><strong>Descuento primera compra (5%):</strong></td>
-                        <td>-$${firstPurchaseAmount.toLocaleString()}</td>
+                        <td colspan="4" style="text-align: right;"><strong>Descuento Manual (${descuentoManual}%):</strong></td>
+                        <td>-$${descuentoManualAmount.toLocaleString()}</td>
                     </tr>
         `;
     }
@@ -1448,7 +1374,6 @@ closeCheckout.addEventListener('click', () => {
 customerForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     
-    // Validar campos requeridos
     const requiredFields = ['customer-name', 'customer-address', 'customer-phone', 'delivery-date', 'payment-method'];
     let isValid = true;
     
@@ -1477,46 +1402,27 @@ customerForm.addEventListener('submit', async (e) => {
         }
     }
     
-    // Guardar datos del cliente
     saveCustomerData();
     
-    // Marcar que ya no es primera compra
     if (firstPurchaseBanner.style.display === 'block') {
         localStorage.setItem('firstPurchase', 'false');
     }
     
-    // Generar documentos
     const { mensaje, codigoFactura } = generateWhatsAppMessage();
     const urlWhatsApp = `https://wa.me/${empresa.whatsapp}?text=${mensaje}`;
     
     generateInvoicePDF();
-    const orderConfirmation = generateOrderConfirmation(codigoFactura);
+    // const orderConfirmation = generateOrderConfirmation(codigoFactura);
     
-    // Enviar por correo (simulado)
-    try {
-        // Aquí iría el código para enviar el correo electrónico
-        // En un entorno real, usarías un servicio como EmailJS o una API de correo
-        console.log('Enviando confirmación por correo...');
-        console.log(orderConfirmation);
-        
-        // Simular envío de correo
-        await new Promise(resolve => setTimeout(resolve, 1000));
-        console.log('Confirmación enviada por correo');
-    } catch (error) {
-        console.error('Error al enviar el correo:', error);
-    }
-    
-    // Abrir WhatsApp
     window.open(urlWhatsApp, '_blank');
     
-    // Limpiar carrito
     carrito = [];
+    descuentoManual = 0;
     updateCart();
     checkoutModal.style.display = 'none';
     customerForm.reset();
     
-    // Mostrar confirmación
-    alert(`¡Pedido #${codigoFactura} enviado con éxito!\n\nSe ha abierto WhatsApp para que completes el proceso.\n\nTambién se ha enviado una copia a nuestro equipo.`);
+    alert(`¡Pedido #${codigoFactura} enviado con éxito!\n\nSe ha abierto WhatsApp para que completes el proceso.`);
 });
 
 categoryFilter.addEventListener('change', filterProducts);
@@ -1533,7 +1439,6 @@ window.addEventListener('click', (e) => {
 
 // Inicializar la aplicación
 document.addEventListener('DOMContentLoaded', function() {
-    // Simular carga
     setTimeout(() => {
         document.getElementById('loading-spinner').style.display = 'none';
         renderProducts([...productos, ...combos]);
@@ -1543,7 +1448,6 @@ document.addEventListener('DOMContentLoaded', function() {
         checkPromotions();
     }, 1500);
     
-    // Configurar fecha mínima para el campo de fecha de entrega
     const today = new Date().toISOString().split('T')[0];
     document.getElementById('delivery-date').min = today;
 });
